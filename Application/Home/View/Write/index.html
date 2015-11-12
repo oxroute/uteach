@@ -43,9 +43,9 @@ if(!empty($test)){
         var iframe2 = document.getElementById("iframe2");
         var iframe3 = document.getElementById("iframe3");
         //alert("{$analytical}");
-        iframe1.src =  "{$_SERVER['HTTP_HOST']}/Word/FileMakerSingle.php?id={$_SESSION['uid']}&type={$test}";
-        iframe2.src =  "{$_SERVER['HTTP_HOST']}/Word/FileMakerSingle.php?id={$_SESSION['uid']}&type={$answer}";
-        iframe3.src =  "{$_SERVER['HTTP_HOST']}/Word/FileMakerSingle.php?id={$_SESSION['uid']}&type={$analytical}";
+        iframe1.src =  "/htdocs/Word/FileMakerSingle.php?id={$_SESSION['uid']}&type={$test}";
+        iframe2.src =  "/htdocs/Word/FileMakerSingle.php?id={$_SESSION['uid']}&type={$answer}";
+        iframe3.src =  "/htdocs/Word/FileMakerSingle.php?id={$_SESSION['uid']}&type={$analytical}";
         setInterval(function () {
             //location.href = url;
         }, 1000);
