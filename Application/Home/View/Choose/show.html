@@ -115,84 +115,119 @@ webkit-box-shadow:1px 1px 6px #606060;
 	<img src="__PUBLIC__/images/jt.png" /><a href="{:U('index', array('id' => I('get.epaperId')))}">返回</a>
 	<input type="hidden" id="epaperId" value="{$epaper.id}"/>{$epaper.header}<span>{$epaper.subject}</span>
 </div>
-			<div class="warp">
-				<div id="box">
-						
-						<div class='conti'>
-							<div class="hed">
-								<span>{$epaper.header}</span>
-								<span>{$epaper.subject}</span>
-							</div>
-						</div>
+<div class="warp">
+    <div id="box">
 
-					<div class='conti'>
-						<div class="know">
-							<table border="1" cellspacing="0" cellpadding="0">
-								<tr style="background: none;">
-								<th width="25px">考生须知</th>
-								<td><div>{$epaper.know|explodeStr0=###}</div>
-								<div>{$epaper.know|explodeStr1=###}</div>
-								<div>{$epaper.know|explodeStr2=###}</div>
-								<div>{$epaper.know|explodeStr3=###} </div>
-								</td>
-								</tr>
-							</table>
+        <div class='conti'>
+            <div class="hed">
+                <span>{$epaper.header}</span>
+                <span>{$epaper.subject}</span>
+            </div>
+        </div>
 
-							<div class="zhisi">
-								{$epaper.note}
-							</div>
-						 	
-						</div>
-					</div>
+        <div class='conti'>
+            <div class="know">
+                <table border="1" cellspacing="0" cellpadding="0">
+                    <tr style="background: none;">
+                        <th width="25px">考生须知</th>
+                        <td><div>{$epaper.know|explodeStr0=###}</div>
+                            <div>{$epaper.know|explodeStr1=###}</div>
+                            <div>{$epaper.know|explodeStr2=###}</div>
+                            <div>{$epaper.know|explodeStr3=###} </div>
+                        </td>
+                    </tr>
+                </table>
 
-					<div class='conti'>
-						<div class='type'> 
-								<h5 class="title_one"><span>{$epaper.one_type|explodeStr0=###}</span><span>{$epaper.one_type|explodeStr2=###}</span></h5>
-								<h5 class="title_two">{$epaper.one_type|explodeStr1=###}（{$epaper.one_type|explodeStr3=###}）</h5>
-						</div>
-					</div>
+                <div class="zhisi">
+                    {$epaper.note}
+                </div>
 
-					<volist name="list" id="vo">
-							<if condition="$vo.questions eq 选择题 "> 
-								<div class='conti'>
-								<div class="list">
-								 <!--  <input  type='hidden'  class="weight" value="{$vo.weight}"> -->
-								  <input  type='hidden'  class="testid" value="{$vo.id}">
-								  <div>{$vo.test}</div>
-								 
-								</div>
-								</div>
-							</if> 
-					</volist>
+            </div>
+        </div>
 
+        <div class='conti'>
+            <div class='type'>
+                <h5 class="title_one"><span>{$epaper.one_type|explodeStr0=###}</span><span>{$epaper.one_type|explodeStr2=###}</span></h5>
+                <h5 class="title_two">{$epaper.one_type|explodeStr1=###}（{$epaper.one_type|explodeStr3=###}）</h5>
+            </div>
+        </div>
 
-					<!-- 这个地方 有问题！！！！！！！！！！ -->
+        <volist name="list.select" id="vo">
+            <if condition="$vo.questions eq 选择题 ">
+                <div class='conti'>
+                    <div class="list">
+                        <!--  <input  type='hidden'  class="weight" value="{$vo.weight}"> -->
+                        <input  type='hidden'  class="testid" value="{$vo.id}">
+                        <div>
+                            <iframe  src="/Word/doc/{$_SESSION['uid']}/{$vo.wtime|date='Ymd',###}/{$vo.test}.htm" frameborder="0" height="90" width="100%" scrolling="no"></iframe>
+                        </div>
 
-					<div class='conti'>
-						<div class='type2'> 
-								<h5 class="title_one"><span>{$epaper.two_type|explodeStr0=###}</span><span>{$epaper.two_type|explodeStr2=###}</span></h5>
-								<!-- <h5 class="title_two">{$epaper.one_type|explodeStr2=###}（{$epaper.one_type|explodeStr3=###}）</h5> -->
-						</div>
-					</div>
+                    </div>
+                </div>
+            </if>
+        </volist>
 
 
-					<volist name="list" id="vo">
-						<if condition="$vo.questions neq 选择题"> 
-						<div class='conti'>
-								<div class="list">
-									<!-- <input  type='hidden'  class="weight" value="{$vo.weight}"> -->
-									 <input  type='hidden'  class="testid" value="{$vo.id}">
-									 <div>{$vo.test}</div> 
-								</div>
-						</div>
-						</if>
-					</volist> 
-				</div>
+        <!-- 这个地方 有问题！！！！！！！！！！ -->
 
-				<div id="divide_border">
-				
-				</div>
-			</div>
+        <div class='conti'>
+            <div class='type2'>
+                <h5 class="title_one"><span>{$epaper.two_type|explodeStr0=###}</span><span>{$epaper.two_type|explodeStr2=###}</span></h5>
+                <h5 class="title_two">一、必答题（共30分）</h5>
+            </div>
+        </div>
+
+        <volist name="list.notselect" id="vo">
+
+            <if condition="$vo.questions eq 填空题">
+
+                <div class='conti'>
+                    <div class="list">
+                        <!-- <input  type='hidden'  class="weight" value="{$vo.weight}"> -->
+                        <input  type='hidden'  class="testid" value="{$vo.id}">
+                        <div>
+                            <iframe  src="/Word/doc/{$_SESSION['uid']}/{$vo.wtime|date='Ymd',###}/{$vo.test}.htm" frameborder="0" height="90" width="100%" scrolling="no"></iframe>
+
+                        </div>
+                    </div>
+                </div>
+            </if>
+        </volist>
+
+
+        <div class='conti'>
+            <div class='type2'>
+                <h5 class="title_two">二、选答题（共20分。请在以下三个模块试题中任选一个模块试题作答，若选答了多个模块的试题，以所答第一模块的试题评分）</h5>
+            </div>
+        </div>
+        <volist name="list.xuanxiu" id="volist">
+            <volist name="volist" id="vo" key="k">
+                <if condition="$k == 1">
+                    <div class='conti'>
+                        <div class='type2'>
+                            <h5 class="title_two">{$vo.fname}</h5>
+                        </div>
+                    </div>
+                </if>
+                <div class='conti'>
+                    <div class="list">
+                        <!-- <input  type='hidden'  class="weight" value="{$vo.weight}"> -->
+                        <input  type='hidden'  class="testid" value="{$vo.id}">
+                        <div>
+                            <iframe  src="/Word/doc/{$_SESSION['uid']}/{$vo.wtime|date='Ymd',###}/{$vo.test}.htm" frameborder="0" height="90" width="100%" scrolling="no"></iframe>
+
+                        </div>
+                    </div>
+                </div>
+            </volist>
+
+        </volist>
+    </div>
+
+    <div id="divide_border">
+
+    </div>
+</div>
 
 
 <div class="clear"></div>
