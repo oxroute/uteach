@@ -262,7 +262,7 @@ if(!empty($test)){ ?>
         iframe2.src =  "/Word/FileMakerSingle.php?id=<?php echo ($_SESSION['uid']); ?>&type=<?php echo ($answer); ?>";
         iframe3.src =  "/Word/FileMakerSingle.php?id=<?php echo ($_SESSION['uid']); ?>&type=<?php echo ($analytical); ?>";
         setInterval(function () {
-            location.href = url;
+            //location.href = url;
         }, 1000);
         //
     </script>
