@@ -39,6 +39,8 @@ defined('APP_DEBUG')    or define('APP_DEBUG',      false); // 是否调试模�
 
 defined('WORD_PATH')     or define('WORD_PATH',dirname($_SERVER['SCRIPT_FILENAME']).'/Word/doc/');
 defined('WORD_PAGE')     or define('WORD_PAGE',dirname($_SERVER['SCRIPT_FILENAME']).'/Word/page/');
+defined('WORD')     or define('WORD',dirname($_SERVER['SCRIPT_FILENAME']).'/Word/');
+
 if(function_exists('saeAutoLoader')){// 自动识别SAE环境
     defined('APP_MODE')     or define('APP_MODE',      'sae');
     defined('STORAGE_TYPE') or define('STORAGE_TYPE',  'Sae');
