@@ -3,6 +3,9 @@
     //
 
 </script>
+<?php
+	$ip = GetHostByName($_SERVER['SERVER_NAME']);//获取本机IP
+?>
 <include file="Public:header"/>
 <body style='background:#eaeaea'>
 <table cellpadding="0" cellspacing="0" width="100%" style='background:#eaeaea' id="main">
@@ -39,11 +42,11 @@ if(!empty($test)){
         var iframe2 = document.getElementById("iframe2");
         var iframe3 = document.getElementById("iframe3");
         //alert("{$analytical}");
-        iframe1.src =  "/Word/FileMakerSingle.php?id={$_SESSION['uid']}&type={$test}";
-        iframe2.src =  "/Word/FileMakerSingle.php?id={$_SESSION['uid']}&type={$answer}";
-        iframe3.src =  "/Word/FileMakerSingle.php?id={$_SESSION['uid']}&type={$analytical}";
+        iframe1.src =  "{$ip}/Word/FileMakerSingle.php?id={$_SESSION['uid']}&type={$test}";
+        iframe2.src =  "{$ip}/Word/FileMakerSingle.php?id={$_SESSION['uid']}&type={$answer}";
+        iframe3.src =  "{$ip}/Word/FileMakerSingle.php?id={$_SESSION['uid']}&type={$analytical}";
         setInterval(function () {
-            //location.href = url;
+            location.href = url;
         }, 1000);
         //
     </script>
