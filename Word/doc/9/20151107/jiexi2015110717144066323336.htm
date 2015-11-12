@@ -1,0 +1,97 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{mso-style-link:"纯文本 Char";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:10.5pt;
+	font-family:宋体;}
+span.Char
+	{mso-style-name:"纯文本 Char";
+	mso-style-link:纯文本;
+	font-family:宋体;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 87.65pt 72.0pt 87.65pt;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=ZH-CN style='text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<p class=MsoPlainText><span lang=EN-US>[[o:Response$UndeclaredThrowableErrorMarker]:&quot;FATAL:
+Undeclared java.lang.RuntimeException detected. java.lang.Exception: Invoke
+failed: [[o:DataRegion]]-&gt;getFileBytes. Cause:
+java.lang.NullPointerException VM: 1.7.0_80@http://java.oracle.com/&quot; at:<br>
+#-10 com.zhuozhengsoft.pageoffice.wordreader.DataRegion.getFileBytes(Unknown
+Source)<br>
+#-9 sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br>
+#-8
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)<br>
+#-7 sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)<br>
+#-6 java.lang.reflect.Method.invoke(Method.java:606)<br>
+#-5 php.java.bridge.JavaBridge.Invoke(JavaBridge.java:1044)<br>
+#-4 php.java.bridge.Request.handleRequest(Request.java:417)<br>
+#-3 php.java.bridge.Request.handleRequests(Request.java:500)<br>
+#-2 php.java.bridge.http.ContextRunner.run(ContextRunner.java:145)<br>
+#-1 php.java.bridge.ThreadPool$Delegate.run(ThreadPool.java:60)<br>
+#0 http://101.200.91.121:8080/JavaBridge/java/Java.inc(232):
+java_ThrowExceptionProxyFactory-&gt;getProxy(7, 'com.zhuozhengso...', 'F',
+true)<br>
+#1 http://101.200.91.121:8080/JavaBridge/java/Java.inc(360):
+java_Arg-&gt;getResult(true)<br>
+#2 http://101.200.91.121:8080/JavaBridge/java/Java.inc(366):
+java_Client-&gt;getWrappedResult(true)<br>
+#3 http://101.200.91.121:8080/JavaBridge/java/Java.inc(560):
+java_Client-&gt;getResult()<br>
+#4 http://101.200.91.121:8080/JavaBridge/java/Java.inc(1752):
+java_Client-&gt;invokeMethod(6, 'getFileBytes', Array)<br>
+#5 http://101.200.91.121:8080/JavaBridge/java/Java.inc(1851):
+java_JavaProxy-&gt;__call('getFileBytes', Array)<br>
+#6 http://101.200.91.121:8080/JavaBridge/java/Java.inc(1999):
+java_AbstractJava-&gt;__call('getFileBytes', Array)<br>
+#7 /var/www/html/ouyangyu/Word/SaveData.php(57):
+Java-&gt;__call('getFileBytes', Array)<br>
+#8 /var/www/html/ouyangyu/Word/SaveData.php(57):
+java_JavaProxyProxy-&gt;getFileBytes()<br>
+#9 {main}]</span></p>
+
+</div>
+
+</body>
+
+</html>

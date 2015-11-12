@@ -1,0 +1,39 @@
+
+/*a:link, a:visited { color: #ffffff; text-decoration: none; -webkit-transition: color .4s ease-in-out; -moz-transition: color .4s ease-in-out; -ms-transition: color .4s ease-in-out; -o-transition: color .4s ease-in-out; transition: color .4s ease-in-out; }*/
+.pagnation { text-align: center; margin-top: 32px; }
+
+.pagnation a{ display: inline-block; width: 20px;height: 20px; line-height:20px; overflow: hidden; background:#ffffff;
+  margin:0px 5px; font-size: 12px; vertical-align: top;
+	background: #999999;color: #ffffff;
+
+  /* -webkit-transition: all .4s ease-in-out; -moz-transition: all .4s ease-in-out; -ms-transition: all .4s ease-in-out; -o-transition: all .4s ease-in-out; transition: all .4s ease-in-out; */
+  text-decoration: none}
+.pagnation a:hover{background-position: 0 -64px; color: #fff; text-decoration: none;background: #8dcf92}
+.pagnation .page-prev, .pagnation .page-next{ line-height: 555px; }
+.pagnation .page-prev{ background-position: -35px -29px; }
+.pagnation .page-prev:hover{ background-position: -35px -64px; }
+.pagnation .page-next{ background-position: -70px -29px; }
+.pagnation .page-next:hover{ background-position: -70px -64px; }
+.pagnation .current{margin:0px 5px 0px 5px; background:#8dcf92;
+color: #ffffff;
+display: inline-block;
+width: 20px;
+height: 20px;
+line-height: 20px;text-align: center;
+font-size: 12px;
+	vertical-align:top;
+}
+.pagnation-tips { margin-top: 10px; color: #999; text-align: center }
+
+/*a:link, a:visited { color: #ffffff; text-decoration: none; -webkit-transition: color .4s ease-in-out; -moz-transition: color .4s ease-in-out; -ms-transition: color .4s ease-in-out; -o-transition: color .4s ease-in-out; transition: color .4s ease-in-out; }*/
+.pagnation1 { text-align: center; margin-top: 32px; }
+.pagnation1 a { display: inline-block; width: 25px; height: 25px; line-height:25px; overflow: hidden; background: url(../images/sprite1.png) no-repeat 0 -29px; margin-left: 4px; font-size: 16px; vertical-align: top; -webkit-transition: all .4s ease-in-out; -moz-transition: all .4s ease-in-out; -ms-transition: all .4s ease-in-out; -o-transition: all .4s ease-in-out; transition: all .4s ease-in-out; color:#FFFFFF; }
+.pagnation1 a:hover { background-position: 0 -64px; color: #fff; text-decoration: none }
+.pagnation1 .page-prev, .pagnation1 .page-next { line-height: 555px; }
+.pagnation1 .page-prev { background-position: -35px -29px; }
+.pagnation1 .page-prev:hover { background-position: -35px -64px; }
+.pagnation1 .page-next { background-position: -70px -29px; }
+.pagnation1 .page-next:hover { background-position: -70px -64px; }
+.pagnation1 .current { background-position: 0px -64px; color: #fff }
+.pagnation1-tips { margin-top: 10px; color: #999; text-align: center }
+

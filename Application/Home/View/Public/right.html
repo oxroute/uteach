@@ -1,0 +1,57 @@
+					<div class="user_tit">
+						<h2>选择来源</h2>
+						<ul id="tab1">
+							<Li><a class="gettype" href="javascript:void(0)">题型</a>
+								<ul class="tab_con1" style="left:-129px;">
+									<li class="questions" ><a>选择题</a></li>
+									<li class="questions" ><a>填空题</a></li>
+									<li class="questions" ><a>简答题</a></li>
+									<li class="questions"><a style="margin-left:-20px;border-left:1px solid #cfcbcb; padding-left:18px">全部</a></li>
+									<i><img src="__PUBLIC__/images/index/dot1.png" width="13" height="8" /></i>
+								</ul>
+								 <input type="hidden" id="questions" name='questions' value="{$date.questions}"/>
+							</Li>
+							<Li><a href="javascript:void(0)">难度</a>
+								<ul class="tab_con1" style="left:-129px;">
+									<li class="difficulty"><a>A</a></li>
+									<li class="difficulty"><a>B</a></li>
+									<li class="difficulty"><a>C</a></li>
+									<li class="difficulty"><a style="margin-left:-20px;border-left:1px solid #cfcbcb;padding-left:18px">全部</a></li>
+									<i><img src="__PUBLIC__/images/index/dot1.png" width="13" height="8" /></i>
+								</ul>
+								<input type="hidden" id="difficulty" name='difficulty' value="{$date.difficulty}"/>
+							</Li>
+							<Li><a href="javascript:void(0)">{$Think.session.username}</a>
+								<ul class="tab_con1" style="left:-129px;">
+									<volist name="teacher" id='vo'>
+										<in name="vo.id" value="$tid">
+										<li class="test_people"><a>{$vo.name}</a></li>
+										</in>
+									</volist>
+									<li class="test_people"><a href="javascript:void(0)" style="margin-left:-20px;border-left:1px solid #cfcbcb; padding-left:18px">全部</a></li>
+									<i><img src="__PUBLIC__/images/index/dot1.png" width="13" height="8" /></i>
+								</ul>
+							
+							<input type="hidden" id="test_people" name="test_people" value="{$date.test_people}"/>
+							</Li>
+					 
+						</ul>
+						<div class="laiyuan_header"><a href="javascript:void(0)">来源{$date.source}</a></div>
+						<input type="text" value="{$date.source}" class="tab_con2" placeholder="来源"/>
+		
+
+								<div class="name"  style="margin-top:16px">
+							               		<img src="__PUBLIC__/images/index/logo.png" width="35" height="35" />
+							                    <span class="name_icon" SH_NAME="true">{$Think.session.username}</span> 
+							                   <ul class="set">
+							                            <li><a href="{:U('User/index')}">设置</a></li>
+							                            <li><a href="{:U('Login/logout')}" style="border:none">注销</a></li>
+							                            <!-- <i><img src="__PUBLIC__/images/index/dot1.png" width="23" height="12" /></i> -->
+							                    </ul>
+							        </div> 
+
+					</div>
+	
+
+
+

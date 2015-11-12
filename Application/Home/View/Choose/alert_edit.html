@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=0.95, user-scalable=no" />
+<title>jquery弹出层</title>
+<link rel="stylesheet" href="__PUBLIC__/css/lrtkfy.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/popstyle.css"/>
+<script src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+<script src="__PUBLIC__/js/jquery.nicescroll.min.js" type="text/javascript"></script>
+
+<style>
+	body{padding: 0;margin: 0}
+</style>
+<script>
+$(function(){
+	$('.edit').on('click',function(){
+		$.get("__URL__/editId",{id:$('.poptit span').eq(0).find('a').html(),biaoji:0},function(data){
+			{
+				if(data.status==1){
+					parent.R_alert(data.data)
+				}
+			}
+		},'json') 
+	})
+	var nice = $("html").niceScroll();  // The document page (body)
+  
+$(".popcon p img").attr("align","")
+
+})
+</script>
+</head>
+<body>
+<div class="clear"></div>
+		<volist name='list' id="vo">
+			<div class="poptit">
+				<span title="{$vo.id}" style="width:70px;margin:0;">编号：<a>{$vo.id}</a></span>
+				<span title="知识点：化学实验基础>化学实验基础..." style="width:470px;">知识点：{$vo.zsid|getZsid=###}</span>
+				<span title='{$vo.questions}'style="width:100px;">题型：{$vo.questions}</span>
+				<span title="a"style="width:50px;">难度：a</span>
+				<span title='{$vo.source}' style="float:right;max-width:100px">来源：{$vo.source}</span>
+			</div> 
+
+
+			<div class="popcon">
+                <iframe  src="/Word/doc/{$_SESSION['uid']}/{$vo.wtime|date='Ymd',###}/{$vo.test}.htm" frameborder="0" height="90" width="100%" scrolling="no"></iframe>
+
+
+                <input name="" type="button" class="edit" value="移除试题" />
+			</div>
+			
+			<p class="popgreen">正确答案：
+                <iframe  src="/Word/doc/{$_SESSION['uid']}/{$vo.wtime|date='Ymd',###}/{$vo.answer}.htm" frameborder="0" height="90" width="100%" scrolling="no"></iframe>
+
+            </p>
+			<div class="popconnti">详细解析</div>
+</div>
+		<div class="content_xq">
+            <iframe  src="/Word/doc/{$_SESSION['uid']}/{$vo.wtime|date='Ymd',###}/{$vo.analytical}.htm" frameborder="0" height="90" width="100%" scrolling="no"></iframe>
+
+		</div>
+		</volist>
+
+
+</body>
+
+

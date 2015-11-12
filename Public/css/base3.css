@@ -1,0 +1,23 @@
+﻿* {margin: 0;padding: 0;font-family:"Microsoft YaHei",Arial,serif;}
+html, body, div, span,iframe, h1, h2, h3, h4, h5, h6, p,a,img,s, strong,b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	vertical-aling:baseline;
+}
+ul,li{margin: 0;padding:0px;list-style:none; }
+img {border: none;}
+.buttons {cursor: pointer;}
+body {margin: 0px;padding:0px;line-height:200%;}
+body{margin:0 auto; text-align:left; font-family:"Microsoft YaHei","SimHei","Tahoma","Verdana", "Arial", "Helvetica", "sans-serif";color:#999; font-size:14px; line-height:28px;}   /*标签复原*/
+html, body {height: 100%;}
+
+a {outline:0 none;border:none;text-decoration:none;}
+a:link{	color:#000;background-color:inherit;}
+a:visited{color:#000;background-color:inherit;}
+a:hover {color:#f00;border:none;text-decoration:none;background-color:inherit;}
+a:active{color:#000;background-color:inherit;}
+.fl{ float:left;}
+.fr{ float:right;}
+.clear{ clear:both; line-height:0; height:0;}

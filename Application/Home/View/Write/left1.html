@@ -1,0 +1,51 @@
+<td width="267px;">
+	<div class="index_left">
+		<h1>uTeach<span id="bt">编题
+			<ul id="show1">
+				<li><a href="{:U('index')}"><img src="__PUBLIC__/images/index/icon1.png" width="52" height="52" />编题</a></li>
+				<li><a href="zhujuan.html"><img src="__PUBLIC__/images/index/icon2.png" width="52" height="52" />卷组</a></li>
+				<li><a href="{:U('User/index')}"><img src="__PUBLIC__/images/index/icon3.png" width="52" height="52" />设置</a></li>
+				<i><img src="__PUBLIC__/images/index/dot1.png" width="13" height="8" /></i>
+			</ul></span><a href="{:U('write')}" class="bj"><img src="__PUBLIC__/images/index/bj.png" width="26" height="26" /></a>
+		</h1>
+			<volist name='subject' id="vo">
+				<h2 class="subject"><b style="display:none;">{$vo.id}</b><span class="chem_btn">{$vo.name}</span>
+				<input type="hidden" name="kid" id="kid" value=""/><br/>
+				<input type="hidden" name="fid" id="fid" value=""/><br/>
+				<input type="hidden" name="zid" id="zid" value=""/><br/>
+				<input type="hidden" id="zcontent" value=""/><br/>
+				<input type="hidden" name="zsid" id="zsid" value=""/><br/>
+			</volist>
+				<ul class="chem_list">
+					<volist name="category" id="vvo">
+						<li><a class="fid"><span style="display:none;">{$vvo.id}</span>{$vvo.name}</a></li>
+					</volist>        
+						<i><img src="__PUBLIC__/images/index/dot1.png" width="13" height="8" /></i>
+				</ul>
+				</h2>
+		<ul id="nav">
+			<volist name="chapter" id="vo">
+				<li>
+					<a class="zid"><span style="display:none;">{$vo.id}</span><div style="display:none;">{$vo.name}</div></a>
+					<ul class="nav_c">
+						<volist name="vo['pid']" id="vos">
+							<li>
+								<a class="zsid"><span style="display:none;">{$vos.id}</span>{$vos.name}</a>
+							</li>
+						</volist>
+					</ul>
+				</li>
+			</volist>
+		</ul>
+
+<!-- 		<div class="shezhi">
+			<span id="sz"><img src="__PUBLIC__/images/index/sz.png" width="21" height="22" />
+				<ul id="show2">
+					<li><a href="###" class="add_dir">添加目录</a></li>
+					<li class="nobor"><a href="#" class="dele">删除目录</a></li>
+					<i><img src="__PUBLIC__/images/index/dot11.png" width="13" height="8" /></i>
+				</ul>
+			</span>
+		</div> -->
+	</div>
+</td>

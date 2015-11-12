@@ -1,0 +1,87 @@
+<script>
+$(function(){
+	$('.increases').on('click',function(){
+		// clearInterval(timer) 
+		 var epaperId = $('#epaperId').val()
+		$.post('__URL__/epaper',function(data){
+			if('data==1'){
+				location.href=showEpaper+'?epaperId='+epaperId;
+			}else{
+				alert('删除失败 !');
+			}
+		},'json') 
+	})
+	var nice = $("html").niceScroll();  // The document page (body)
+
+
+
+})
+</script>
+<div class="header">
+	<div class="head_l">
+		<span id="zhujiu_set" SH_HUI="true">会考</span>
+	</div>
+	<div id="show1" >
+	  <div class="show2">
+	    <i style="top:0"><img src="__PUBLIC__/images/index/dot1.png" width="24" height="13" /></i>
+	      <ul class="clear">
+	        <li><a href="{:U('Write/index')}"><img src="__PUBLIC__/images/index/icon1_small.png" width="52" height="52" /><span>编题</span></a></li>
+	        <li><a href="###"><img src="__PUBLIC__/images/index/z_icon.png" width="52" height="52" /><span>期中</span></a></li>
+	        <li><a href="###"><img src="__PUBLIC__/images/index/m_icon.png" width="52" height="52" /><span>期末</span></a></li>
+	        <li><a href="###"><img src="__PUBLIC__/images/index/y_icon.png" width="52" height="52" /><span>月考</span></a></li>
+	        <li><a href="{:U('Volume/index')}"><img src="__PUBLIC__/images/index/icon2_small.png" width="52" height="52" /><span>会考</span></a></li>
+	        <li><a href="{:U('User/index')}"><img src="__PUBLIC__/images/index/icon3_small.png" width="52" height="52" /><span>设置</span></a></li>
+	        <li><a href="{:U('Index/index')}"  class="back_index"><img src="__PUBLIC__/images/index/icon4_small.png" width="52" height="52" /><span>首页</span></a></li>
+	      </ul>
+	  </div>
+	</div>
+	
+	<div class="head_m1">
+		<div class="head_mll">
+			选择来源<span></span>
+		</div>
+		<ul id="subnav">
+
+			<li class="mainlevel" id="mainlevel_01" SH_XUANZHE='true'><a href="javascript:void(0);">题型</a>
+				<p style="height: 10px;"></p>
+				<ul class="sub_nav_01">
+					<span class="Triangle_con1"></span>
+					<li class="questions" ><a>选择题</a></li>
+					<li class="questions" ><a>填空题</a></li>
+					<li class="questions" ><a>简答题</a></li>
+					<li class="questions" ><a class="a_left_borer">全部</a></li>
+				</ul>
+				 <input type="hidden" id="questions" name='questions' value="{$date.questions}"/>
+			</li>
+			<li class="mainlevel" id="mainlevel_02" SH_XUANZHE='true'><a href="javascript:void(0);">难度</a>
+				<p style="height: 10px;"></p>
+				<ul class="sub_nav_01">
+				<span class="Triangle_con1"></span>
+					<li class="difficulty"><a>A</a></li>
+					<li class="difficulty"><a>B</a></li>
+					<li class="difficulty"><a>C</a></li>
+					<li class="difficulty"><a class="a_left_borer">全部</a></li>
+
+				</ul>
+				<input type="hidden" id="difficulty" name='difficulty' value="{$date.difficulty}"/>
+			</li>
+			<li class="mainlevel" SH_XUANZHE='true'><a href="javascript:void(0);">{$Think.session.username}</a>
+				<p style="height: 10px;"></p>
+				<ul class="sub_nav_01">
+					<span class="Triangle_con1"></span>
+					<volist name="teacher" id='vo'>
+						<in name="vo.id" value="$tid">
+							<li class="test_people"><a>{$vo.name}</a></li>
+						</in>
+									</volist>
+					<li class="test_people"><a class="a_left_borer">全部</a></li>
+				</ul>
+			<input type="hidden" id="test_people" name="test_people" value="{$date.test_people}"/>
+			</li>
+			<li><div class="zhuju_header">来源</div> 
+			<input type="text" placeholder="来源" id="zhuju_lian_input" value="" style="display: none" /></li>
+		</ul>
+		<input type="hidden" name="epaperId" id="epaperId" value="{$epaperId}"/>
+	</div>
+	<include file="top_right"/>
+</div>

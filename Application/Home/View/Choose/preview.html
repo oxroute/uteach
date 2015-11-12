@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=0.95, user-scalable=no" />
+<title>test</title>
+
+<script src="__PUBLIC__/js/jquery.min.js" type="text/javascript"></script>
+<script language="javascript" src="__PUBLIC__/js/custom.js"></script>
+<script language="javascript" src="__PUBLIC__/js/jquery.easing.min.js"></script>
+
+<script type="text/javascript" src="__PUBLIC__/js/slick.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/scripts.js"></script>
+<!-- <link rel="stylesheet" href="__PUBLIC__/css/lrtkfy.css" type="text/css" /> -->
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/popstyle.css"/><!-- 这是哪个弹窗的css样式 -->
+<script src="__PUBLIC__/js/jquery-1.8.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/slick.css"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/style.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/layout.css"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/xlmenu.css"/>
+<script src="__PUBLIC__/js/jquery-1.4.2.js" type="text/javascript"></script>
+<script src="__PUBLIC__/js/jquery.backgroundpos.js" type="text/javascript"></script>
+<script src="__PUBLIC__/js/menu.js" type="text/javascript"></script>
+<script src="__PUBLIC__/js/jquery-1.11.0.min.js"></script>
+
+
+<script type="text/javascript" src="__PUBLIC__/js/lhgdialog/lhgdialog.min.js?self=true&skin=igreen"></script>
+<style>
+.warp{margin: 0 auto;position: relative; width:100%;height:calc(100% - 200px);overflow: hidden;}
+#box{height:700px; display:flex;width:100%;flex-flow:column wrap;align-content:flex-start;position: relative;left:0px;top:0;}
+#box .conti{width:calc(50% - 200px);padding: 0 100px}
+#box .list{display: inline-block;} 
+#arrow{width:100%;position: absolute;top:0;left:0;}
+#arrow .right_arrow,#arrow .left_arrow{display: block;width:34px;height:123px;position: absolute;top:0;cursor: pointer;}
+
+#arrow .right_arrow{right:-0;background: url(__PUBLIC__/images/right.png) no-repeat;}
+#arrow .left_arrow{left:-0;background: url(__PUBLIC__/images/left.png) no-repeat;}
+.page{height: 40px; margin: 0 auto;width: 100%;padding-left: 45%}
+.page a{display: block;float: left;width:15px;height:15px;margin: 5px;border-radius: 50%;background: #AEDFB0}
+.page a.active{background: #00A510}
+
+.type{}
+.type .title_one{font-size: 22px;text-align: center;font-weight: normal;}
+.type .title_one span{margin-right:20px;line-height:45px;}
+.type .title_two{font-weight: bold;line-height: 30px;}
+.type{}
+.type2 .title_one{font-size: 22px;text-align: center;font-weight: normal;}
+.type2 .title_one span{margin-right:20px;line-height:45px;}
+.type2 .title_two{font-weight: bold;line-height: 30px;}
+#loginalert{ width:520px; background:#fff; position:fixed; height:210px; margin-top:-105px; top:50%;   left:50%; margin-left:-260px; z-index:99; display:none; font-family:"\5FAE\8F6F\96C5\9ED1"; font-size:14px; -moz-border-radius: 8px;       /* Gecko browsers */
+    -webkit-border-radius:8px;   /* Webkit browsers */
+    border-radius:8px;            /* W3C syntax */ }
+</style>
+<script>
+//lhgdialog 弹窗js
+		function open(myurl,tit,w,h){
+				var dg = $.dialog({
+					id: 'mydiv',
+					lock: true,
+					background:'#fff',
+					title : tit,
+					cache:true,
+					min:false,
+					resize:true,
+					extendDrag:true,
+					content: 'url:'+ myurl ,
+					height:h,
+					width:w,
+					});
+					dg.ShowDialog();
+				} 
+				
+				function R_alert(msg) {
+				    close();
+				    $.dialog.tips('msg',600,"loading.gif");
+				    top.location.reload();
+				}
+
+				function close() {
+				  $.dialog.list['mydiv'].close()
+				}
+
+				
+				
+$(function(){
+	
+add()
+   function  add(){
+  // 先计算出最外框的大小
+ var warpH=$(".warp").height()
+ var warpW=$(".warp").width()
+// 由于每个LI的宽度与margin都是%比所以  要转化为固定值  便是后面计算外框的大小
+// 计算%5的固定值
+    var margin_w=( $("#box").children().eq(0).outerWidth(true)-$("#box").children().eq(0).outerWidth() )/2
+// 把每个LI赋于固定值
+$("#box").children().width($("#box").children().eq(0).width())
+// 把每个LI赋于固定的margin值
+// $("#box").children().css({"margin":"0 "+margin_w+"px"})
+  
+// 计算出会生成多少例
+    var all_H=0;
+    var row=0
+    $.each($("#box").children(),function(i){
+        all_H+=$(this).outerHeight()
+        if(warpH<all_H+$(this).next().outerHeight())
+        {
+            all_H=0;
+            row++;
+        }
+        // console.log(all_H)
+    })
+
+ // console.log(row+1+'例')
+
+  var old_number=0;
+ var box_num=Math.ceil((row+1)/2)
+ // console.log(box_num+'格')
+    // 赋于BOX的真正宽度
+    $("#box").width(box_num*warpW)
+    // alert($("#box").width())
+
+
+createPage(".warp",box_num)
+arrow(".warp")
+function arrow(obj){
+            var arrow_html="<div id='arrow'>\
+                     <span class='left_arrow'></span>\
+                     <span class='right_arrow'></span>\
+                 </div>"
+
+                $(obj).append(arrow_html)
+               $("#arrow").css({top:( $(obj).height()-$("#arrow span").height() )/2})
+
+                $("#arrow .left_arrow").on("click",function(){
+                        if(old_number-1>-1)
+                        {
+                            old_number--
+                        console.log(old_number*warpW)
+                           
+                             $("#box").animate({
+                                "left":-old_number*warpW
+                            },1000,function(){$(".page a").eq(old_number).addClass("active").siblings().removeClass("active")})
+                        }          
+                })
+
+
+                $("#arrow .right_arrow").on("click",function(){
+                       if(old_number+1<box_num)
+                        {
+                            old_number++
+                            console.log(-old_number*warpW)
+                             $("#box").animate({"left":-old_number*warpW},1000,function(){$(".page a").eq(old_number).addClass("active").siblings().removeClass("active")})
+                         }
+                })
+
+
+
+}
+
+    // 创建页码
+        function createPage(obj,number){
+            // obj要真加页码对像的上一个节点
+                // number页码个数
+            var html=""
+            var point=$("<div class='page'></div>")
+            for(i=0;i<number;i++)
+            {
+                html+="<a href='javascript:void(0);'></a>"
+            }
+            point.append(html);
+            point.find("a").eq(0).addClass("active")
+           $(obj).after(point)
+
+           page_add_event(".page","#box")
+    }
+
+    function page_add_event(page,obj){
+            $(page).find("a").on("click",function(){
+                // alert($(this).index())
+                // $(obj).css({"left":-$(this).index()*700})
+
+                $(this).addClass("active").siblings().removeClass("active")
+                $(obj).animate(
+                            {
+                                "left":-$(this).index()*warpW
+                            },1000
+                    )
+
+                old_number=$(this).index()
+
+            })
+    }
+
+
+
+
+	$(window).resize(function(){
+		
+	
+	})
+
+
+  }
+   
+})
+
+
+
+   
+</script>
+</head>
+<body>
+<div class="header" id="XX">
+  <div class="head_l">
+    <ul>
+      <li class="logo">uTeach</li>
+      <li class="nav">组卷<span></span></li>
+    </ul>
+  </div>
+  <div class="head_m" style="width:200px;">
+  <ul>
+  <li class="openlogin add"><a href="" onClick="return false"></a></li>
+  <li ><a href="{:U('down',array('id'=>$_GET['id']))}">1111</a></li>
+  <li class="delete" style="margin-right:0;"></li>
+  </ul>
+  </div>
+  <div class="head_r">
+    <div class="eye"></div>
+      <ul class="menu">
+        <li class="li_3">90分
+          <dl class="li_3_content">
+            <span class="Triangle_con"></span>
+            <p style="padding-top:10px;">选择题：<em class="subnavg">2</em>/25</p>
+            <p>必答题：<em class="subnavg">2</em>/25</p>
+            <p>选答题：<em class="subnavg">2</em>/25</p>
+            <p style="color:#01A310; text-align:center;">共计5道题</p>
+            <a href="{:U('epaper',array('id'=>$_GET['id']))}" class="revisebut">试卷生成</a>
+          </dl>
+        </li>
+      </ul>
+    <div class="nr_green"><span class="arrow"></span><img src="images/toux.gif" /><span>屠志鹏</span></div>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="shadow"></div>
+<div class="title"><input type="text" value="{$epaper.id}"/>{$epaper.header}<span>{$epaper.subject}</span></div>
+			<div class="warp">
+				<div id="box">
+					<div class="list"></div>
+						<div class='conti'>
+							<div class="hed">
+								<span>{$epaper.header}</span>
+								<span>{$epaper.subject}</span>	
+							</div>
+						</div>
+
+					<div class='conti'>
+						<div class="know">
+							<table border="1">
+								<tr style="background: none;">
+								<th width="25px">考生须知</th>
+								<td><div>1.{$epaper.know|explodeStr0=###}</div>
+								<div>2.{$epaper.know|explodeStr1=###}</div>
+								<div>3.{$epaper.know|explodeStr2=###}</div>
+								<div>4. {$epaper.know|explodeStr3=###} </div>
+								</td>
+								</tr>
+							</table>
+						 	{$epaper.note}
+						</div>
+					</div>
+					<div class='conti'>
+						<div class='type'> 
+								<h5 class="title_one"><span>{$epaper.one_type|explodeStr0=###}</span><span>{$epaper.one_type|explodeStr2=###}</span></h5>
+								<h5 class="title_two">{$epaper.one_type|explodeStr1=###}（{$epaper.one_type|explodeStr3=###}）</h5>
+						</div>
+					</div>
+					<volist name="list" id="vo">
+				<if condition="$vo.questions eq 选择题 "> 
+							<div class='conti'>
+							<div class="list">
+							  <input  type='hidden'  class="weight" value="{$vo.weight}">
+							  <input  type='hidden'  class="testid" value="{$vo.id}">
+							  <div>{$vo.test}</div>
+							</div>
+					</div>
+				</if> 
+					</volist>
+					<!-- 这个地方 有问题！！！！！！！！！！ -->
+					<div class='conti'>
+						<div class='type2'> 
+								<h5 class="title_one"><span>{$epaper.two_type|explodeStr0=###}</span><span>{$epaper.two_type|explodeStr2=###}</span></h5>
+								<!-- <h5 class="title_two">{$epaper.one_type|explodeStr2=###}（{$epaper.one_type|explodeStr3=###}）</h5> -->
+						</div>
+					</div>
+					<volist name="list" id="vo">
+					<if condition="$vo.questions eq 填空题"> 
+					<div class='conti'>
+							<div class="list">
+								 <input  type='hidden'  class="testid" value="{$vo.id}"><div>{$vo.test}</div> 
+							</div>
+					</div>
+					</if>
+					</volist> 
+				</div>
+			</div>
+
+  </div>
+<div class="clear"></div>
+<!-- 弹窗确认是否保存 -->
+<div class="loginmask"></div>
+<div id="loginalert" >
+<div class="shchu"><img src="__PUBLIC__/images/save.png" />
+<p style="font-size:22px; padding-top:5px;">您是要保存“{$epaper.header}”吗？</p>
+<div class="demobtn"><a href="javascript:void(0);" class="yes">保存</a><a href="javascript:void(0);" class="no">取消</a></div>
+</div>
+</div>
+<!-- 弹窗确认是否保存 -->
+<div id="foot">
+  <ul>
+    <li class="logo_f">uTeach</li>
+    <li class="nav_f">组卷</li>
+    <li class="grasj"></li>
+    <li>{$filename}</li>
+	<li class="grasj"></li>
+    <li>新建试卷</li>
+	<li class="grasj"></li>
+	<li>开始选题</li>
+	<li class="greesj"></li>
+	<li>生成试卷</li>
+  </ul>
+</div>
+
+<script>
+	 $(document).ready(function() {
+		 $(".demobtn .no").on('click',function(){
+				  $(".loginmask").css({
+				    display: "none"
+				  })
+				  $("#loginalert").css({
+				    display: "none"
+				  })
+				
+		 })
+	//保存
+	$(".demobtn .yes").on('click',function(){
+		
+		$.post("{:U('Choose/epaper','','')}",{id:$('.title').find('input').val()},function(data){
+			if(data=1){
+				  $(".loginmask").css({
+					    display: "none"
+					  })
+					  $("#loginalert").css({
+					    display: "none"
+					  })
+					  parent.location.href = "{:U('Volume/index')}";
+			}else{
+				alert(5555)
+			}
+		},'json') 
+	})
+		 
+	//点击第一部分 题型效果
+	 $(".type").on('click',function(){
+		 if($(this).parent().find(".revisebut").length>0){
+			 var That=$(this).parent()
+				That.find(".revisebut").remove()
+				That.find(".type").unwrap()
+		}else{
+				$(this).wrap("<div class='greendi' style='margin-top:0;'></div>").before(" <a class='revisebut' onclick='parent.open(\"__CONTROLLER__/alert_type/id/{$epaper.id}\",\"试题设置\",600,400)'>修改</a>")		
+				}
+		})
+	//第二部分 题型效果
+	 $(".type2").on('click',function(){
+	 if($(this).parent().find(".revisebut").length>0){
+		 var That=$(this).parent()
+			That.find(".revisebut").remove()
+			That.find(".type2").unwrap()
+	}else{
+			$(this).wrap("<div class='greendi' style='margin-top:0;'></div>").before(" <a class='revisebut' onclick='parent.open(\"__CONTROLLER__/alert_type2/id/{$epaper.id}\",\"试题设置\",600,400)'>修改</a>")		
+			}
+	})
+		 
+		 
+		 
+	//点击学生须知效果 
+	 $(".know").on('click',function(){
+	 if($(this).parent().find(".revisebut").length>0){
+		 var That=$(this).parent()
+			That.find(".revisebut").remove()
+			That.find(".know").unwrap()
+	}else{
+			$(this).wrap("<div class='greendi' style='margin-top:0;'></div>").before(" <a class='revisebut' onclick='parent.open(\"__CONTROLLER__/know/id/{$epaper.id}\",\"考生须知\",600,400)'>修改</a>")		
+			}
+	})
+	
+	$(".hed").on('click',function(){
+		if($(this).parent().find(".revisebut").length>0){
+			 var That=$(this).parent()
+				That.find(".revisebut").remove()
+				That.find(".hed").unwrap()
+		}else{
+				$(this).wrap("<div class='greendi' style='margin-top:0;'></div>").before(" <a class='revisebut' onclick='parent.open(\"__CONTROLLER__/know/id/{$epaper.id}\",\"考生须知\",500,600)'>修改</a>")
+				
+				}
+	})
+	//加排序标签
+	 add_XH()
+	function add_XH(){
+		 $.each($("#box .conti"),function(i){
+			  $(this).find("p").eq(0).html("<span class='xh'></span>"+$(this).find("p").eq(0).html())
+		  })
+		  sort_PX()
+	 }
+	
+	/*题号排序  */
+	function sort_PX(){
+		 $.each($("#box .xh"),function(i){
+			  $(this).html(i+1+".&nbsp;&nbsp;")
+		  })
+	 }
+	pic_fR()
+	 function pic_fR(){ 
+		 $.each( $(".conti"),function(){
+			$(this).find("p").eq(0).find("img").eq(0).css({float:"right"})
+			
+		 })
+	 }
+					function ff(){
+						return $(this).html()
+					}	 
+
+			 	 $(".list").on("click",function(){
+			 		
+					 if($(this).parent().find(".revisebut").length>0){
+						 var That=$(this).parent().parent()
+						 	That.find("ul").remove()
+							 That.find(".clear").remove()
+						 	That.find(".revisebut").remove()
+						 	That.find(".list").unwrap()
+						 } else{
+							
+							 $(this).wrap("<div class='greendi' style='margin-top:0;'></div>").before(" <a class='revisebut'>修改</a>")
+							 $(this).parent().before("<ul> <li>试题替换</li><li>删除</li><li>上移</li><li>下移</li></ul><div class='clear'></div>") 
+
+							  var That1=$(this).parent().parent()
+							  That1.find("ul li").eq(0).on("click",function(event){
+								var id=That1.find('.testid').val()
+								  parent.open('__CONTROLLER__/alert_replace?id='+id,'试题替换',700,600)
+								  
+							  })
+							   That1.find("ul li").eq(1).on("click",function(event){
+								  var id = $(this).parent().parent().find('.testid').val()
+								  $.get("{:U('Choose/edit','','')}",{id:id,biaoji:0},function(data){
+									  if(data.status){
+										  That1.remove()
+										  parent.R_alert('删除试题成功！请稍后.....')
+										 }else{
+												alert('删除失败 !');
+											}	
+									},'json'); 
+								  
+							  })
+							   That1.find("ul li").eq(2).on("click",function(event){
+								  event.stopPropagation();
+								
+								   if(That1.prev().attr("class")=="conti")
+									   {
+									  
+									   $.get("{:U('Choose/up','','')}",{weight: That1.find('.weight').val(),},function(data){
+										   if('data.status'){
+												That1.prev().before(That1)
+												   sort_PX()
+										   }else{
+											   alert('错误!')
+										   }
+									   },'json') 
+											
+									   }
+							  })
+							   That1.find("ul li").eq(3).on("click",function(event){
+								  event.stopPropagation();
+								  
+								  if(That1.next().attr("class")=="conti")
+								   {
+								   That1.next().after(That1)
+									   sort_PX()
+								   }
+								
+							  })
+						 } 
+						 
+						
+					
+				 }) 
+			 
+			
+		 }); 
+
+</script>
+</body></html>

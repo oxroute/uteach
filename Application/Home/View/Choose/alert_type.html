@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+	<script type="text/javascript" src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+	<script>
+	$(function(){
+			$("#st_set td input").focus(function(){
+				$(this).css({border:"1px solid #01a411"})
+				$(this).addClass("shadow")
+			})
+				$("#st_set td input").focusout(function(){
+				$(this).css({border:"1px solid #d2d2d2"})
+				$(this).removeClass("shadow")
+			})
+		$('#st_set_p').on('click',function(){
+			
+			$.post("{:U('Choose/alert_type','','')}",{id:$('input').eq(5).val(),title:$('table input').eq(0).val(),note1:$('table input').eq(1).val(),all_score:$('table input').eq(2).val(),one_score:$('table input').eq(3).val(),note2:$('table input').eq(4).val()},function(data){
+				if(data.status){
+					parent.R_alert('修改成功!')
+					 }else{
+							alert('删除失败 !');
+						}
+			},'json')
+			})	
+
+	})
+	
+	
+	</script>
+<style>
+
+    .shadow{  
+       -webkit-box-shadow: #00780c 0px 0px 4px;  
+       -moz-box-shadow: #00780c 0px 0px 4px;  
+       box-shadow: #00780c 0px 0px 4px;  
+   
+    }  
+	#st_set{width:100%;padding-top: 25px;}
+	#st_set th{text-align: right;width:25%;padding-right: 10px}
+	#st_set td{height:50px;text-align: left}
+	#st_set td input{width:90%;height:30px;border: none;border: 1px solid #d2d2d2;}
+
+	#st_set_p{text-align: center;height: 40px;line-height: 40px;margin: 0;margin-top: 35px;}
+	#st_set_p a{padding:10px 15px;background:#309dff;color: #ffffff;text-decoration: none;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-o-border-radius:5px;
+	font-size: 16px;
+}
+
+</style>
+<body>
+<form action="" method="post">
+	<table  cellspacing="0" cellpadding="0" id="st_set">
+		<tr>
+			<th>第一部分标题.</th>
+			<td><input type="text" name="title" value="{$type|explodeStr0=###}"></td>
+		</tr>
+		<tr>
+			<th>注释.</th>
+			<td><input type="text" name="note1" value="{$type|explodeStr1=###}"></td>
+		</tr>
+		<tr>
+			<th>总分值.</th>
+			<td><input type="text" name="all_score" value="{$type|explodeStr2=###}"></td>
+		</tr>
+		<tr>
+			<th>小题分值.</th>
+			<td><input type="text" name="one_score" value="{$type|explodeStr3=###}"></td>
+		</tr>
+		<tr>
+			<th>备注.</th>
+			<td><input type="text" name="note2" value=""></td>
+		</tr>
+	</table>
+	<input type="hidden" value="{$id}">
+	<p id="st_set_p"><a href="javascript:void(0)">确定</a></p>
+</form>
+</body>
+</html>

@@ -1,0 +1,70 @@
+ <script type="text/javascript">
+    	$(function(){
+			$(".questions").click(function() {
+			 $('#questions').val($(this).text());
+			})
+			$(".difficulty").click(function() {
+			 $('#difficulty').val($(this).text());
+			})
+			$(".test_people").click(function() {
+			 $('#test_people').val($(this).text());
+			})
+			$(".source").click(function() {
+			 $('#source').val($(this).text());
+			})
+			$(".subject").click(function() {
+			 $('#kid').val($(this).find('b').text());
+			})
+			$(".zsid").click(function() {
+			 $('#zsid').val($(this).find('span').text());
+			})
+			$(".zid").click(function() {
+			 $('#zid').val($(this).find('span').text());
+			})
+			$(".fid").click(function() {
+			 $('#fid').val($(".subject").find("span").eq(1).text());
+			})
+   		}); 
+    </script>
+
+	<div class="bt_tit" >
+		<div class="bt_left">
+			<div class="bt_box">
+				<span class="tx_style tx_text" id='bt_tx'><if condition="$date.questions eq '' ">题型<else/>{$date.questions}</if></span>
+				
+				<div class="tx_list tx_list_event" id='bt_tx_list'>
+					<a class="questions" href="javascript:void(0);">选择题</a>
+					<a class="questions" href="javascript:void(0);">填空题</a>
+					<a class="questions" href="javascript:void(0);">简答题</a>
+				</div>
+				<input type="hidden" id="questions" name='questions' value="{$date.questions}"/>
+			</div>	
+			<div class="bt_box">
+					<span class="tx_style tx_text" id="bt_nd">难度</span>
+					
+					<div class="tx_list tx_list_event"  id='bt_nd_list'>
+						<a class="difficulty" href="javascript:void(0);">A</a>
+						<a class="difficulty"href="javascript:void(0);">B</a>
+						<a class="difficulty"href="javascript:void(0);">C</a>
+					</div>
+					
+					
+					<input type="hidden" id="difficulty" name='difficulty' value="{$date.difficulty}"/>
+			</div>
+			<span class="user_name_text">{$Think.session.username}<input type="hidden" id="test_people" name="test_people" value="{$Think.session.username}"/></span>
+			<div class="bt_lianyuan_btn"><a class="source" href="javascript:void(0);"><if condition="$date.source eq '' ">来源<else />{$date.source}</if></a></div>
+			<input type="text" name="source" id="source" value="" class="bt_lianyuan" placeholder="来源"/>
+		</div>
+		<div class="name" style="top:23px;">
+			<img src="__PUBLIC__/images/index/logo.png" width="35" height="35" /> 
+			<span class="name_icon">{$Think.session.username}</span> 
+		    <ul class="set">
+					<li><a href="{:U('User/index')}">设置</a></li>
+					<li><a href="{:U('Login/logout')}" style="border:none">注销</a></li>
+			</ul>
+		</div>  		
+	</div>
+	
+
+
+

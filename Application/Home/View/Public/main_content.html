@@ -1,0 +1,101 @@
+﻿<include file="Public:header"/>
+<script>
+var delUrl="{:U('Public/del','','')}";
+</script>
+<body>
+<div class="kc_tit">
+	本题库共{$count}道题
+</div>
+<div class="list_warp">
+<if condition="$test neq '' ">
+<volist name="test" id='vo'>
+<dl class="list">
+   <if condition="$vo.questions eq 填空题">
+   		<img class="biao" src="__PUBLIC__/images/tianb.png">
+   <elseif condition="$vo.questions eq 选择题"/> 
+   		<img class="biao" src="__PUBLIC__/images/xuan.png">
+   <else/>
+   		<img class="biao" src="__PUBLIC__/images/jian.png">
+   </if>                       		
+	<dt>
+		<a href="javascript:void(0);" onclick="parent.open('__CONTROLLER__/show/id/{$vo.id}','',900,600);" style="width: 100%;height: 90px">
+		<input id="delId" type="hidden" value="{$vo.id}">
+			<div>
+
+                <iframe  src="/Word/doc/{$_SESSION['uid']}/{$vo.wtime|date='Ymd',###}/{$vo.test}.htm" frameborder="0" height="90" width="100%" scrolling="no"></iframe>
+			</div>
+	</a></dt>
+	<dd>   
+		<a href="javascript:void(0);" onclick="parent.open('__CONTROLLER__/show/id/{$vo.id}','',900,600);" class="a1">
+			<input id="delId" type="hidden" value="{$vo.id}"></a>
+		<a class="del"></a>
+	</dd>
+</dl>
+
+</volist>
+<else />
+<center>没有数据</center>
+</if>
+</div>
+<div style="text-align: center" class="page">
+	<a href="javascript:void(0);" class="mub">{$page}</a>
+</div>
+
+<!-- 删除试题提示框 -->
+<div id="mask"></div>
+<div id="delet_bt" class="popu_box">
+	<div class="img_icon img_delete"></div>
+	<div class="popu_right">
+		<p class='popu_text'>您是否确认删除此题</p>
+		<div class="popu_btn"><a href="javascript:void(0);" class="delete_cancel_btn">取消</a><a href="javascript:void(0);" class="delete_btn">删除</a></div>
+	</div>
+</div>
+<!-- END -->
+</body>
+
+<script>
+window.onload=function(){
+
+ $(document).click(function (event){ 
+ 	var window_iframe=$(window.parent.document.body)
+	window_iframe.find("#show1").hide(300)
+	window_iframe.find("#bt").css({background:"url('__PUBLIC__/images/index/dot.0.png') no-repeat scroll right center, url('__PUBLIC__/images/icon_logo.png') no-repeat scroll left center"})
+	window_iframe.find('#bt').attr("SH",true)
+
+	window_iframe.find(".chem_list").slideUp(300)
+	window_iframe.find('.chem_btn').attr("SH_CHEM",true)
+
+	window_iframe.find(".name .name_icon").css({background:"url(__PUBLIC__/images/index/name_up.png) no-repeat right center"})
+	window_iframe.find(".set").slideUp(300)
+	window_iframe.find(".name .name_icon").attr("SH_NAME",true)
+
+	window_iframe.find('.tab_con1').slideUp(300)
+
+			if(window_iframe.find(".tab_con2").val()){
+			window_iframe.find(".laiyuan_header").find("a").html(window_iframe.find(".tab_con2").val())
+		}else{
+			window_iframe.find(".laiyuan_header").find("a").html("来源")
+		}
+		if(window_iframe.find(".laiyuan_header").find("a").html()!="来源"){
+			window_iframe.find(".laiyuan_header").find("a").addClass("color")
+			
+		}else{
+			window_iframe.find(".laiyuan_header").find("a").removeClass("color")
+		}
+		
+		window_iframe.find(".laiyuan_header").show()
+		window_iframe.find(".tab_con2").hide() 
+
+
+	
+});
+
+
+
+
+
+}
+
+
+ </script>
+</html>

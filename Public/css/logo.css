@@ -1,0 +1,85 @@
+
+body,input,p,form{margin:0;padding:0;}
+#logo_warp{width:100%;height:100%;}
+#bg_pic{position: fixed;width:100%;height:100%;z-index: -999;}
+
+
+.logo_center{margin: 0 auto;width:815px;position: absolute;top:0;left:0;display: none}
+.logo_center p {margin-bottom:20px;}
+.logo_center p img{margin: 0 auto;display:block;}
+.logo_center input{}
+.logo_center .input{width:286px;height:36px;border:2px solid #d5d3d4;color: #d5d3d4;font-size: 25px;line-height: 36px;text-indent: 10px;vertical-align: top;margin-top: 30px;
+	-moz-border-radius: 8px;      /* Gecko browsers */
+    -webkit-border-radius: 8px;   /* Webkit browsers */
+    border-radius:8px;            /* W3C syntax */
+}
+
+#from img.logo_load{position: absolute;top:140px;left:338px;opacity:0}
+
+/*#password{display: none}*/
+.logo_center a{background: url(../images/dian.png) no-repeat center 50%;display: inline-block;width:230px;margin-top: 20px}
+.logo_center .logo{display: block;margin: 0 auto}
+
+.logo_center .input_btn{background:#309dff;border: 1px solid #fff;font-size: 16px;color: #fff;padding:8px 47px;font-family: "Arial";font-weight: bold;margin: 0 auto;
+	-moz-border-radius: 8px;      /* Gecko browsers */
+    -webkit-border-radius: 8px;   /* Webkit browsers */
+    border-radius:8px;display: block;
+    }
+
+
+.logo_center .check{text-align: center;height:100px;line-height: 100px;}
+#checkbox{vertical-align: middle;}
+
+.rember_mima{text-align: center;padding: 20px 0;color: #ffffff;}
+.rember_mima input{vertical-align: middle;margin: 0 5px;}
+
+.logo_center .check label{color: #fff;padding: 0 10px;font-size: 16px;}
+
+#footer{height:45px;line-height: 45px;color: #fff;font-size: 14px;position: fixed;bottom: 0;right:20px;}
+
+#from span.ts{position: absolute;color:#ffffff;display: none}
+#from span.locat{top:126px;left:10px;}
+#from span.locat1{top:126px;left:532px;}
+/*#name-error{position: absolute;top:126px;;left:15px;color:#ffffff}
+#password-error{position: absolute;top:126px;;left:545px;color: #ffffff}*/
+
+
+
+
+
+@keyframes inputmover{
+	0%{
+		-webkit-transform:translate(0px);
+   		 -moz-transform:translate(0px);
+	}
+	100%{
+				-webkit-transform:translate(100px);
+		   		 -moz-transform:translate(100px);
+	}
+	
+}
+
+@-moz-keyframes inputmover /* Firefox */
+{
+	-webkit-transform:translate(100px);
+    -moz-transform:translate(100px);
+}
+
+@-webkit-keyframes inputmover /* Safari 和 Chrome */
+{
+		0%{
+		-webkit-transform:translate(0px);
+   		 -moz-transform:translate(0px);
+	}
+	100%{
+				-webkit-transform:translate(100px);
+		   		 -moz-transform:translate(100px);
+	}
+}
+
+@-o-keyframes inputmover /* Opera */
+{
+	-webkit-transform:translate(100px);
+    -moz-transform:translate(100px);
+}
+

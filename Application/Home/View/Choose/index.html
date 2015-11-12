@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>指南树</title>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/slick.css"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/layout.css"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/xlmenu.css"/>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/common.css"/>
+<link rel="stylesheet" href="__PUBLIC__/css/lrtkfy.css" type="text/css" />
+<script type="text/javascript">
+  var imgPath = '__ROOT__/Public/';
+</script>
+<script src="__PUBLIC__/js/jquery-1.8.3.min.js" type="text/javascript"></script> 
+<script src="__PUBLIC__/js/jquery.backgroundpos.js" type="text/javascript"></script>
+<script src="__PUBLIC__/js/jquery.easing.min.js" type="text/javascript"></script> 
+<script src="__PUBLIC__/js/choose.js" type="text/javascript"></script>
+<script type="text/javascript" src="__PUBLIC__/js/slick.js"></script>
+<script src="__PUBLIC__/js/jquery.nicescroll.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="__PUBLIC__/js/lhgdialog/lhgdialog.min.js?self=true&skin=igreen"></script>
+<script type="text/javascript">
+	var showEpaper="{:U('Choose/show','','')}";
+   $(document).ready(function() {
+  	var nice = $("html").niceScroll();  // The document page (body)
+    $(".sidebar").niceScroll({cursorborder:"",cursorcolor:"#3a3a3a",boxzoom:false}); // First scrollable DIV
+   })
+   function open(myurl,tit,w,h){
+    var dg = $.dialog({
+    	id: 'mydiv',
+    	lock: true,
+    	width : w,
+    	height : h,
+    	title : tit,
+    	cache:true,
+    	min:false,
+    	resize:true,
+    extendDrag:true,
+    	content: 'url:'+ myurl
+    	});
+    	dg.ShowDialog();
+    }
+
+    function R_alert(msg) {
+      close();
+            var count = 0;
+            var xcount = 0;
+            
+           if (msg) {
+                  count = msg.count;
+                  xcount = msg.xcount;
+              }
+
+              $("#total").html(count);
+              $("#total_xz").html(xcount);
+              $("#total_fxz").html(count - xcount);
+
+
+              // return false;
+
+
+	    $.dialog.tips(msg,2,'loading.gif');
+	    $('#right_bt').attr("src",$('#right_bt').attr("src"))
+	}
+    function close() {
+        $.dialog.list['mydiv'].close()
+     }
+
+ </script>
+</head>
+<body>
+<include file="top"/>
+<div class="clear"></div>
+<div class="shadow"></div>
+	<include file="left"/>
+	<iframe src="__APP__/home/Choose/main_content.html" frameborder="0" style="float:right;width:calc(100% - 280px);height:100%;" id="right_bt"></iframe> 
+	</div>
+
+</div>
+
+<div class="clear"></div>
+<div id="foot">
+  <ul>
+    <li class="logo_f">uTeach</li>
+    <li class="nav_f">会考</li>
+    {:dirs($row['pid'], $row['top_pid'])}
+    <li class="grasj"></li>
+    <li>{$row.header}  {$row.subject}</li>
+	<li class="greesj"></li>
+	 <li>开始选题</li>
+  </ul>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+.nav span ul{ position:absolute; left:158px; top:46px; background:#fff; border:1px solid #eee;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px; height:77px; padding:12px 0; width:365px; display:none; z-index:100;}
+.nav span ul li{ width:121px; padding:0 15px; height:52px; line-height:52px; border-right:1px solid #eaeaea; float:left;}
+.nav span ul li a{ color:#525252; font-size:18px;text-decoration: none;font-weight: normal;}
+.nav span ul li img{ float:left;}
+.nav span ul i{ position:absolute; top:-20px; left:20px;}
+.menu { z-index: 100;  position: absolute; margin-top:5px;}
+.menu li { float: left; font-size: 12px; text-align: center; line-height: 18px; padding: 0; }
+.menu li.li_3{ background:url(../images/jtgray.jpg) no-repeat right; padding-left:40px;padding-right: 15px; cursor:pointer; display:block;   }
+.menu li.li_3:hover {background:url(../images/jtgreen.jpg) no-repeat right; display:block; color:#21a830;}
+.menu li.li_3 span.count1 {color:#21a830;font-size: 15px;margin: 0 4px}
+.li_3_content { position: absolute; left: 0px; line-height: 40px; z-index: 99; display: none; margin-left:-50px; margin-top:15px; height: 167px; width: 180px;  border:#EEEEEE 1px solid; background:#FFFFFF; -moz-box-shadow: 3px 3px 3px #EEEEEE; /*firefox*/
+ -webkit-box-shadow: 3px 3px 3px #EEEEEE;/*safari或chrome*/
+ box-shadow:3px 3px 3px #EEEEEE;/*opera或ie9*/
+  -moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius:5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+	 behavior: url(../js/ie-css3.htc); }
+.li_3_content p { color:#626262; font-size:16px; line-height:30px;text-align: center;}
+.li_3_content p span{width: 45%;display: inline-block;text-align: right;}
+.li_3_content p i{font-style: normal;}
+.subnavg{ color:#01A310;}
+.Triangle_con {display: block;position: absolute;top:-12px;left: 78px}
+.li_3_content a#revisebut{padding:0 10px; background:#309EFD; cursor:pointer;  
+  color:#FFFFFF; font-size:16px; display:block; -moz-border-radius: 5px;position: relative;
+  top:10px;left:50px;
+  float: left;
+    -webkit-border-radius:5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+	 behavior: url(../js/ie-css3.htc);}
+.li_3_content em{ font-style:normal;}
+
+#subnav {display:block; font-size:12px;margin-top: 2px;}
+#subnav .mainlevel {float:left; text-align:center; display:block;position: relative;}
+#subnav .mainlevel a { text-decoration:none; line-height:35px; color: #C9C9C9; height:34px;font-size: 12px;
+ text-align:center; padding:3px 24px; display:block; _width:48px;margin-top: 4px;}
+#subnav .mainlevel a:hover { text-decoration:none; color:#02A411;}
+#subnav .mainlevel a.active { text-decoration:none; color:#02A411;}
+#subnav .mainlevel a.a_left_borer{margin-left:-20px;border-left:1px solid #cfcbcb; padding-left:18px}
+#subnav .mainlevel ul {position:absolute; display:none;left:-70px;top:53px;height: 54px;line-height: 54px;
+  border:#EEEEEE 1px solid; background:#FFFFFF; -moz-box-shadow: 3px 3px 3px #E4E4E4;  /*firefox*/
+ -webkit-box-shadow: 3px 3px 3px #E4E4E4;/*safari或chrome*/
+ box-shadow:3px 3px 3px #E4E4E4;/*opera或ie9*/
+  -moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius:5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
+	 behavior: url(../js/ie-css3.htc);}
+#subnav .mainlevel li {float:left; font-size:14px;width:87px;cursor: pointer;line-height: 54px}
+#subnav .mainlevel li a { display:block;color:#CFCBCC;margin-top: 0;padding: 0;display: inline;}
+#subnav .mainlevel li a:hover {color:#02A411; text-decoration:none; }
+#subnav li a em/*input an em tag as a space*/ {padding:0 3px;}
+.Triangle_con1 {height:11px; background:url(../images/bird.png) no-repeat; display:block; width:17px;/*IE6 only*/;position: absolute;top: -11px;left: 96px;}
+.mainlevel input{ width:80px; float:right; margin-left:5px; margin-top:10px; height:25px; padding:5px;}
+.mainlevel input:hover{ border:1px solid #01A411; }
+/*级卷来源*/
+.zhuju_header{float: left;margin-left: 20px;margin-top: 16px;color: #c9c9c9;font-size: 12px;cursor: pointer;}
+div.active{color:#02A411}
+#zhuju_lian_input{width: 200px;
+margin-left: 15px;
+float: left;
+margin-top: 12px;
+border-radius: 5px;
+text-indent: 5px;
+border: 1px solid #999;
+font-size: 12px;
+height: 24px;}
+
+#zhujiun_xuti{background: url(../images/index/dot2.png) no-repeat right center;padding-right: 20px;font-size: 14px;cursor: pointer;}

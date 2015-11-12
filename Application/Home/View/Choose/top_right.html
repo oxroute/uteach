@@ -1,0 +1,31 @@
+<div class="head_r">
+	<div class="eye"></div>
+	<ul class="menu">
+		<li class="li_3">试题<span class="count1" id="total">{$count}</span>
+			<dl class="li_3_content">
+				<!-- <span class="Triangle_con"></span> -->
+				<img src="__PUBLIC__/images/index/dot1.png" width="23"height="12"class="Triangle_con"/>
+				<p style="padding-top: 10px;">
+					<span>选择题：</span><em class="subnavg" id="total_xz"><if condition="$Xcount eq '' ">0<else/>{$Xcount}</if> </em>/25
+				</p>
+				<p>
+					<span>非选择题：</span><em class="subnavg" id="total_fxz">{$count - $Xcount}</em>/25
+				</p>
+<!-- 				<p>
+					简答题：<em class="subnavg"><if condition="$Jcount eq '' ">0<else/>{$Jcount}</if></em>/25
+				</p> -->
+				<p style="color: #01A310; text-align: center;">共计<i class="count2">{$count}</i> 道题</p>
+				<a class="increases" href="javascript:void(0);" id="revisebut">组成试卷</a>
+			</dl>
+		</li>
+	</ul>
+
+	<div class="nr_green" style="float: right; margin-right: 39px;" >
+		<img src="__PUBLIC__/images/toux.gif" /> <span SH_NAME='true'>{$Think.session.username}</span>
+		<ul class="set">
+			<li><a href="{:U('User/index')}">设置</a></li>
+			<li><a href="{:U('Login/logout')}" style="border:none">注销</a></li>
+		</ul>
+	</div>
+
+</div>

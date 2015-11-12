@@ -1,0 +1,92 @@
+﻿<script type="text/javascript">
+  var page=1; //定义页号信息
+  var totalPages=0;//总页数；
+  var tmp_data=new Array(); //定义一个数据缓存变量
+  function dopageload(m){
+   page+=m;
+   //判断缓存中是否没有数据，若没有则ajax加载当前页数据
+   if(tmp_data[page]==undefined){
+    $.ajax({ 
+     url:'{:U("Choose/page","","")}',
+     data:{ p:page},
+     type:"get",
+     async:false, //设置同步
+     dataType:"json",
+     success:function(res){
+      tmp_data[page]=res;
+     },
+     error:function(){
+      alert('ajax请求失败33');
+     }
+    });
+   }	 
+   //显示当前页的信息
+   totalPages=tmp_data[page]["totalPages"]; //获取总页数
+   data=tmp_data[page]['list'];//获取数据
+   var str="";
+   var st="";
+   for(var i=0;i<data.length;i++){
+    str+="<p>"+data[i].test+"</p>";
+    st+="<span>"+'编号：'+"<span class=newId>"+data[i].id+"</span>"+"</span>"+"<span>"+"知识点："+"</span>"+"<span>"+"题型："+data[i].questions+"</span>"+"<span>"+"难度:"+data[i].difficulty+"</span>"
+    +"<span>"+'来源：'+data[i].source+"</span>"
+   }
+   $('.test').html(str);
+   $('.poptit').html(st);
+   //处理当前页的信息
+   if(page>totalPages){
+    page=totalPages;
+   }
+   if(page<1){page=1;}
+   $("#pageinfo").html("当前第"+page+"/"+totalPages+"页");
+  }
+  
+  $(function(){
+   dopageload(0);
+   
+   $(".popbut").on('click',function(){
+	   var str=""
+	   $.get("{:U('Choose/editTest','','')}",{newId:$('.newId').html(),oldId:$("input[id='val']").val()},function(data){
+			 if(data.status){
+				 $("#loginalert").hide()
+				 $(".loginmask").hide()
+				 window.location.reload()
+					
+			 }else{
+					alert('您选中的替换试题已存在!');
+				}	
+		},'json');
+   })
+  });
+</script>
+<div class="loginmask"></div>
+<div id="loginalert" >
+<i class="closealert fr"></i>
+<div class="lolertit">试题替换<input type="text" value="" id='val'></div>
+<div class="pagnation" id="pagnation">
+<p ><span id='pageinfo' style='margin:10px'></span><a href='javascript:dopageload(-1)'>上一页</a>&nbsp;&nbsp;<a href='javascript:dopageload(1)'>下一页</a></p>
+</div>
+<script>
+	var pagnation=$("#pagnation");
+	$(document).on("keydown",function(event){
+		switch(event.keyCode){
+			 case 37 : window.location.href = pagnation.find(".page-prev").attr("href");break;
+			 case 39 : window.location.href = pagnation.find(".page-next").attr("href");break
+		}
+	});
+</script>  
+<div class="clear"></div>
+<div class="poptit"></div> 
+<div class="popcon">
+<div class="test"></div>
+<input name="" type="button" class="popbut" value="替换本题" />
+</div>
+
+
+<div class="popconn">
+<p class="popgreen">正确答案：B</p>
+<div class="popconnti">详细解析</div>
+<p><span class="popgreen">统计：</span>本题共作答566次</p>
+<p><span class="popgreen">使用：</span>本题共作答566次</p>
+<p><span class="popgreen">解析：</span>本题共作答566次</p>
+</div>
+</div>

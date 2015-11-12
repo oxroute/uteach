@@ -1,0 +1,38 @@
+<script>
+var getZid="{:U('Choose/show_ChLeft','','')}";
+ var id='__APP__/home/Choose/main_content.html'; 
+</script>
+<div id="middle">
+      <div class="contain1">
+<div class="sidebar">
+	<div id="firstpane" class="menu_list">
+		<volist name='subject' id="vo">
+		<p class="sb_g subject">
+			<b class="subject" style="display: none;">{$vo.id}</b><span id="zhujiun_xuti" SH_XUANTI="true">{$vo.name}</span>
+		</p>
+		</volist>
+		<input type="hidden" name="kid" id="kid" value="" /> 
+		<input type="hidden" name="fid" id="fid" value="" /> 
+		<input type="hidden"name="zid" id="zid" value="" /> 
+		<input type="hidden" name="zsid"id="zsid" value="" />
+		<ul class="chem_list">
+			<volist name="category" id="vvo">
+			<li><a class="fid"><span style="display: none;">{$vvo.id}</span>{$vvo.name}</a></li>
+			</volist>
+			<i><img src="__PUBLIC__/images/index/dot1.png" width="13"height="8" /></i>
+		</ul>
+		<div id="a">
+			<volist name="chapter" id="vo">
+			<p class="menu_head zid">
+				<span style="display: none;">{$vo.id}</span>{$vo.name}
+			</p>
+			<div class="menu_body">
+				<volist name="vo['pid']" id="vos"> <a class="zsid"><span
+					style="display: none;">{$vos.id}</span>{$vos.name}</a> </volist>
+			</div>
+			</volist>
+		</div>
+	</div>
+
+</div>
+

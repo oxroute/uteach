@@ -1,0 +1,213 @@
+<include file="Public:header"/>
+<!-- <link href="__PUBLIC__/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/css/bootstrap.css" rel="stylesheet" type="text/css" /> -->
+
+
+
+
+<script language="javascript" type="text/javascript">
+var saveUrl="{:U('Write/write','','')}";
+var url="{:U('Write/index')}";
+
+$(document).ready(function() {
+  $(".bt_warp").niceScroll({cursorborder:"",cursorcolor:"#3a3a3a",boxzoom:false}); // First scrollable DIV
+  $("#sroll_box").niceScroll({cursorborder:"",cursorcolor:"#3a3a3a",boxzoom:false}); // First scrollable DIV
+  $("#textarea").focusout(function(){
+  	$("#remarks").val($(this).html())
+  })
+ });
+    </script>
+
+<style>
+/* 预览弹出屿*/       
+        .white_content { display: block; position: fixed; top: 35%; left:34%; width:517px;height:197px; background-color: white; z-index:1002; overflow: auto;-moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px;}
+		.delete{ background:url(__PUBLIC__/images/del_icon.png) no-repeat 47px center; padding-left:164px; padding-top:45px; color:#000;} 
+		.delete h2{ font-size:21px; font-weight:normal;}
+		.white_content .btn{ float:right; padding-top:25px;}
+		.white_content .btn a{ margin-right:33px; color:#309dff; font-size:21px;}
+		.white_content1{ display: none; position: absolute; top:15%; left:25%; width:900px;height:600px; background-color: white; z-index:1002; overflow: auto;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;z-index: 9999}
+		.white_content1 h2{ height:44px; line-height:44px; background:#309dff;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px; font-size:16px; color:#fff; padding-left:25px;}
+		.white_content1 .con1{ border-bottom:1px solid #309dff; height:41px; line-height:41px;}
+		.white_content1 .con1 span{ padding:0 25px; color:#309dff;}
+		.white_content1 .con1 span.fr{ float:right;}
+		.white_content1 .con2{ padding:30px 0px; margin:0 30px;width: 580px;}
+		.white_content1 .con3{ margin:0 30px; padding:20px 0; font-size:14px;border-top:1px solid #dedede; }
+
+		/* .white_content1 .con3 p span{color: #000000}*/
+.white_content1 .con3 div{color:#309dff;} 
+		 .white_content1 .con3 div span{ color:#000000;}
+		 .white_content1 .con3 div p{ padding: 0;margin: 0;color: #000000;display: inline-block;}
+		.white_content1 .con4{ float:right; height:42px; line-height:42px;margin-right:25px;}
+		.white_content1 .con4 input{font-size: 14px;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;border: none;padding: 3px 15px;background: none;color: #349fff;cursor: pointer;margin: 0}
+		.white_content1 .con4 input:hover{ background:#309dff; color:#fff;}
+		#sroll_box{height: 470px;border-bottom:1px solid #309dff; }
+
+		#ueditor_0{width:580px! important;}
+		#ueditor_1{width:580px! important;}
+    </style> 
+<body>
+
+
+
+	<form  action="" method="post" >      
+		<table cellpadding="0" cellspacing="0" width="100%">
+			<tr>
+				<include file="Public:left"/>
+				<td valign="top" id="index_right" style="">
+					<div class="no"></div>
+					<include file="Public:right_one"/>
+						<div style="position:relative" id='right_bt' class="write_scroll">
+						 <div class="no_main"></div>
+						<div class="bt_warp" style="padding-bottom:53px;">	
+				 		 <!--题干-->
+				 		<!-- <input id="questionContentEditContent" type="hidden"  name="test" /> -->
+						<div class="tg">
+							<div class="tg_tit">
+								 <h1>题干</h1>
+							</div>
+							<!-- <div name="test" id="test" style="min-height:300px;padding: 10px; width:96%;" contenteditable="true"> -->
+							<!-- </div> -->
+							<textarea id="content" name="test" style="min-height:300px;width:100%;" contenteditable="true"></textarea>
+						</div>
+						
+					   <!--选择答案-->
+
+					   <div class="da_warp">
+						<ul class="choose">
+							<h3>答案</h3>
+								<li class="answer"><a href="javascript:void(0);">A</a></li>
+								<li class="answer"><a href="javascript:void(0);">B</a></li>
+								<li class="answer"><a href="javascript:void(0);">C</a></li>
+								<li class="answer"><a href="javascript:void(0);">D</a></li>
+								<li class="add_answer"><a href="javascript:void(0);">+</a></li>
+								<li ><a href="javascript:void(0);" class="cut_answer">-</a></li>
+						</ul>
+						<!-- 填空颿-->
+				 		<div class="ti_kong_input">
+				 			<span class="ti_kong_input_da">答案</span>
+				 			<ul>
+				 				<li><input type="text"><a href="javascript:void(0);" class="ti_kong_add_input">+</a></li>
+				 			</ul>
+				 			
+				 			
+				 		</div>
+
+
+
+						<!-- 简答题 -->
+						
+						<input id="answerContentEditContent" type="hidden"  name="answer" />
+				 		<div class="jieda_da_textarea"  >
+				 				<span class="jieda_da_textarea_da">答案</span>
+				 				<div id='answer' style="min-height:150px;padding: 10px;" contenteditable="true"></div>
+				 		</div>												
+				 		</div>													 
+						<!--解析-->
+						<!-- <input id="analyticalContentEditContent" type="hidden"  name="analytical" /> -->
+						<div class="tg">
+							<div class="tg_tit">
+								<h1>解析</h1>
+							</div>
+							<!-- <div name="analytical" id="analytical" style="min-height:150px;padding: 10px;" contenteditable="true"></div> -->
+							<textarea id="analytical" name="analytical" style="min-height:200px;width:100%;"></textarea>
+						</div>
+						<!--备注-->
+						<div class="tg">
+							<div class="tg_tit">
+								<h1>备注</h1>
+							</div>
+							<div class="h125">
+								<input type="hidden" name="remarks" id="remarks">
+								<div id="textarea" style="border:none;width:580px;height:100%" contenteditable="true">
+							</div>
+						</div>
+						</div>
+					 <input type="hidden" id="bi_daan_val"  name='answer'>
+
+						<ul class="btn_bc">
+							<li><input type="button" value="保存" class="add_save" /></li>
+							<li class="preview"><a class="temp_look" href="javascript:void(0);">预览 </a></li>
+						</ul>
+						</div>
+				</td>
+			</tr>
+		</table>
+	</form>
+<!-- 错误提示 -->
+<div id="mask1"></div>
+<div id="tishi_bt1" class="popu_box1">
+	<div class="img_icon img_ti"></div>
+	<div class="popu_right">
+		<p class='popu_text'>答案不能为空!</p>
+		<div class="popu_btn"><a href="javascript:void(0);" class="popu_black">返回</a></div>
+	</div>
+</div>
+
+<div id="mask"></div>
+<div id="tishi_bt" class="popu_box">
+	<div class="img_icon img_ti"></div>
+	<div class="popu_right">
+		<p class='popu_text'>题干内容不能为空!</p>
+		<div class="popu_btn"><a href="javascript:void(0);" class="popu_black">返回</a></div>
+	</div>
+</div>	
+	
+<!-- 保存提示 -->
+<div id="mask"></div>
+<div id="save_bt" class="popu_box">
+	<div class="img_icon img_save"></div>
+	<div class="popu_right">
+		<p class='popu_text'>您是否确认保存此题？</p>
+		<div class="popu_btn"><a href="javascript:void(0);" class="cancel_btn">取消</a><a href="javascript:void(0);" class="save_btn">保存</a></div>
+	</div>
+</div>
+
+<!-- 预览弹窗 -->
+<div id="mask"></div>
+<div id="light1" class="white_content1">
+  <h2></h2>
+        <div class="con1">
+                <span >来源</span>
+        </div>
+        <div id="sroll_box">
+            <div class="con2"></div>
+            <div class="con3"></div>
+        </div>
+        	<div class="con4">
+        		<input type="button" class="close" value="关闭"/>
+        		<input type="button" id="save_show"value="保存"/>
+           </div>
+</div> 
+
+
+
+<js href="__PUBLIC__/ueditor/ueditor.config.js" />    
+<js href="__PUBLIC__/ueditor/ueditor.all.min.js" />
+
+<js file="__PUBLIC__/ueditor/kityformula-plugin/addKityFormulaDialog.js"/>
+<js file="__PUBLIC__/ueditor/kityformula-plugin/getKfContent.js"/>
+<js file="__PUBLIC__/ueditor/kityformula-plugin/defaultFilterFix.js"/>
+
+<script type="text/javascript">
+    window.UEDITOR_HOME_URL = '__PUBLIC__/ueditor';
+    // window.onload = function() {
+	  window.UEDITOR_CONFIG.serverUrl = "{:U('Ueditor/index')}";
+	  var ue1 = UE.getEditor('content', {
+	  	toolbars: [
+	      	['source', 'undo', 'redo', 'bold', 'italic', 'underline', 'superscript', 'subscript', 'indent', 'spechars', 'cleardoc', 'fontsize', 'justifyleft', 'justifyright', 'justifycenter', 'justifyjustify', 'insertorderedlist', 'insertunorderedlist', 'imagenone', 'imageleft' ,'imageright' ,'simpleupload', 'wordimage', 'kityformula', 'preview'],
+	  	],
+	  	elementPathEnabled : false,
+	  	wordCount : false
+	  });
+
+	  var ue2 = UE.getEditor('analytical', {
+	  	toolbars: [
+	      	['source', 'undo', 'redo', 'bold', 'italic', 'underline', 'superscript', 'subscript', 'indent', 'spechars', 'cleardoc', 'fontsize', 'justifyleft', 'justifyright', 'justifycenter', 'justifyjustify', 'insertorderedlist', 'insertunorderedlist', 'imagenone', 'imageleft' ,'imageright' ,'simpleupload', 'wordimage', 'kityformula', 'preview'],
+	  	],
+	  	elementPathEnabled : false,
+	  	wordCount : false
+	  });
+    // }
+</script>
+</body>
+</html>			

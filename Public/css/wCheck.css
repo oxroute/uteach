@@ -1,0 +1,135 @@
+
+.wCheck {
+    position: relative;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+    font-size: 0px;
+    line-height: 0px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center 0;
+}
+.wCheck-label {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: middle;
+    cursor: pointer;
+    margin: 0 15px 7px 4px;
+    line-height: 16px;
+    font-size: 14px;
+    color: #666;
+}
+.wCheck-selector,
+.wCheck-focus {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+.wCheck-off .wCheck-selector {
+    display: none;
+}
+.wCheck-on .wCheck-selector{
+    display: block;
+}
+/***********************************
+ * Themes
+ ***********************************/
+.wCheck {
+    width: 16px;
+    height: 16px;
+    margin-bottom: 7px;
+}
+.wCheck-hover {
+    background-position: center -16px;
+}
+
+
+.wCheck-theme-circle-classic-green { background-image: url('../images/circle-classic-green.png'); }
+.wCheck-selector-circle-dot-green { background-image: url('../images/selector-circle-dot-green0.png'); }
+
+/***********************************
+ * Labels
+ ***********************************/
+.wLabel-top,
+.wLabel-left,
+.wLabel-left-top {
+    vertical-align: middle;
+    font-size: 10px;
+    line-height: 16px;
+    color: #999;
+    display: block;
+    margin: 5px 0 3px 3px;
+}
+.wLabel-left-top {
+    vertical-align: top;
+}
+@media screen and (min-width: 600px) {
+    .wLabel-left,
+    .wLabel-left-top {
+        display: inline-block;
+        *display: inline;
+        zoom: 1;
+        width: 70px;
+        text-align: right;
+        margin: 0 0 7px 0;
+    }
+}
+.clear{zoom:1;}
+.clear:after{content:"";display:block;clear:both;}
+a{text-decoration: none}
+
+body{margin: 0;padding: 0}
+.warp{display: block}
+
+.radius{
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-o-border-radius:5px;
+}
+.page_header,.page_style,.page_typeof{border-bottom: 1px solid #efefef;padding-bottom: 30px;}
+.page_text{height:38px;line-height:38px;text-indent: 20px;font-size:16px; }
+
+.page_style .style_select{padding-left: 20px;}
+.page_style .style_select a{display: block;height:60px;width: 60px;line-height: 60px;text-align: center;background:#efefef;color: #6d6d6d;float: left;border:1px solid #efefef;
+		margin-right: 20px;-webkit-border-radius:10px;-moz-border-radius:10px;border-radius:10px;-o-border-radius:10px;}
+.page_style .style_select a:hover{color:#32b33d;border:1px solid #32b33d;background:#ffffff }
+.page_style .style_select a.active{color:#32b33d;border:1px solid #32b33d;background:#ffffff }
+
+.cheack_box{padding-left:20px}
+/*下拉框的样式*/
+
+/*公共下拉样式*/
+.xialai_xz{display: inline-block;position: relative;margin-right: 16px;}
+.xialai_xz input{display: inline-block;border: 1px solid #32b33d;color: #32b33d;font-size: 15px;text-align: center;padding-right: 16px;cursor: pointer;
+-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	-o-border-radius:5px;
+	}
+	.xialai_xz img{position: absolute;top:10px;right:10px;cursor: pointer;}
+	.xialai_xz .xia_list{position: absolute;top:29px;left:0;border: 1px solid #b5b5b5;width:98.5%;background: #ffffff;border-top: none;display: none}
+	.xialai_xz .xia_list a{display: block;height: 25px;line-height: 25px;color: #d2d2d2;font-size: 14px;text-align: center;}
+	.xialai_xz .xia_list a:hover{background:#effff0;color: #32b33d}
+
+/*公共下拉样式结尾*/
+
+.mar_L{padding-left: 20px;}
+	.wh{height:28px;width:113px;cursor: pointer;}
+
+
+label{cursor: pointer;}
+label.color_check{color:#32b33d}
+.pop_btn{text-align: center;margin: 26px 0}
+.pop_btn input{background: #d9d9d9;color: #ffffff;display:inline-block;height:34px;line-height: 34px;text-align: center;width:108px;border: 0px;
+font-size: 15px;
+font-weight: bold;
+-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-o-border-radius:5px;margin: 5px;}
+.pop_btn input:hover{background:#309dff}
