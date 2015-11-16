@@ -6,19 +6,19 @@
 .clear:after { content:''; display:block; clear:both; }
 
 .warp{margin: 0 auto;position: relative; width:100%;z-index: 0;overflow: hidden;}
-#box{height:700px; display:flex;width:100%;flex-flow:column wrap;align-content:flex-start;position: relative;left:0px;top:0;padding-top: 15px}
-#box .conti{width:calc(50% - 200px);position: relative;cursor: pointer;margin: 0 35px;padding: 1px 101px}
-#box .greendi{ background:#DCFDE0; border:1px solid #67CE72;  display:block;padding: 0 100px}
-#box .list{display: inline-block;} 
-#arrow{width:100%;position: absolute;top:0;left:0;}
+#box{height:700px; display:block;width:100%;position: relative;}
+#box .conti{width:;position: relative;cursor: pointer;width: 520px;margin: 0 auto}
+#box .greendi{ background:#DCFDE0; border:1px solid #67CE72;  display:block;}
+#box .list{display: inline-block;width: 100%} 
+/*#arrow{width:100%;position: absolute;top:0;left:0;}
 #arrow .right_arrow,#arrow .left_arrow{display: block;width:34px;height:123px;position: absolute;top:0;cursor: pointer;}
 #arrow .right_arrow{right:-0;background: url(http://www.uteach.top/Public/images/right.png) no-repeat;}
-#arrow .left_arrow{left:-0;background: url(http://www.uteach.top/Public/images/left.png) no-repeat;}
+#arrow .left_arrow{left:-0;background: url(http://www.uteach.top/Public/images/left.png) no-repeat;}*/
 .page{height: 50px; margin: 0 auto;width: 100%;position:relative;}
 .page_box{position: absolute;top:0;left: 0}
 .page a{display: block;float: left;width:15px;height:15px;margin: 5px;border-radius: 50%;background: #AEDFB0}
 .page a.active{background: #00A510}
-.hed{position: relative;margin: 10px 0}
+
 .type{position: relative;}
 .type .title_one{font-size: 22px;text-align: center;font-weight: normal;}
 .type .title_one span{margin-right:20px;line-height:45px;}
@@ -30,8 +30,8 @@
 #loginalert{ width:520px; background:#fff; position:fixed; height:210px; margin-top:-105px; top:50%;   left:50%; margin-left:-260px; z-index:99; display:none; font-family:"\5FAE\8F6F\96C5\9ED1"; font-size:14px; -moz-border-radius: 8px;       /* Gecko browsers */
     -webkit-border-radius:8px;   /* Webkit browsers */
     border-radius:8px;            /* W3C syntax */ }
-#yema{position: absolute;top: -25px;left: 0;width: 100%}
-#yema p{width: calc(50% - 5%);float: left;text-align: right;margin-right: 5%}
+/*#yema{position: absolute;top: -25px;left: 0;width: 100%}
+#yema p{width: calc(50% - 5%);float: left;text-align: right;margin-right: 5%}*/
 
 #divide_border{position: absolute;top:0;left:0;height:100%;z-index: -1}
 #divide_border div{position: absolute;top:8%;left:0;width: 2px;background: #000000;height:85%;}
@@ -76,11 +76,11 @@ p,li,em,ol.ul{ margin:0; padding:0;  list-style:none;}
 a{text-decoration: none}
 .zhisi{padding: 10px 0}
 .know{width: 100%;position: relative;}
-.know table{height: auto}
+.know table{height: auto;border-collapse: collapse}
 .know table tr{}
 .know table tr th{text-align: center;padding: 0;border: 1px solid #000000}
 .know table tr td{vertical-align: top;}
-.know table tr td div{line-height: 22px;}
+.know table tr td div{line-height: 25px;text-indent: 10px}
 /*.testid{display: none;}*/
 .clear{ clear:both;}
 .header{width: 100%; margin:0; padding:0; height:62px; position: relative; z-index:99;/*background:url(../images/sdi.png) bottom left repeat-x;*/ }
@@ -182,10 +182,10 @@ a{text-decoration: none}
 
 /*试卷头部*/
 .checked_left{display:none;}
-.conti .hed{padding: 8px 0;position: relative;}
+.conti .hed{padding: 15px 0;position: relative;}
 .conti .hed span{display: block;text-align: center;}
 .conti .hed span:nth-child(1){font-size: 14px;line-height: 25px;}
-.conti .hed span:nth-child(2){font-size: 22px;letter-spacing:25px;}
+.conti .hed span:nth-child(2){font-size: 22px;letter-spacing:25px;line-height: 45px}
 /* 2 Document */
 .head_m1{  padding-top:4px; margin:0 auto; padding-left:20px; margin-left:271px;}
 .head_mll{ color:#939393; font-size:14px; float:left; margin-top:16px;}

@@ -582,12 +582,6 @@ $(function(){
 		
 	})
 })
-//show页面  必要显示JS 文件
-$(function(){
-add()
-   function  add(){
-   	$("#box").height($(window).height()-$("#XX").outerHeight(true)-$(".title").outerHeight(true)-$("#foot").outerHeight(true)-75)
-  })
 
 
 
