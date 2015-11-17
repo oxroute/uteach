@@ -371,7 +371,8 @@ webkit-box-shadow:1px 1px 6px #606060;
 		for(var j=0;j<arr_l[i].length;j++){
 			// arr_l[i][j].
 			var iframe_obj=arr_l[i][j].find("iframe").eq(0).contents().find(".MsoNormal").eq(0)
-			iframe_obj.html("<i class='number_xh'>"+(j+1)+".</i>"+iframe_obj.html())
+			console.log(iframe_obj.html())
+			// iframe_obj.html("<i class='number_xh'>"+(j+1)+".</i>"+iframe_obj.html())
 		}
 	}
 
