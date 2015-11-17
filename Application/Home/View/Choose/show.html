@@ -66,6 +66,7 @@ var dfileUrl='{:U("Volume/delFile","","")}';
 .border_box{border: 1px solid #a2a2a2;width: 1000px;margin:0 auto;margin-bottom: 15px;padding-bottom: 40px;position: relative;}
 .now_fengsu{display: inline-block;min-width: 20px;height: 16px;padding: 0 4px;text-align: center;}
 p.page_add{line-height:40px;text-align: right;font-size: 12px;position: absolute;bottom: 0;width: 100%;right: 10px}
+.number_xh{font-style: normal;margin: 0 5px;}
 #show1{position: absolute;top:45px;left: 110px;display: none;z-index:10000;padding-top: 13px}
 #show1 .show2{padding-top: 13px;background:#fff; border:1px solid #eee;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;width: 412px;padding: 12px;
 box-shadow: 1px 1px 6px #606060;
@@ -375,6 +376,48 @@ function warp(){
 
 
 }
+
+
+
+
+add_xh_fn()
+function add_xh_fn(){
+
+
+var aar=[]
+
+var arr_l=[]
+
+$("#box .classif").each(function(){
+	add_xh($(this).parent().next())
+})
+
+
+function add_xh(obj){
+
+	if(obj.length>0&&obj.children(0).attr("class").indexOf("list")!=-1)
+	{
+		aar.push(obj)
+	}else{
+		arr_l.push(aar)
+		aar=[]
+		return false;
+	}
+	add_xh(obj.next())
+}
+
+for(var i=0;i<arr_l.length;i++)
+{
+	
+	for(var j=0;j<arr_l[i].length;j++){
+		arr_l[i][j].html("<i class='number_xh'>"+(j+1)+".</i>"+arr_l[i][j].html())
+
+	}
+}
+
+}
+
+
 	//加排序标签
 	 // add_XH()
 	// function add_XH(){
