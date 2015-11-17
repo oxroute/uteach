@@ -295,6 +295,14 @@ webkit-box-shadow:1px 1px 6px #606060;
 
 <script>
 	 $(document).ready(function() {
+
+
+	 	  $("iframe").each(function(){
+	 				$(this).load(function() { 
+	 				    var iframeHeight=$(this).contents().height(); 
+	 				    $(this).height(iframeHeight+'px');   
+	 				})
+	 	})
 	//保存
 	$(".demobtn .yes").on('click',function(){
 		$.post("{:U('Choose/epaper','','')}",function(data){
