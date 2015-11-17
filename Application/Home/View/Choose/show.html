@@ -360,10 +360,10 @@ function warp(){
 	arr.push(in_arr)
 
 	for (var i = 0;i<arr.length;i++) {
-		$("#box").append("<div class='ff'></div>")
+		$("#box").append("<div class='border_box'></div>")
 		for(var j=0;j<arr[i].length;j++)
 		{
-			$("#box .ff").eq(i).append($("#box p").eq(0))
+			$("#box .ff").eq(i).append($("#box .conti").eq(0))
 		}
 	};
 }
