@@ -338,31 +338,60 @@ webkit-box-shadow:1px 1px 6px #606060;
 	})
 	
 
+
+warp()
+
+function warp(){
+	var height=0
+	var arr=[]
+	var in_arr=[]
+	$("#box").find(".conti").each(function(i){
+		height+=$("#box").find(".conti").eq(i).outerHeight(true)
+		if(height<600){
+			in_arr.push($(this))
+		}else{
+			height=$("#box").find(".conti").eq(i).outerHeight(true)
+			arr.push(in_arr)
+			in_arr=[]
+			in_arr.push($("#box").find(".conti").eq(i))
+				
+		}
+	})
+	arr.push(in_arr)
+
+	for (var i = 0;i<arr.length;i++) {
+		$("#box").append("<div class='ff'></div>")
+		for(var j=0;j<arr[i].length;j++)
+		{
+			$("#box .ff").eq(i).append($("#box p").eq(0))
+		}
+	};
+}
 	//加排序标签
-	 add_XH()
-	function add_XH(){
-		 $.each($("#box .conti"),function(i){
-			  $(this).find("p").eq(0).html("<span class='xh'></span>"+$(this).find("p").eq(0).html())
-		  })
-		  sort_PX()
-	 }
+	 // add_XH()
+	// function add_XH(){
+	// 	 $.each($("#box .conti"),function(i){
+	// 		  $(this).find(".conti").eq(0).html("<span class='xh'></span>"+$(this).find("p").eq(0).html())
+	// 	  })
+	// 	  sort_PX()
+	//  }
 	
 	/*题号排序  */
-	function sort_PX(){
-		 $.each($("#box .xh"),function(i){
-			  $(this).html(i+1+".&nbsp;&nbsp;")
-		  })
-	 }
-	pic_fR()
-	 function pic_fR(){ 
-		 $.each( $(".conti"),function(){
-			$(this).find("p").eq(0).find("img").eq(0).css({float:"right"})
+	// function sort_PX(){
+	// 	 $.each($("#box .xh"),function(i){
+	// 		  $(this).html(i+1+".&nbsp;&nbsp;")
+	// 	  })
+	//  }
+	// pic_fR()
+	//  function pic_fR(){ 
+	// 	 $.each( $(".conti"),function(){
+	// 		$(this).find("p").eq(0).find("img").eq(0).css({float:"right"})
 			
-		 })
-	 }
-					function ff(){
-						return $(this).html()
-					}	 
+	// 	 })
+	//  }
+					// function ff(){
+					// 	return $(this).html()
+					// }	 
 
 					// 用来清除编制样式
 					function clear_warp(){
