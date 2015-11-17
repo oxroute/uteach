@@ -300,6 +300,7 @@ webkit-box-shadow:1px 1px 6px #606060;
 	 	  $("iframe").each(function(){
 	 				$(this).load(function() { 
 	 					 	$(this).contents().find(".WordSection1").children().each(function(){
+	 					 		$(this).css({"text-indent":0})
 	 							 	if($(this).text().trim()=="")
 	 							 	{
 	 							 		$(this).remove()
