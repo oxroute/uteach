@@ -297,12 +297,14 @@ webkit-box-shadow:1px 1px 6px #606060;
 	 $(document).ready(function() {
 
  	  $("iframe").each(function(){
-
+ 	  	$(this).load(function() { 
 		 	$(this).contents().find(".WordSection1").children().each(function(){
-		 	if($(this).text().trim()=="")
-		 	{
-		 		$(this).remove()
-		 	}
+				 	if($(this).text().trim()=="")
+				 	{
+				 		$(this).remove()
+				 	}
+		 	})
+
 		 	})
 
 	 	})
