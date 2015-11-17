@@ -395,7 +395,7 @@ $("#box .classif").each(function(){
 
 function add_xh(obj){
 
-	if(obj.length>0&&obj.children(0).attr("class").indexOf("list")!=-1)
+	if(obj.children().length>0&&obj.children(0).attr("class").indexOf("list")!=-1)
 	{
 		aar.push(obj)
 	}else{
