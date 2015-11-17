@@ -339,7 +339,42 @@ webkit-box-shadow:1px 1px 6px #606060;
 		},'json') 
 	})
 	
+	add_xh_fn()
+	function add_xh_fn(){
 
+
+	var aar=[]
+
+	var arr_l=[]
+
+	$("#box .classif").each(function(){
+		add_xh($(this).parent().next())
+	})
+
+
+	function add_xh(obj){
+
+		if(obj.children().length>0&&obj.children(0).attr("class").indexOf("list")!=-1)
+		{
+			aar.push(obj)
+		}else{
+			arr_l.push(aar)
+			aar=[]
+			return false;
+		}
+		add_xh(obj.next())
+	}
+
+	for(var i=0;i<arr_l.length;i++)
+	{
+		
+		for(var j=0;j<arr_l[i].length;j++){
+			arr_l[i][j].html("<i class='number_xh'>"+(j+1)+".</i>"+arr_l[i][j].html())
+
+		}
+	}
+
+	}
 
 warp()
 
@@ -380,42 +415,7 @@ function warp(){
 
 
 
-// add_xh_fn()
-function add_xh_fn(){
 
-
-var aar=[]
-
-var arr_l=[]
-
-$("#box .classif").each(function(){
-	add_xh($(this).parent().next())
-})
-
-
-function add_xh(obj){
-
-	if(obj.children().length>0&&obj.children(0).attr("class").indexOf("list")!=-1)
-	{
-		aar.push(obj)
-	}else{
-		arr_l.push(aar)
-		aar=[]
-		return false;
-	}
-	add_xh(obj.next())
-}
-
-for(var i=0;i<arr_l.length;i++)
-{
-	
-	for(var j=0;j<arr_l[i].length;j++){
-		arr_l[i][j].html("<i class='number_xh'>"+(j+1)+".</i>"+arr_l[i][j].html())
-
-	}
-}
-
-}
 
 
 	//加排序标签
