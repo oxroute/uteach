@@ -63,9 +63,9 @@ var dfileUrl='{:U("Volume/delFile","","")}';
 
 </script>
 <style>
-.border_box{border: 1px solid #a2a2a2;width: 1000px;margin:0 auto;}
+.border_box{border: 1px solid #a2a2a2;width: 1000px;margin:0 auto;margin-bottom: 15px;padding-bottom: 20px;position: relative;}
 .now_fengsu{display: inline-block;min-width: 20px;height: 16px;padding: 0 4px;text-align: center;}
-
+p.page_add{height: 20px;text-align: right;font-size: 16px;position: absolute;bottom: 0;width: 100%;right: 0}
 #show1{position: absolute;top:45px;left: 110px;display: none;z-index:10000;padding-top: 13px}
 #show1 .show2{padding-top: 13px;background:#fff; border:1px solid #eee;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;width: 412px;padding: 12px;
 box-shadow: 1px 1px 6px #606060;
@@ -366,7 +366,14 @@ function warp(){
 		{
 			$("#box .border_box").eq(i).append($("#box .conti").eq(0))
 		}
-	};
+	}
+化学试卷  第4页（共8页）
+
+	$(".border_box").each(function(i){
+		$(this).append("<p class='page_add'>"+$("#box .hed span").eq(1)+"&nbsp;&nbsp;&nbsp;&nbsp;第"+i+"页&nbsp;&nbsp;&nbsp;(共"+$(".border_box").length+"页)</p>")
+	})
+
+
 }
 	//加排序标签
 	 // add_XH()
