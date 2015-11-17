@@ -139,7 +139,7 @@ dl.list dd a:hover{ background-position:top center;color: #349fff}
 #tab2 li .tab_con2 li{ margin:0px; height:25px; line-height:25px; margin:0 12px;}
 #tab2 li .tab_con2 li a:hover{ color:#349fff;}
 #tab2 li input{width:300px;height:25px;margin-left: 10px;display: block;}
-#right_bt{background: #eaeaea;}
+#right_bt{background: #eaeaea;padding: 0 10px}
 .bt_warp{ width:100%;padding-bottom:54px;}
 .bt_warp .tg{width:96%; margin:25px auto; background:#fff; overflow:hidden;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px; -moz-box-shadow: 0px 0px 7px #dbdbdb;-webkit-box-shadow: 0px 0px 7px #dbdbdb;box-shadow: 0px 0px 7px #ddd; position:relative;}
 .tg_tit{ background:#f6f6f6; height:36px; line-height:36px; width:100%;}
