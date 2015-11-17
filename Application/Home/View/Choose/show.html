@@ -296,10 +296,20 @@ webkit-box-shadow:1px 1px 6px #606060;
 <script>
 	 $(document).ready(function() {
 
+ 	  $("iframe").each(function(){
 
+		 	$(this).contents().find("#box").children().each(function(){
+		 	if($(this).html()=="")
+		 	{
+		 		$(this).remove()
+		 	}
+		 	})
+
+	 	})
 	 	  $("iframe").each(function(){
-	 				$(this).load(function() { 
 
+
+	 				$(this).load(function() { 
 	 				    var iframeHeight=$(this).contents().find(".WordSection1").height(); 
 	 				    $(this).height(iframeHeight+'px');   
 	 				})
