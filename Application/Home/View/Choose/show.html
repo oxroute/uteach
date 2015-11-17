@@ -298,7 +298,7 @@ webkit-box-shadow:1px 1px 6px #606060;
 
  	  $("iframe").each(function(){
 
-		 	$(this).contents().find("#box").children().each(function(){
+		 	$(this).contents().find(".WordSection1").children().each(function(){
 		 	if($(this).html()=="")
 		 	{
 		 		$(this).remove()
@@ -307,8 +307,6 @@ webkit-box-shadow:1px 1px 6px #606060;
 
 	 	})
 	 	  $("iframe").each(function(){
-
-
 	 				$(this).load(function() { 
 	 				    var iframeHeight=$(this).contents().find(".WordSection1").height(); 
 	 				    $(this).height(iframeHeight+'px');   
