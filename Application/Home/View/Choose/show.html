@@ -345,7 +345,7 @@ function add_iframe_load(){
 
 	  $("iframe").each(function(){
 	  	
-		  	$(this).on("load",function(i){
+		  	$(this).on("load",function(){
 
 		  		++all_iframe
 		  		if(all_iframe== $("iframe").length)
@@ -391,7 +391,7 @@ function add_iframe_load(){
 
 	for(var i=0;i<arr_l.length;i++)
 	{
-		
+		console.log( arr_l[i])
 		for(var j=0;j<arr_l[i].length;j++){
 			// arr_l[i][j].
 			console.log( arr_l[i][j].html())
