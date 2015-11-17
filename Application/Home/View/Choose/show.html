@@ -339,7 +339,31 @@ webkit-box-shadow:1px 1px 6px #606060;
 		},'json') 
 	})
 	
-	add_xh_fn()
+
+function add_iframe_load(){
+	  var all_iframe=0
+
+	  $("iframe").each(function(){
+	  	
+		  	$(this).on("load",function(i){
+
+		  		++all_iframe
+		  		if(all_iframe== $("iframe").length)
+		  		{
+		  			// $("iframe").each(function(i){
+		  			// 		console.log($("#box").find("iframe").eq(i).contents().find("#box").html())
+		  				
+		  			// 	})
+		  		add_xh_fn()
+		  		}
+
+		  	})
+	  })
+
+}
+
+
+
 	function add_xh_fn(){
 
 
