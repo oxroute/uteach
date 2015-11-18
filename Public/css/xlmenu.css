@@ -17,7 +17,7 @@
     border-radius:5px;            /* W3C syntax */
 	 behavior: url(../js/ie-css3.htc); }
 .li_3_content p { color:#626262; font-size:16px; line-height:30px;text-align: center;}
-.li_3_content p span{width: 60%;display: inline-block;text-align: left;}
+.li_3_content p span{width: 60%;display: inline-block;text-align: right;}
 .li_3_content p i{font-style: normal;}
 .subnavg{ color:#01A310;}
 .Triangle_con {display: block;position: absolute;top:-12px;left: 78px}
