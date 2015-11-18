@@ -63,9 +63,11 @@ var dfileUrl='{:U("Volume/delFile","","")}';
 
 </script>
 <style>
-.border_box{border: 1px solid #a2a2a2;width: 1000px;margin:0 auto;margin-bottom: 15px;padding-bottom: 40px;position: relative;}
+.XH{}
+.page{width: 558px;margin: 0 auto;border-bottom: 1px solid #000000}
+.page .list{font-size: 12px;text-align: right}
 .now_fengsu{display: inline-block;min-width: 20px;height: 16px;padding: 0 4px;text-align: center;}
-p.page_add{line-height:40px;text-align: right;font-size: 12px;position: absolute;bottom: 0;width: 100%;right: 10px}
+
 .number_xh{font-style: normal;margin: 0 5px;}
 #show1{position: absolute;top:45px;left: 110px;display: none;z-index:10000;padding-top: 13px}
 #show1 .show2{padding-top: 13px;background:#fff; border:1px solid #eee;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;width: 412px;padding: 12px;
@@ -402,9 +404,18 @@ function add_Page(){
 		if(height>600)
 		{	
 			height=$(this).outerHeight(true)
-
 			$(this).before("<div class='XH page'><div class='list'>sadfasdfasdfasdfasdfsdf</div></div>")
 		}
+	})
+
+	if($("#box .page:list").next("div.XH").length>0)
+	{
+		$("#box .XH:list").after("<div class='XH page'><div class='list'>sadfasdfasdfasdfasdfsdf</div></div>")
+	}
+
+	var all_page=$("#box .page").length
+	$("#box .page").each(function(i){
+		$(this).find(".list").html($("#box .hed span").eq(1).text()+"&nbsp;&nbsp;&nbsp;&nbsp;第"+(i+1)+"页(共"+all_page+"页)")
 	})
 }
 

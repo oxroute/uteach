@@ -6,8 +6,8 @@
 .clear:after { content:''; display:block; clear:both; }
 
 .warp{margin: 0 auto;position: relative; width:100%;z-index: 0;overflow: hidden;}
-#box{height:700px; display:block;width:100%;position: relative;}
-#box .conti{width:;position: relative;cursor: pointer;width: 520px;margin: 0 auto}
+#box{height:700px; display:block;width:750px;position: relative;margin: 0 auto}
+#box .conti{width:;position: relative;cursor: pointer;width: 558px;margin: 0 auto}
 #box .greendi{ background:#DCFDE0; border:1px solid #67CE72;  display:block;}
 #box .list{display: inline-block;width: 100%} 
 /*#arrow{width:100%;position: absolute;top:0;left:0;}
