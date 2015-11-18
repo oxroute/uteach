@@ -525,8 +525,12 @@ function add_Page(){
 												// 	That1.find("iframe").eq(0).contents().find("p").eq(0).html("<i class='number_xh'>"+next_xh+".</i>"+now_html)
 												// 	That1.prev("div.conti").find("iframe").eq(0).contents().find("p").eq(0).html("<i class='number_xh'>"+now_xh+".</i>"+next_html)
 												// })
-  												
+
+That1.prev("div.conti iframe").on("load",function(){
 location.reload() 
+})
+  												
+
   												  get_all_id()
   												   $.post('__URL__/get_all_id',{all_id:$("#all_id").val()})
 											  }
