@@ -502,6 +502,8 @@ function add_Page(){
 											  if(That1.next("div.conti").find("div:first").attr("class")=="list"){
 											That1.find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").remove()
 											That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").remove()
+
+
 											 var now_html=That1.find("iframe").eq(0).contents().find("p").eq(0).html()
 											 var next_html=That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).html()
 											
@@ -509,10 +511,12 @@ function add_Page(){
 											 console.log(next_html)
 											 console.log(now_xh)
 											 console.log(next_xh)
-That1.find("iframe").eq(0).contents().find("p").eq(0).html("asdfasdfasdf"+now_html)
-That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).html("asdfasdfasdfasdfasdfasdfsd"+next_html)
 
-  												// That1.next("div.conti").after(That1)
+  												That1.next("div.conti").after(That1)
+
+  												That1.find("iframe").eq(0).contents().find("p").eq(0).html("next_xh"+now_html)
+  												That1.prev("div.conti").find("iframe").eq(0).contents().find("p").eq(0).html("now_xh"+next_html)
+
   											
   												  get_all_id()
   												   $.post('__URL__/get_all_id',{all_id:$("#all_id").val()})
