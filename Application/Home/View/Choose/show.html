@@ -342,19 +342,13 @@ webkit-box-shadow:1px 1px 6px #606060;
 add_iframe_load()
 function add_iframe_load(){
 	  var all_iframe=0
-
 	  $("iframe").each(function(){
-	  	
 		  	$(this).on("load",function(){
-
 		  		++all_iframe
 		  		if(all_iframe== $("iframe").length)
 		  		{
-
 		  		add_xh_fn()
-		  		// warp()
 		  		}
-
 		  	})
 	  })
 
@@ -369,8 +363,8 @@ function add_iframe_load(){
 		add_xh($(this).parent().next("div.conti"))
 	})
 	function add_xh(obj){
-			console.log(obj.children(0).attr("class"))
-		if(obj.children().length>0&&obj.children(0).attr("class").indexOf("list")!=-1)
+			console.log(obj.children().eq(0).attr("class"))
+		if(obj.children().eq(0).length>0&&obj.children().eq(0).attr("class").indexOf("list")!=-1)
 		{
 			aar.push(obj)
 		}else{
@@ -385,10 +379,7 @@ function add_iframe_load(){
 	{
 		console.log( arr_l[i])
 		for(var j=0;j<arr_l[i].length;j++){
-			// arr_l[i][j].
-			// console.log( arr_l[i][j].html())
 			var iframe_obj=arr_l[i][j].find("iframe").eq(0).contents().find("p").eq(0)
-			// console.log(iframe_obj.html())
 			iframe_obj.html("<i class='number_xh'>"+(j+1)+".</i>"+iframe_obj.html())
 		}
 	}
@@ -399,39 +390,7 @@ function add_iframe_load(){
 
 
 
-// function warp(){
-// 	var height=0
-// 	var arr=[]
-// 	var in_arr=[]
-// 	$("#box").find(".conti").each(function(i){
-// 		height+=$("#box").find(".conti").eq(i).outerHeight(true)
-// 		if(height<600){
-// 			in_arr.push($(this))
-// 		}else{
-// 			height=$("#box").find(".conti").eq(i).outerHeight(true)
-// 			arr.push(in_arr)
-// 			in_arr=[]
-// 			in_arr.push($("#box").find(".conti").eq(i))
-				
-// 		}
-// 	})
-// 	arr.push(in_arr)
 
-// 	for (var i = 0;i<arr.length;i++) {
-// 		$("#box").append("<div class='border_box'></div>")
-// 		for(var j=0;j<arr[i].length;j++)
-// 		{
-// 			$("#box .border_box").eq(i).append($("#box .conti").eq(0))
-// 		}
-// 	}
-
-
-// 	$(".border_box").each(function(i){
-// 		$(this).append("<p class='page_add'>"+$("#box .hed span").eq(1).text()+"&nbsp;&nbsp;&nbsp;&nbsp;第"+(i+1)+"页&nbsp;&nbsp;&nbsp;(共"+$(".border_box").length+"页)</p>")
-// 	})
-
-
-// }
 add_Page()
 function add_Page(){
 	var height=0
@@ -441,7 +400,7 @@ function add_Page(){
 		{	
 			height=$(this).outerHeight(true)
 
-			$(this).before("<div class='page'>sadfasdfasdfasdfasdfsdf</div>")
+			$(this).before("<div class='counig page'>sadfasdfasdfasdfasdfsdf</div>")
 		}
 	})
 }
