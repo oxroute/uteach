@@ -527,8 +527,13 @@ function add_Page(){
 												// 	That1.prev("div.conti").find("iframe").eq(0).contents().find("p").eq(0).html("<i class='number_xh'>"+now_xh+".</i>"+next_html)
 												// })
 
+That1.find("iframe").on("load",function(){
+location.reload() 
+console.log(3333)
+})
 next_obj.find("iframe").on("load",function(){
 location.reload() 
+console.log(3333666666)
 })
   												
 
