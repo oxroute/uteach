@@ -488,7 +488,8 @@ function add_Page(){
   												  get_all_id()
   												  $.post('__URL__/get_all_id',{all_id:$("#all_id").val()})
 											  }
-											   
+											   add_iframe_load()
+											   add_Page()
 										  })
 
 											That1.find("ul li").eq(3).on("click",function(event){
@@ -500,7 +501,8 @@ function add_Page(){
   												  get_all_id()
   												   $.post('__URL__/get_all_id',{all_id:$("#all_id").val()})
 											  }
-											  
+											  add_iframe_load()
+											  add_Page()
 										  })
 
 
