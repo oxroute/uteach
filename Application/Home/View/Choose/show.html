@@ -503,11 +503,12 @@ function add_Page(){
 
 											That1.find("ul li").eq(3).on("click",function(event){
 											  event.stopPropagation();
-											  var now_xh=That1.find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").text()
+											  // var now_xh=That1.find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").text()
 											  
-											  var next_xh=That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").text()
+											  // var next_xh=That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").text()
 									 			
-											  if(That1.next("div.conti").find("div:first").attr("class")=="list"){
+									 			var next_obj=That1.next("div.conti")
+											  if(next_obj.find("div:first").attr("class")=="list"){
 											// That1.find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").remove()
 											// That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").remove()
 
@@ -520,13 +521,13 @@ function add_Page(){
 											//  console.log(now_xh)
 											//  console.log(next_xh)
 
-  												That1.next("div.conti").after(That1)
+  												next_obj.after(That1)
 												// That1.prev("div.conti iframe").on("load",function(){
 												// 	That1.find("iframe").eq(0).contents().find("p").eq(0).html("<i class='number_xh'>"+next_xh+".</i>"+now_html)
 												// 	That1.prev("div.conti").find("iframe").eq(0).contents().find("p").eq(0).html("<i class='number_xh'>"+now_xh+".</i>"+next_html)
 												// })
 
-That1.prev("div.conti").find("iframe").on("load",function(){
+next_obj.find("iframe").on("load",function(){
 location.reload() 
 })
   												
