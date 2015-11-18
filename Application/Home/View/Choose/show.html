@@ -415,7 +415,7 @@ function add_fengshu(){
 		console.log($(this).find("div:first").attr("class")=="list")
 		console.log($(this).attr("class").indexOf("conti")!=-1)
 		if($(this).find("div:first").attr("class")=="list"&&$(this).attr("class").indexOf("conti")!=-1){
-			$(this).find("iframe").eq(0).contents().find("number_xh").after("<a href='###' class='now_fengsu'>3分</a>")
+			$(this).find("iframe").eq(0).contents().find(".number_xh").after("<a href='###' class='now_fengsu'>3分</a>")
 		}
 	})
 }
