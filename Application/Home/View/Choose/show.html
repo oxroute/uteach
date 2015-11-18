@@ -337,14 +337,17 @@ webkit-box-shadow:1px 1px 6px #606060;
 add_iframe_load()
 function add_iframe_load(){
 	  var all_iframe=0
-	  $("iframe").each(function(){
+	  console.log(434348888888888888888888888883)
+	  $("iframe").each(function(){ 
+	  		console.log(434348888888888888888888888883)
 		  	$(this).on("load",function(){
+		  			console.log(434343)
 		  		++all_iframe
 		  		if(all_iframe== $("iframe").length)
 		  		{
 		  		add_xh_fn()
 		  		add_Page()
-		  		alert(434343)
+		  	
 		  		}
 		  	})
 	  })
@@ -523,7 +526,7 @@ function add_Page(){
 												// 	That1.prev("div.conti").find("iframe").eq(0).contents().find("p").eq(0).html("<i class='number_xh'>"+now_xh+".</i>"+next_html)
 												// })
   												
-alert(77777777777777777777777777)
+
   											add_iframe_load()
   												  get_all_id()
   												   $.post('__URL__/get_all_id',{all_id:$("#all_id").val()})
