@@ -513,9 +513,11 @@ function add_Page(){
 											 console.log(next_xh)
 
   												That1.next("div.conti").after(That1)
-
-  												That1.find("iframe").eq(0).contents().find("p").eq(0).html("next_xh"+now_html)
-  												That1.prev("div.conti").find("iframe").eq(0).contents().find("p").eq(0).html("now_xh"+next_html)
+												That1.prev("div.conti iframe").on("load",function(){
+													That1.find("iframe").eq(0).contents().find("p").eq(0).html("<i class='number_xh'>"+next_xh+".</i>"+now_html)
+													That1.prev("div.conti").find("iframe").eq(0).contents().find("p").eq(0).html("<i class='number_xh'>"+now_xh+".</i>"+next_html)
+												})
+  												
 
   											
   												  get_all_id()
