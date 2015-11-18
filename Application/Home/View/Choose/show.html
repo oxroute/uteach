@@ -382,7 +382,9 @@ function add_iframe_load(){
 add_Page()
 function add_Page(){
 	var height=0
+	$("#box .page").remove()
 	$("#box .conti").each(function(){
+
 		height+=$(this).outerHeight(true)
 		if(height>600)
 		{	
@@ -390,7 +392,7 @@ function add_Page(){
 			$(this).before("<div class='XH page clear'><div class='list'>sadfasdfasdfasdfasdfsdf</div></div>")
 		}
 	})
-	$("#box .page").remove()
+	
 	if($("#box .page:last").next("div.XH").length>0)
 	{
 		$("#box .XH:last").after("<div class='XH page clear'><div class='list'>sadfasdfasdfasdfasdfsdf</div></div>")
@@ -498,7 +500,8 @@ function add_Page(){
   												  get_all_id()
   												   $.post('__URL__/get_all_id',{all_id:$("#all_id").val()})
 											  }
-											
+											console.log(That1.next().find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").text())
+											console.log(That1.find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").text())
 												add_Page()
 										  })
 
