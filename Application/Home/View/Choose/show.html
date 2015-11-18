@@ -390,7 +390,7 @@ function add_Page(){
 			$(this).before("<div class='XH page clear'><div class='list'>sadfasdfasdfasdfasdfsdf</div></div>")
 		}
 	})
-
+	$("#box .page").remove()
 	if($("#box .page:last").next("div.XH").length>0)
 	{
 		$("#box .XH:last").after("<div class='XH page clear'><div class='list'>sadfasdfasdfasdfasdfsdf</div></div>")
@@ -487,21 +487,19 @@ function add_Page(){
   												  get_all_id()
   												  $.post('__URL__/get_all_id',{all_id:$("#all_id").val()})
 											  }
-											   add_xh_fn()
-											   add_Page()
+											add_Page()
 										  })
 
 											That1.find("ul li").eq(3).on("click",function(event){
 											  event.stopPropagation();
-
 											  if(That1.next().find("div:first").attr("class")=="list"){
   												That1.next().after(That1)
   											
   												  get_all_id()
   												   $.post('__URL__/get_all_id',{all_id:$("#all_id").val()})
 											  }
-											  add_xh_fn()
-											  add_Page()
+											
+												add_Page()
 										  })
 
 
