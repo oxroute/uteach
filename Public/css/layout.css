@@ -100,7 +100,7 @@ a{text-decoration: none}
 .nav{ font-size:21px; font-weight:bold; color:#A5DBA7; margin-top:3px; margin-left:15px; }
 .nav span{ background:url(../images/pub.png) no-repeat 0 0; width:11px; height:7px; display:block; float:right; margin-top:10px;cursor: pointer;}
 .head_m{margin:0 auto;}
-.head_m ul{ width:322px; margin:0 auto;height: 31px}
+.head_m ul{ width:240px; margin:0 auto;height: 31px}
 .head_m ul li{ float:left;width: 60px;height: 31px;margin-top: 18px}
 .save{ background:url(../images/add_bag1.png) no-repeat center center; width:80px; display:block; cursor:pointer;}
 .save:hover{ background:url(../images/add_bag.png) no-repeat center center;}
@@ -151,7 +151,7 @@ a{text-decoration: none}
 .eye{ background:url(../images/pub.png) no-repeat -168px 0; width:31px; height:16px; display:block; margin-right:10px; margin-top:8px;   }
 .arrow{ background:url(../images/pub.png) no-repeat 0 -7px; width:15px; height:10px; cursor:pointer; float:right; margin-top:12px; display：block;margin-left:10px;  }
 .arrow:hover{background:url(../images/pub.png) no-repeat 0 0; width:11px; height:7px; display:block; color:#1BAE2A;  }
-.title{ border-bottom:2px solid #02A411; height:35px; line-height:30px; text-align:center; font-size:18px; color:#2E2E2E; }
+.title{ border-bottom:2px solid #02A411; height:35px; line-height:30px; text-align:center; font-size:18px; color:#2E2E2E;text-indent: -70px}
 .title span{ margin-left:25px;}
 #col1{ float: left;  width: 100%; margin-right: 10px; word-wrap:break-word; font-size:15px;}
 #foot{width: 100%;/* z-index:1000;*/  /*position:absolute;*/ left:0;height:44px; position: fixed;  bottom:0; background:#ffffff; filter:alpha(opacity=90);   -moz-opacity:0.9;   -khtml-opacity:0.9;  opacity:0.9;   -moz-box-shadow: 5px -5px 5px #D2D2D2; /*firefox*/-webkit-box-shadow: 5px -5px 5px #D2D2D2;/*safari或chrome*/box-shadow:5px -5px 5px #D2D2D2;/*opera或ie9*/ }
@@ -189,7 +189,7 @@ a{text-decoration: none}
 .conti .hed{padding: 15px 0;position: relative;}
 .conti .hed span{display: block;text-align: center;}
 .conti .hed span:nth-child(1){font-size: 14px;line-height: 25px;}
-.conti .hed span:nth-child(2){font-size: 22px;letter-spacing:25px;line-height: 45px}
+.conti .hed span:nth-child(2){font-size: 22px;letter-spacing:15px;line-height: 45px}
 /* 2 Document */
 .head_m1{  padding-top:4px; margin:0 auto; padding-left:20px; margin-left:271px;}
 .head_mll{ color:#939393; font-size:14px; float:left; margin-top:16px;}
