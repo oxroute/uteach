@@ -6,7 +6,7 @@
 .clear:after { content:''; display:block; clear:both; }
 
 .warp{margin: 0 auto;position: relative; width:100%;z-index: 0;overflow: hidden;}
-#box{height:700px; display:block;width:750px;position: relative;margin: 0 auto;
+#box{display:block;width:750px;position: relative;margin: 0 auto;
  -moz-box-shadow: 5px -5px 5px #D2D2D2; 
  -webkit-box-shadow: 5px -5px 5px #D2D2D2;
  box-shadow:5px -5px 5px #D2D2D2;
