@@ -495,14 +495,15 @@ function add_Page(){
 
 											That1.find("ul li").eq(3).on("click",function(event){
 											  event.stopPropagation();
+											  console.log(That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").text())
+											console.log(That1.find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").text())
 											  if(That1.next("div.conti").find("div:first").attr("class")=="list"){
   												That1.next("div.conti").after(That1)
   											
   												  get_all_id()
   												   $.post('__URL__/get_all_id',{all_id:$("#all_id").val()})
 											  }
-											console.log(That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").text())
-											console.log(That1.find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").text())
+											
 												add_Page()
 										  })
 
