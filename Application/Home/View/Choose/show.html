@@ -368,7 +368,9 @@ function add_iframe_load(){
 		}
 		add_xh(obj.next("div.XH"))
 	}
-
+$("#box iframe").each(function(){
+	$(this).contents().find(".number_xh").remove()
+})
 
 		for(var i=0;i<arr_l.length;i++)
 		{
