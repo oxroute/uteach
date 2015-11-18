@@ -408,10 +408,10 @@ function add_Page(){
 		}
 	})
 
-	if($("#box .page:list").next("div.XH").length>0)
+	if($("#box .page:last").next("div.XH").length>0)
 	{
-		console.log($("#box .page:list").next("div.XH").html())
-		$("#box .XH:list").after("<div class='XH page'><div class='list'>sadfasdfasdfasdfasdfsdf</div></div>")
+		console.log($("#box .page:last").next("div.XH").html())
+		$("#box .XH:last").after("<div class='XH page'><div class='list'>sadfasdfasdfasdfasdfsdf</div></div>")
 		console.log($("#box .XH:list").html())
 	}
 
