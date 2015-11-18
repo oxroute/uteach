@@ -218,7 +218,7 @@ var That=this;
    		<input type="hidden" name="id" class="id" value="<?php echo ($vo["id"]); ?>"/>
    		
        <div>
-           <iframe  src="/Word/doc/<?php echo ($_SESSION['uid']); ?>/<?php echo (date('Ymd',$vo["wtime"])); ?>/<?php echo ($vo["test"]); ?>.htm" frameborder="0" height="90" width="100%" scrolling="no"></iframe>
+           <!-- <iframe  src="/Word/doc/<?php echo ($_SESSION['uid']); ?>/<?php echo (date('Ymd',$vo["wtime"])); ?>/<?php echo ($vo["test"]); ?>.htm" frameborder="0" height="90" width="100%" scrolling="no"></iframe> -->
 
        </div>
      </div><?php endif; endforeach; endif; else: echo "" ;endif; ?>

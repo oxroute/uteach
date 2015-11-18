@@ -189,10 +189,13 @@ var saveUrl="<?php echo U('Write/write','','');?>";
 			<div class="show2">
 				<i><img src="/Public/images/index/dot1.png" width="24" height="13" /></i>
 					<ul class="clear">
-						<li><a href="<?php echo U('Write/index');?>"><img src="/Public/images/index/icon1_small.png" width="52" height="52" /><span>编题</span></a></li>
-						<li><a href="<?php echo U('Volume/index');?>"><img src="/Public/images/index/icon2_small.png" width="52" height="52" /><span>会考</span></a></li>
-						<li><a href="<?php echo U('User/index');?>"><img src="/Public/images/index/icon3_small.png" width="52" height="52" /><span>设置</span></a></li>
-						<li><a href="<?php echo U('Index/index');?>"  class="back_index"><img src="/Public/images/index/icon4_small.png" width="52" height="52" /><span>首页</span></a></li>
+							<li><a href="<?php echo U('Write/index');?>"><img src="/Public/images/index/icon1_small.png" width="52" height="52" /><span>编题</span></a></li>
+							<li><a href="###"><img src="/Public/images/index/z_icon.png" width="52" height="52" /><span>期中</span></a></li>
+							<li><a href="###"><img src="/Public/images/index/m_icon.png" width="52" height="52" /><span>期末</span></a></li>
+							<li><a href="###"><img src="/Public/images/index/y_icon.png" width="52" height="52" /><span>月考</span></a></li>
+							<li><a href="<?php echo U('Volume/index');?>"><img src="/Public/images/index/icon2_small.png" width="52" height="52" /><span>会考</span></a></li>
+							<li><a href="<?php echo U('User/index');?>"><img src="/Public/images/index/icon3_small.png" width="52" height="52" /><span>设置</span></a></li>
+							<li><a href="<?php echo U('Index/index');?>"  class="back_index"><img src="/Public/images/index/icon4_small.png" width="52" height="52" /><span>首页</span></a></li>
 					</ul>
 			</div>
 		</div>
@@ -294,7 +297,7 @@ var saveUrl="<?php echo U('Write/write','','');?>";
 
                             <script>
                                 document.getElementById("PageOfficeCtrl1").style.height = "90%";
-                                document.getElementById("PageOfficeCtrl1").style.width = "90%";
+                                document.getElementById("PageOfficeCtrl1").style.width = "100%";
 
                             </script>
 
