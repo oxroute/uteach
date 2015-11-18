@@ -195,8 +195,8 @@ var That=this;
    	</if>
      
      <input type="hidden" name="id" class="id" value="{$vo.id}"/>
-     <div>
-         <iframe  src="/Word/doc/{$_SESSION['uid']}/{$vo.wtime|date='Ymd',###}/{$vo.test}.htm" frameborder="0" height="90" width="calc(100% - 80px)" scrolling="no"></iframe>
+     <div style="width:calc(100% - 80px)">
+         <iframe  src="/Word/doc/{$_SESSION['uid']}/{$vo.wtime|date='Ymd',###}/{$vo.test}.htm" frameborder="0" width="100%" scrolling="no"></iframe>
 
      </div>
  </div>
@@ -223,8 +223,8 @@ var That=this;
    		</if>
    		<input type="hidden" name="id" class="id" value="{$vo.id}"/>
    		
-       <div>
-           <iframe  src="/Word/doc/{$_SESSION['uid']}/{$vo.wtime|date='Ymd',###}/{$vo.test}.htm" frameborder="0" height="100%" width="100%" scrolling="no"></iframe>
+       <div style="width:calc(100% - 80px)">
+           <iframe  src="/Word/doc/{$_SESSION['uid']}/{$vo.wtime|date='Ymd',###}/{$vo.test}.htm" frameborder="0" width="100%" scrolling="no"></iframe>
 
        </div>
      </div> 	
