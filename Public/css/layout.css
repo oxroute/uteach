@@ -6,10 +6,10 @@
 .clear:after { content:''; display:block; clear:both; }
 
 .warp{margin: 0 auto;position: relative; width:100%;z-index: 0;overflow: hidden;}
-#box{display:block;width:750px;position: relative;margin: 0 auto;
- -moz-box-shadow: 5px -5px 5px #D2D2D2; 
- -webkit-box-shadow: 5px -5px 5px #D2D2D2;
- box-shadow:5px -5px 5px #D2D2D2;
+#box{display:block;width:750px;position: relative;margin: 0 auto;padding-bottom: 20px;
+ -moz-box-shadow: 0px 5px 9px #D2D2D2; 
+ -webkit-box-shadow: 0px 5px 9px #D2D2D2;
+ box-shadow:0px 5px 9px #D2D2D2;
  }
 #box .conti{position: relative;cursor: pointer;width: 558px;margin: 0 auto}
 #box .greendi{ background:#DCFDE0; border:1px solid #67CE72;  display:block;}

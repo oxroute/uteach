@@ -299,8 +299,6 @@ webkit-box-shadow:1px 1px 6px #606060;
 
 <script>
 	 $(document).ready(function() {
-
-
 	 	  $("iframe").each(function(){
 	 				$(this).load(function() { 
 	 					 	$(this).contents().find(".WordSection1").children().each(function(){
@@ -309,9 +307,7 @@ webkit-box-shadow:1px 1px 6px #606060;
 	 							 	{
 	 							 		$(this).remove()
 	 							 	}
-
 	 					 	})
-
 	 					 	$(this).contents().find(".MsoNormal").css({"margin":"0"})
 	 					 	$(this).contents().find("html,body").css({"margin":0,"padding":"0"})
 	 				    var iframeHeight=$(this).contents().find(".WordSection1").outerHeight(true); 
@@ -341,6 +337,8 @@ webkit-box-shadow:1px 1px 6px #606060;
 		},'json') 
 	})
 	
+
+	// iframe加载完成后加页码
 add_iframe_load()
 function add_iframe_load(){
 	  var all_iframe=0
@@ -355,9 +353,6 @@ function add_iframe_load(){
 	  })
 
 }
-
-
-
 	function add_xh_fn(){
 	var aar=[]
 	var arr_l=[]
@@ -365,13 +360,11 @@ function add_iframe_load(){
 		add_xh($(this).parent().next("div.XH"))
 	})
 	function add_xh(obj){
-			// console.log(obj.html())
 		if(obj.children().eq(0).length>0&&obj.children().eq(0).attr("class").indexOf("list")!=-1)
 		{
 			if(obj.attr("class").indexOf("page")==-1){
 			aar.push(obj)	
 			}
-			
 		}else{
 			arr_l.push(aar)
 			aar=[]
@@ -380,23 +373,18 @@ function add_iframe_load(){
 		add_xh(obj.next("div.XH"))
 	}
 
-	for(var i=0;i<arr_l.length;i++)
-	{
-	
-		for(var j=0;j<arr_l[i].length;j++){
-			var iframe_obj=arr_l[i][j].find("iframe").eq(0).contents().find("p").eq(0)
-			iframe_obj.html("<i class='number_xh'>"+(j+1)+".</i>"+iframe_obj.html())
+		for(var i=0;i<arr_l.length;i++)
+		{
+			for(var j=0;j<arr_l[i].length;j++){
+				var iframe_obj=arr_l[i][j].find("iframe").eq(0).contents().find("p").eq(0)
+				iframe_obj.html("<i class='number_xh'>"+(j+1)+".</i>"+iframe_obj.html())
+			}
 		}
 	}
 
 
 
-	}
-
-
-
 add_Page()
-
 function add_Page(){
 	var height=0
 	$("#box .conti").each(function(){
@@ -410,9 +398,7 @@ function add_Page(){
 
 	if($("#box .page:last").next("div.XH").length>0)
 	{
-		// console.log($("#box .page:last").next("div.XH").html())
 		$("#box .XH:last").after("<div class='XH page clear'><div class='list'>sadfasdfasdfasdfasdfsdf</div></div>")
-		// console.log($("#box .XH:last").html())
 	}
 
 	var all_page=$("#box .page").length
@@ -422,35 +408,6 @@ function add_Page(){
 }
 
 
-
-
-
-
-	//加排序标签
-	 // add_XH()
-	// function add_XH(){
-	// 	 $.each($("#box .conti"),function(i){
-	// 		  $(this).find(".conti").eq(0).html("<span class='xh'></span>"+$(this).find("p").eq(0).html())
-	// 	  })
-	// 	  sort_PX()
-	//  }
-	
-	/*题号排序  */
-	// function sort_PX(){
-	// 	 $.each($("#box .xh"),function(i){
-	// 		  $(this).html(i+1+".&nbsp;&nbsp;")
-	// 	  })
-	//  }
-	// pic_fR()
-	//  function pic_fR(){ 
-	// 	 $.each( $(".conti"),function(){
-	// 		$(this).find("p").eq(0).find("img").eq(0).css({float:"right"})
-			
-	// 	 })
-	//  }
-					// function ff(){
-					// 	return $(this).html()
-					// }	 
 
 					// 用来清除编制样式
 					function clear_warp(){
