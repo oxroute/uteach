@@ -363,7 +363,7 @@ function add_iframe_load(){
 		add_xh($(this).parent().next("div.conti"))
 	})
 	function add_xh(obj){
-			console.log(obj.children().eq(0).attr("class"))
+			console.log(obj.html())
 		if(obj.children().eq(0).length>0&&obj.children().eq(0).attr("class").indexOf("list")!=-1)
 		{
 			aar.push(obj)
