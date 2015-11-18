@@ -350,10 +350,7 @@ function add_iframe_load(){
 		  		++all_iframe
 		  		if(all_iframe== $("iframe").length)
 		  		{
-		  			// $("iframe").each(function(i){
-		  			// 		console.log($("#box").find("iframe").eq(i).contents().find("#box").html())
-		  				
-		  			// 	})
+
 		  		add_xh_fn()
 		  		// warp()
 		  		}
@@ -366,17 +363,11 @@ function add_iframe_load(){
 
 
 	function add_xh_fn(){
-
-
 	var aar=[]
-
 	var arr_l=[]
-
 	$("#box .classif").each(function(){
 		add_xh($(this).parent().next("div.conti"))
 	})
-
-
 	function add_xh(obj){
 			console.log(obj.children(0).attr("class"))
 		if(obj.children().length>0&&obj.children(0).attr("class").indexOf("list")!=-1)
@@ -408,40 +399,51 @@ function add_iframe_load(){
 
 
 
-function warp(){
-	var height=0
-	var arr=[]
-	var in_arr=[]
-	$("#box").find(".conti").each(function(i){
-		height+=$("#box").find(".conti").eq(i).outerHeight(true)
-		if(height<600){
-			in_arr.push($(this))
-		}else{
-			height=$("#box").find(".conti").eq(i).outerHeight(true)
-			arr.push(in_arr)
-			in_arr=[]
-			in_arr.push($("#box").find(".conti").eq(i))
+// function warp(){
+// 	var height=0
+// 	var arr=[]
+// 	var in_arr=[]
+// 	$("#box").find(".conti").each(function(i){
+// 		height+=$("#box").find(".conti").eq(i).outerHeight(true)
+// 		if(height<600){
+// 			in_arr.push($(this))
+// 		}else{
+// 			height=$("#box").find(".conti").eq(i).outerHeight(true)
+// 			arr.push(in_arr)
+// 			in_arr=[]
+// 			in_arr.push($("#box").find(".conti").eq(i))
 				
+// 		}
+// 	})
+// 	arr.push(in_arr)
+
+// 	for (var i = 0;i<arr.length;i++) {
+// 		$("#box").append("<div class='border_box'></div>")
+// 		for(var j=0;j<arr[i].length;j++)
+// 		{
+// 			$("#box .border_box").eq(i).append($("#box .conti").eq(0))
+// 		}
+// 	}
+
+
+// 	$(".border_box").each(function(i){
+// 		$(this).append("<p class='page_add'>"+$("#box .hed span").eq(1).text()+"&nbsp;&nbsp;&nbsp;&nbsp;第"+(i+1)+"页&nbsp;&nbsp;&nbsp;(共"+$(".border_box").length+"页)</p>")
+// 	})
+
+
+// }
+function add_Page(){
+	var height=0
+	$("#box .conti").each(function(){
+		height+=$(this).outerHeight(true)
+		if(height>600)
+		{	
+			height=$(this).outerHeight(true)
+
+			$(this).before("<div class='page'>sadfasdfasdfasdfasdfsdf</div>")
 		}
 	})
-	arr.push(in_arr)
-
-	for (var i = 0;i<arr.length;i++) {
-		$("#box").append("<div class='border_box'></div>")
-		for(var j=0;j<arr[i].length;j++)
-		{
-			$("#box .border_box").eq(i).append($("#box .conti").eq(0))
-		}
-	}
-
-
-	$(".border_box").each(function(i){
-		$(this).append("<p class='page_add'>"+$("#box .hed span").eq(1).text()+"&nbsp;&nbsp;&nbsp;&nbsp;第"+(i+1)+"页&nbsp;&nbsp;&nbsp;(共"+$(".border_box").length+"页)</p>")
-	})
-
-
 }
-
 
 
 
