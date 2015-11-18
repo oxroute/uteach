@@ -497,13 +497,15 @@ function add_Page(){
 											  event.stopPropagation();
 											  var now_xh=That1.find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").text()
 											  var next_xh=That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").text()
-									  	console.log(next_xh)
-											  	console.log(now_xh)
+									  
 											  if(That1.next("div.conti").find("div:first").attr("class")=="list"){
-											  	console.log(next_xh)
-											  	console.log(now_xh)
-											  	That1.find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").text(next_xh)
-											  	That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").text(now_xh)
+										
+											 var now_html=That1.find("iframe").eq(0).contents().find("p").eq(0).html()
+											 var next_html=That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).html()
+											 
+That1.find("iframe").eq(0).contents().find("p").eq(0).html("<i class='number_xh'>"+next_xh+".</i>"+now_html)
+That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).html("<i class='number_xh'>"+now_xh+".</i>"+next_html)
+
   												That1.next("div.conti").after(That1)
   											
   												  get_all_id()
