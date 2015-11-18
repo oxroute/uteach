@@ -133,14 +133,14 @@ webkit-box-shadow:1px 1px 6px #606060;
 <div class="warp">
     <div id="box">
 
-        <div class='conti'>
+        <div class='conti XH'>
             <div class="hed">
                 <span>{$epaper.header}</span>
                 <span>{$epaper.subject}</span>
             </div>
         </div>
 
-        <div class='conti'>
+        <div class='conti XH'>
             <div class="know">
                 <table border="1" cellspacing="0" cellpadding="0">
                     <tr style="background: none;">
@@ -160,7 +160,7 @@ webkit-box-shadow:1px 1px 6px #606060;
             </div>
         </div>
 
-        <div class='conti'>
+        <div class='conti XH'>
             <div class='type classif'>
                 <h5 class="title_one"><span>{$epaper.one_type|explodeStr0=###}</span><span>{$epaper.one_type|explodeStr2=###}</span></h5>
                 <h5 class="title_two">{$epaper.one_type|explodeStr1=###}（{$epaper.one_type|explodeStr3=###}）</h5>
@@ -169,7 +169,7 @@ webkit-box-shadow:1px 1px 6px #606060;
 
         <volist name="list.select" id="vo">
             <if condition="$vo.questions eq 选择题 ">
-                <div class='conti'>
+                <div class='conti XH'>
                     <div class="list">
                         <!--  <input  type='hidden'  class="weight" value="{$vo.weight}"> -->
                         <input  type='hidden'  class="testid" value="{$vo.id}">
@@ -185,7 +185,7 @@ webkit-box-shadow:1px 1px 6px #606060;
 
         <!-- 这个地方 有问题！！！！！！！！！！ -->
 
-        <div class='conti'>
+        <div class='conti XH'>
             <div class='type2 classif'>
                 <h5 class="title_one"><span>{$epaper.two_type|explodeStr0=###}</span><span>{$epaper.two_type|explodeStr2=###}</span></h5>
                 <h5 class="title_two">一、必答题（共30分）</h5>
@@ -196,7 +196,7 @@ webkit-box-shadow:1px 1px 6px #606060;
 
             <if condition="$vo.questions eq 填空题">
 
-                <div class='conti'>
+                <div class='conti XH'>
                     <div class="list">
                         <!-- <input  type='hidden'  class="weight" value="{$vo.weight}"> -->
                         <input  type='hidden'  class="testid" value="{$vo.id}">
@@ -210,7 +210,7 @@ webkit-box-shadow:1px 1px 6px #606060;
         </volist>
 
 
-        <div class='conti'>
+        <div class='conti XH'>
             <div class='type2'>
                 <h5 class="title_two">二、选答题（共20分。请在以下三个模块试题中任选一个模块试题作答，若选答了多个模块的试题，以所答第一模块的试题评分）</h5>
             </div>
@@ -218,13 +218,13 @@ webkit-box-shadow:1px 1px 6px #606060;
         <volist name="list.xuanxiu" id="volist">
             <volist name="volist" id="vo" key="k">
                 <if condition="$k == 1">
-                    <div class='conti'>
+                    <div class='conti XH'>
                         <div class='type2 classif'>
                             <h5 class="title_two">{$vo.fname}</h5>
                         </div>
                     </div>
                 </if>
-                <div class='conti'>
+                <div class='conti XH'>
                     <div class="list">
                         <!-- <input  type='hidden'  class="weight" value="{$vo.weight}"> -->
                         <input  type='hidden'  class="testid" value="{$vo.id}">
@@ -360,19 +360,22 @@ function add_iframe_load(){
 	var aar=[]
 	var arr_l=[]
 	$("#box .classif").each(function(){
-		add_xh($(this).parent().next("div.conti"))
+		add_xh($(this).parent().next("div.XH"))
 	})
 	function add_xh(obj){
 			console.log(obj.html())
 		if(obj.children().eq(0).length>0&&obj.children().eq(0).attr("class").indexOf("list")!=-1)
 		{
-			aar.push(obj)
+			if(obj.attr("class").indexOf("page")==-1){
+			aar.push(obj)	
+			}
+			
 		}else{
 			arr_l.push(aar)
 			aar=[]
 			return false;
 		}
-		add_xh(obj.next("div.conti"))
+		add_xh(obj.next("div.XH"))
 	}
 
 	for(var i=0;i<arr_l.length;i++)
