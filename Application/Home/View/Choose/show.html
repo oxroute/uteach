@@ -484,11 +484,10 @@ function add_Page(){
 											  event.stopPropagation();
 											  if(That1.prev().find("div:first").attr("class")=="list"){
   												That1.prev().before(That1)
-  												
   												  get_all_id()
   												  $.post('__URL__/get_all_id',{all_id:$("#all_id").val()})
 											  }
-											   add_iframe_load()
+											   add_xh_fn()
 											   add_Page()
 										  })
 
@@ -501,7 +500,7 @@ function add_Page(){
   												  get_all_id()
   												   $.post('__URL__/get_all_id',{all_id:$("#all_id").val()})
 											  }
-											  add_iframe_load()
+											  add_xh_fn()
 											  add_Page()
 										  })
 
@@ -553,8 +552,6 @@ function add_Page(){
 						console.log(43434)
 						return false
 					}
-
-
 				})
 
 				$(".conti .type2").parent().nextAll(".conti").each(function(i,v){
