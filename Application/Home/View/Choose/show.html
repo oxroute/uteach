@@ -21,7 +21,7 @@
 		//show页面  必要显示JS 文件
 
    	$("#box").height($(window).height()-$("#XX").outerHeight(true)-$(".title").outerHeight(true)-$("#foot").outerHeight(true)-30)
-   	$("#box").niceScroll({cursorborder:"",cursorcolor:"#3a3a3a",boxzoom:false,railoffset:true}); 
+   	$(".warp").niceScroll({cursorborder:"",cursorcolor:"#3a3a3a",boxzoom:false,railoffset:true}); 
 
 
 
@@ -64,7 +64,7 @@ var dfileUrl='{:U("Volume/delFile","","")}';
 </script>
 <style>
 .XH{}
-.page{width: 558px;margin: 0 auto;border-bottom: 1px solid #000000}
+.page{width: 558px;margin: 0 auto;border-bottom: 1px solid #000000;height: 40px;margin-bottom: 30px;}
 .page .list{font-size: 12px;text-align: right}
 .now_fengsu{display: inline-block;min-width: 20px;height: 16px;padding: 0 4px;text-align: center;}
 
@@ -365,7 +365,7 @@ function add_iframe_load(){
 		add_xh($(this).parent().next("div.XH"))
 	})
 	function add_xh(obj){
-			console.log(obj.html())
+			// console.log(obj.html())
 		if(obj.children().eq(0).length>0&&obj.children().eq(0).attr("class").indexOf("list")!=-1)
 		{
 			if(obj.attr("class").indexOf("page")==-1){
@@ -382,7 +382,7 @@ function add_iframe_load(){
 
 	for(var i=0;i<arr_l.length;i++)
 	{
-		console.log( arr_l[i])
+	
 		for(var j=0;j<arr_l[i].length;j++){
 			var iframe_obj=arr_l[i][j].find("iframe").eq(0).contents().find("p").eq(0)
 			iframe_obj.html("<i class='number_xh'>"+(j+1)+".</i>"+iframe_obj.html())
@@ -401,7 +401,7 @@ function add_Page(){
 	var height=0
 	$("#box .conti").each(function(){
 		height+=$(this).outerHeight(true)
-		if(height>600)
+		if(height>700)
 		{	
 			height=$(this).outerHeight(true)
 			$(this).before("<div class='XH page'><div class='list'>sadfasdfasdfasdfasdfsdf</div></div>")
@@ -410,7 +410,9 @@ function add_Page(){
 
 	if($("#box .page:list").next("div.XH").length>0)
 	{
+		console.log($("#box .page:list").next("div.XH").html())
 		$("#box .XH:list").after("<div class='XH page'><div class='list'>sadfasdfasdfasdfasdfsdf</div></div>")
+		console.log($("#box .XH:list").html())
 	}
 
 	var all_page=$("#box .page").length
