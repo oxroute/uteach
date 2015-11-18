@@ -526,7 +526,7 @@ function add_Page(){
 												// 	That1.prev("div.conti").find("iframe").eq(0).contents().find("p").eq(0).html("<i class='number_xh'>"+now_xh+".</i>"+next_html)
 												// })
 
-That1.prev("div.conti iframe").on("load",function(){
+That1.prev("div.conti").find("iframe").on("load",function(){
 location.reload() 
 })
   												
