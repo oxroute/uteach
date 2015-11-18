@@ -257,7 +257,6 @@ webkit-box-shadow:1px 1px 6px #606060;
 		          <div class="popu_text">
 		          		您是要保存“{$epaper.header}”吗？
 		          </div>
-
 		        <div class="demobtn">
 		        	<a href="javascript:void(0);" class="no">取消</a>
 		              <a href="javascript:void(0);" class="yes">保存</a>
@@ -282,10 +281,6 @@ webkit-box-shadow:1px 1px 6px #606060;
 </div>
 <!-- 试卷头设置 end -->
 <div id="foot">
-<!-- <div id="yema">
-	<p><span>化学试卷</span>第<span id="now_page_one"></span>页(共<span class="shijiu_all_page"></span>页)</p>
-	<p><span>化学试卷</span>第<span id="now_page_two"></span>页(共<span class="shijiu_all_page"></span>页)</p>
-</div> -->
   <ul>
     <li class="logo_f">uTeach</li>
     <li class="nav_f"><a href="{:U('Volume/index')}" style="color:#a5dba7">会考</a></li>
@@ -443,10 +438,10 @@ function add_Page(){
 							}else if($(this).find("div:first").attr("class")=="know"){
 									$(this).addClass("greendi")
 									$(this).append(" <a class='revisebut' onclick='parent.open(\"__CONTROLLER__/know/id/{$epaper.id}\",\"考生须知\",600,400)'>修改</a>")
-							}else if($(this).find("div:first").attr("class")=="type"){
+							}else if($(this).find("div:first").attr("class").indexOf("type")!=-1){
 								$(this).addClass("greendi")
 								$(this).append(" <a class='revisebut' onclick='parent.open(\"__CONTROLLER__/alert_type/id/{$epaper.id}\",\"试题设置\",600,400)'>修改</a>")
-							}else if($(this).find("div:first").attr("class")=="type2"){
+							}else if($(this).find("div:first").attr("class").indexOf("type2")!=-1){
 								$(this).addClass("greendi")
 								$(this).append(" <a class='revisebut' onclick='parent.open(\"__CONTROLLER__/alert_type2/id/{$epaper.id}\",\"试题设置\",600,400)'>修改</a>")
 							}else{
@@ -524,7 +519,6 @@ function add_Page(){
 			 // 获取试题ID
 				get_all_id()
 			 	function get_all_id(){
-			 		
 			 		var all_id_html=""
 			 		$("#box .testid").each(function(){
 			 			all_id_html+=$(this).val()+','
