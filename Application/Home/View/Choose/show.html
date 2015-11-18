@@ -75,8 +75,6 @@ box-shadow: 1px 1px 6px #606060;
 webkit-box-shadow:1px 1px 6px #606060;
 -moz-box-shadow:1px 1px 6px #606060;}
 
-
-
 #show1 ul{display: block;height:100%;border:1px solid #eee;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;padding: 10px 8px 10px 8px}
 #show1 ul li{float: left;margin: 10px 0;}
 #show1 ul li a{width: 92px;display: block;}
@@ -134,7 +132,6 @@ webkit-box-shadow:1px 1px 6px #606060;
 </div>
 <div class="warp">
     <div id="box">
-
         <div class='conti XH'>
             <div class="hed">
                 <span>{$epaper.header}</span>
@@ -187,8 +184,8 @@ webkit-box-shadow:1px 1px 6px #606060;
 
         <!-- 这个地方 有问题！！！！！！！！！！ -->
 
-        <div class='conti XH'>
-            <div class='type2 classif'>
+        <div class='conti XH no_choose_question'>
+            <div class='type2 classif '>
                 <h5 class="title_one"><span>{$epaper.two_type|explodeStr0=###}</span><span>{$epaper.two_type|explodeStr2=###}</span></h5>
                 <h5 class="title_two">一、必答题（共30分）</h5>
             </div>
@@ -337,11 +334,11 @@ webkit-box-shadow:1px 1px 6px #606060;
 add_iframe_load()
 function add_iframe_load(){
 	  var all_iframe=0
-	  console.log(434348888888888888888888888883)
+
 	  $("iframe").each(function(){ 
-	  		console.log(434348888888888888888888888883)
+
 		  	$(this).on("load",function(){
-		  			console.log(434343)
+
 		  		++all_iframe
 		  		if(all_iframe== $("iframe").length)
 		  		{
@@ -388,7 +385,7 @@ $("#box iframe").each(function(){
 
 
 
-
+// 加页码函数
 function add_Page(){
 	var height=0
 	$("#box .page").remove()
@@ -412,7 +409,14 @@ function add_Page(){
 		$(this).find(".list").html($("#box .hed span").eq(1).text()+"&nbsp;&nbsp;&nbsp;&nbsp;第"+(i+1)+"页(共"+all_page+"页)")
 	})
 }
-
+// 加分数函数
+function add_fengshu(){
+	$("#box .no_choose_question").nextAll().each(function(){
+		if($(this).find("div:first").attr("class")=="list"&&$(this).attr("class").indexOf("conti")!=-1){
+			$(this).find("iframe").eq(0).contents().find("number_xh").after("<a href='###' class='now_fengsu'>3分</a>")
+		}
+	})
+}
 
 
 					// 用来清除编制样式
@@ -495,6 +499,10 @@ function add_Page(){
 											  event.stopPropagation();
 											  if(That1.prev().find("div:first").attr("class")=="list"){
   												That1.prev().before(That1)
+  												That1.find("iframe").on("load",function(){
+													console.log(3333)
+													location.reload() 
+													})
   												  get_all_id()
   												  $.post('__URL__/get_all_id',{all_id:$("#all_id").val()})
 											  }
