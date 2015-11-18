@@ -500,11 +500,11 @@ function add_Page(){
 											  var next_xh=That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").text()
 									 			
 											  if(That1.next("div.conti").find("div:first").attr("class")=="list"){
-										
+											That1.find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").remove()
+											That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").remove()
 											 var now_html=That1.find("iframe").eq(0).contents().find("p").eq(0).html()
 											 var next_html=That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).html()
-											 That1.find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").remove()
-											 That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").remove()
+											
 											 console.log(now_html)
 											 console.log(next_html)
 											 console.log(now_xh)
