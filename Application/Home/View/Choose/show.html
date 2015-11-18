@@ -484,7 +484,7 @@ function add_Page(){
 											  event.stopPropagation();
 											  if(That1.prev().find("div:first").attr("class")=="list"){
   												That1.prev().before(That1)
-  												  sort_PX()
+  												
   												  get_all_id()
   												  $.post('__URL__/get_all_id',{all_id:$("#all_id").val()})
 											  }
@@ -497,7 +497,7 @@ function add_Page(){
 
 											  if(That1.next().find("div:first").attr("class")=="list"){
   												That1.next().after(That1)
-  												  sort_PX()
+  											
   												  get_all_id()
   												   $.post('__URL__/get_all_id',{all_id:$("#all_id").val()})
 											  }
