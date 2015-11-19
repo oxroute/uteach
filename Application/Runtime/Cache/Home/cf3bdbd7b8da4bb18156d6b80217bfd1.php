@@ -156,10 +156,27 @@ $(function(){
 			<dl class="li_3_content">
 				<img src="/Public/images/index/dot1.png" width="23"height="12"class="Triangle_con"/>
 				<p style="padding-top: 10px;">
-					<span>选择题：</span><em class="subnavg"><?php echo ($Xcount); ?> </em>/25<!-- <span id="feng_one" class="fengsu">30分<span> -->
+					<span>选择题：</span><em class="subnavg" id="total_xz"><?php if($Xcount == '' ): ?>0<?php else: echo ($Xcount); endif; ?> </em>/25
+				</p>
+	<!-- 			<p>
+					<span>非选择题</span><em class="subnavg" id="total_fxz"><?php echo ($count - $Xcount); ?></em>/25
+				</p> -->
+				<p>
+					<span>必答题：</span><em class="subnavg" id="">0</em>/25
+				</p>
+
+	<!-- 			<p>
+					<span>(2)选答题</span><em class="subnavg" id="">0</em>/25
+				</p> -->
+				<p>
+					<span>《化学与生活》：</span><em class="subnavg" id="">0</em>/25
 				</p>
 				<p>
-					<span>非选择题：</span><em class="subnavg"><?php echo ($count - $Xcount); ?> </em>/25<!-- <span id="feng_one" class="fengsu">30分<span> -->
+					<span>《有机化学基础》：</span><em class="subnavg" id="">0</em>/25
+				</p>
+
+				<p>
+					<span>《化学反应原理》：</span><em class="subnavg" id="">0</em>/25
 				</p>
 	<!-- 			<p>
 					简答题：<em class="subnavg"><?php if($Jcount == '' ): ?>0<?php else: echo ($Jcount); endif; ?></em>/25<span id="feng_one" class="fengsu">30分<span>
@@ -188,7 +205,7 @@ $(function(){
 
 <div class="title">
 	<img src="/Public/images/jt.png" /><a href="<?php echo U('index', array('id' => I('get.epaperId')));?>">返回</a>
-	<input type="hidden" id="epaperId" value="<?php echo ($epaper["id"]); ?>"/><?php echo ($epaper["header"]); ?><span><?php echo ($epaper["subject"]); ?></span>
+	<input type="hidden" id="epaperId" value="<?php echo ($epaper["id"]); ?>"/><span class="title_middle"><?php echo ($epaper["header"]); ?><span><?php echo ($epaper["subject"]); ?></span></span>
 </div>
 <div class="warp">
     <div id="box">

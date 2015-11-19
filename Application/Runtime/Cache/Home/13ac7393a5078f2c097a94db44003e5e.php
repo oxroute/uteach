@@ -22,51 +22,51 @@
 <script type="text/javascript" src="/Public/js/velocity.ui.min.js"></script>
 <script type="text/javascript">
    $(document).ready(function() {
-  		var nice = $("html").niceScroll();  // The document page (body)
-    	$(".mainbody").niceScroll({cursorborder:"",cursorcolor:"#3a3a3a",boxzoom:false});
+      var nice = $("html").niceScroll();  // The document page (body)
+      $(".mainbody").niceScroll({cursorborder:"",cursorcolor:"#3a3a3a",boxzoom:false});
    
    function clone_element(obj,obj1){
-   		var width_num=obj.width()
-   	if(obj1.attr("class")=="add"){
-   	var left_num=obj.position().left
-   	var top_num=obj.position().top
+      var width_num=obj.width()
+    if(obj1.attr("class")=="add"){
+    var left_num=obj.position().left
+    var top_num=obj.position().top
  
-   	$(".clone_style").remove()
-   		var ff=obj.clone()
-   		ff.addClass("clone_style").css({"position":"absolute","width":width_num,'top':top_num})
-   		$(".mainbody").append(ff)
-   		$.Velocity.RegisterEffect('lixin.div',{
-   			defaultDuration:1000,
-   			calls:[
-   					[{translateY:[-(top_num+80-$(window).scrollTop()),0],translateX:[width_num/2.4,0],scaleX:[0,1],scaleY:[0,1]}]
-   			]
-   		})
-   			var seq=[
-   			{
-   				elements:$(".clone_style"),
-   				properties:'lixin.div',
-   				options:{duration:900}   
-   			}
-   			]
-   		$.Velocity.RunSequence(seq)
-   		  }else if(obj1.attr("class")=="subtract"){
-   		
-   		  }
+    $(".clone_style").remove()
+      var ff=obj.clone()
+      ff.addClass("clone_style").css({"position":"absolute","width":width_num,'top':top_num})
+      $(".mainbody").append(ff)
+      $.Velocity.RegisterEffect('lixin.div',{
+        defaultDuration:1000,
+        calls:[
+            [{translateY:[-(top_num+80-$(window).scrollTop()),0],translateX:[width_num/2.4,0],scaleX:[0,1],scaleY:[0,1]}]
+        ]
+      })
+        var seq=[
+        {
+          elements:$(".clone_style"),
+          properties:'lixin.div',
+          options:{duration:900}   
+        }
+        ]
+      $.Velocity.RunSequence(seq)
+        }else if(obj1.attr("class")=="subtract"){
+      
+        }
    }
-		$(document).on("click",".add", function(){
-			clone_element($(this).parent().parent(),$(this))
-			var That=this;
-			$.get('/index.php/Home/Choose/addId',{id:$(this).parent().parent().find('.id').val()},function(data){
-				if (data.status == 1) {
-					$(That).parent().parent().removeClass('mainlist').addClass('mainlistg');
-					$(That).removeClass('add').addClass('subtract').val("移除");
-				    $(That).parent().find('.yulianadd').hide();
-					$(That).parent().find('.yuliansubtract').show();
-					$(That).parent().parent().find('.show_left').removeClass('show_left').addClass('show').hide();
-					$(That).parent().parent().find('.checked_left').removeClass('checked_left').addClass('checked').show();
-					 // window.top.location.reload()  
-			        // var oldValue=parseInt($(window.top.document).find(".count1").text()); //取出现在的值，并使用parseInt转为int类型数据
-			        // oldValue++   //自加1
+    $(document).on("click",".add", function(){
+      clone_element($(this).parent().parent(),$(this))
+      var That=this;
+      $.get('/index.php/Home/Choose/addId',{id:$(this).parent().parent().find('.id').val()},function(data){
+        if (data.status == 1) {
+          $(That).parent().parent().removeClass('mainlist').addClass('mainlistg');
+          $(That).removeClass('add').addClass('subtract').val("移除");
+            $(That).parent().find('.yulianadd').hide();
+          $(That).parent().find('.yuliansubtract').show();
+          $(That).parent().parent().find('.show_left').removeClass('show_left').addClass('show').hide();
+          $(That).parent().parent().find('.checked_left').removeClass('checked_left').addClass('checked').show();
+           // window.top.location.reload()  
+              // var oldValue=parseInt($(window.top.document).find(".count1").text()); //取出现在的值，并使用parseInt转为int类型数据
+              // oldValue++   //自加1
                                 var count = 0;
                                 var xcount = 0;
                                 if (data.data) {
@@ -78,17 +78,17 @@
                                  $(window.top.document).find("#total_xz").html(xcount);
                                $(window.top.document).find("#total_fxz").html(count - xcount);
                                $(window.top.document).find(".count2").html(count);
-			        // $(window.top.document).find(".count1").text(oldValue)  //将增加后的值付给控件
-			        // var oldValue=parseInt($(window.top.document).find(".count2").text()); //取出现在的值，并使用parseInt转为int类型数据
-			        // oldValue++   //自加1
-			        // $(window.top.document).find(".count2").text(oldValue)  //将增加后的值付给控件
-				} else {
-					// alert('新增失败');
-				}
-				return false;
-			},'json');
-		});
-	$(document).on("click", ".subtract", function(){
+              // $(window.top.document).find(".count1").text(oldValue)  //将增加后的值付给控件
+              // var oldValue=parseInt($(window.top.document).find(".count2").text()); //取出现在的值，并使用parseInt转为int类型数据
+              // oldValue++   //自加1
+              // $(window.top.document).find(".count2").text(oldValue)  //将增加后的值付给控件
+        } else {
+          // alert('新增失败');
+        }
+        return false;
+      },'json');
+    });
+  $(document).on("click", ".subtract", function(){
 
 var That=this;
     var obj=$(this).parent().parent()
@@ -142,31 +142,31 @@ var That=this;
             }
         });
 
-	});
+  });
 
    })
 
    function open(myurl,tit,w,h){
     var dg = $.dialog({
-    	id: 'mydiv',
-    	lock: true,
-    	width : w,
-    	height : h,
-    	title : tit,
-    	cache:true,
-    	min:true,
-    	resize:true,
+      id: 'mydiv',
+      lock: true,
+      width : w,
+      height : h,
+      title : tit,
+      cache:true,
+      min:true,
+      resize:true,
     extendDrag:true,
-    	content: 'url:'+ myurl
-    	});
-    	dg.ShowDialog();
+      content: 'url:'+ myurl
+      });
+      dg.ShowDialog();
     }
-	function R_alert(msg) {
-	    close();
+  function R_alert(msg) {
+      close();
           // window.location.href = '/index.php/Home/Choose';
-	    $.dialog.tips(msg,2,'/Public/images/loading.gif');
-	   $('#right_bt').attr("src",$('#right_bt').attr("src"))
-	}
+      $.dialog.tips(msg,2,'/Public/images/loading.gif');
+     $('#right_bt').attr("src",$('#right_bt').attr("src"))
+  }
 
      function close() {
       $.dialog.list['mydiv'].close()
@@ -182,24 +182,24 @@ var That=this;
        <input style="display:none" type="button" class="yulianadd" value="预览" onclick="parent.open('/index.php/Home/Choose/alert_preview/id/<?php echo ($vo["id"]); ?>','添加预览',900,600);">
      </div>
      <?php if($vo["questions"] == 填空题): ?><img class="show biao" src="/Public/images/tianb.png"/>
-	   		<img style="dispaly:none"class="checked biao" src="/Public/images/tiangray.png"/>
-   		<?php elseif($vo["questions"] == 选择题): ?> 
-	   		<img class="show biao" src="/Public/images/xuan.png"/>
-	   		<img style="dispaly:none"class="checked biao" src="/Public/images/xuangray.png"/>
-   		<?php else: ?>
-   			<img class="show biao" src="/Public/images/jian.png"/>
-   			<img style="dispaly:none" class="checked biao" src="/Public/images/jiangray.png"/><?php endif; ?>
+        <img style="dispaly:none"class="checked biao" src="/Public/images/tiangray.png"/>
+      <?php elseif($vo["questions"] == 选择题): ?> 
+        <img class="show biao" src="/Public/images/xuan.png"/>
+        <img style="dispaly:none"class="checked biao" src="/Public/images/xuangray.png"/>
+      <?php else: ?>
+        <img class="show biao" src="/Public/images/jian.png"/>
+        <img style="dispaly:none" class="checked biao" src="/Public/images/jiangray.png"/><?php endif; ?>
      
      <input type="hidden" name="id" class="id" value="<?php echo ($vo["id"]); ?>"/>
-     <div>
-         <iframe  src="/Word/doc/<?php echo ($_SESSION['uid']); ?>/<?php echo (date('Ymd',$vo["wtime"])); ?>/<?php echo ($vo["test"]); ?>.htm" frameborder="0" height="90" width="100%" scrolling="no"></iframe>
+     <div >
+         <iframe  src="http://www.baidu.com" frameborder="0" height="75px" style="width: calc(100% - 80px);" scrolling="no"></iframe>
 
      </div>
  </div>
-		
+    
 <?php else: ?>
-	<div class="mainlist">
-		
+  <div class="mainlist">
+    
       <div class="zj_btn" >
         <input type="button" class="add" value="添加">
         <input type="button" class="yuliansubtract" value="预览" onclick="parent.open('/index.php/Home/Choose/alert_edit/id/<?php echo ($vo["id"]); ?>','移除预览',900,600);" style="display:none">
@@ -207,6 +207,7 @@ var That=this;
       </div>
 
 
+<<<<<<< HEAD
    		<?php if($vo["questions"] == 填空题): ?><img class="show_left biao" src="/Public/images/tianb.png"/>
 	   		<img style="dispaly:none"class="checked_left biao" src="/Public/images/tiangray.png"/>
    		<?php elseif($vo["questions"] == 选择题): ?> 
@@ -217,8 +218,27 @@ var That=this;
    			<img style="dispaly:none" class="checked_left biao" src="/Public/images/jiangray.png"/><?php endif; ?>
    		<input type="hidden" name="id" class="id" value="<?php echo ($vo["id"]); ?>"/>
    		
+<<<<<<< HEAD
        <div>
            <!-- <iframe  src="/Word/doc/<?php echo ($_SESSION['uid']); ?>/<?php echo (date('Ymd',$vo["wtime"])); ?>/<?php echo ($vo["test"]); ?>.htm" frameborder="0" height="90" width="100%" scrolling="no"></iframe> -->
+=======
+       <div style="widht:88%">
+           <iframe  src="/Word/doc/<?php echo ($_SESSION['uid']); ?>/<?php echo (date('Ymd',$vo["wtime"])); ?>/<?php echo ($vo["test"]); ?>.htm" frameborder="0" height="75px" style="width: calc(100% - 80px);" scrolling="no"></iframe>
+>>>>>>> 0478d3a1294af403f489520e0b0494b606a81501
+=======
+      <?php if($vo["questions"] == 填空题): ?><img class="show_left biao" src="/Public/images/tianb.png"/>
+        <img style="dispaly:none"class="checked_left biao" src="/Public/images/tiangray.png"/>
+      <?php elseif($vo["questions"] == 选择题): ?> 
+        <img class="show_left biao" src="/Public/images/xuan.png"/>
+        <img style="dispaly:none"class="checked_left biao" src="/Public/images/xuangray.png"/>
+      <?php else: ?>
+        <img class="show_left biao" src="/Public/images/jian.png"/>
+        <img style="dispaly:none" class="checked_left biao" src="/Public/images/jiangray.png"/><?php endif; ?>
+      <input type="hidden" name="id" class="id" value="<?php echo ($vo["id"]); ?>"/>
+      
+       <div>
+           <iframe  src="/Word/doc/<?php echo ($_SESSION['uid']); ?>/<?php echo (date('Ymd',$vo["wtime"])); ?>/<?php echo ($vo["test"]); ?>.htm" frameborder="0" height="90" width="100%" scrolling="no"></iframe>
+>>>>>>> 1ef2ff48f9ade52f9bd3281639cabcdd987b4e59
 
        </div>
      </div><?php endif; endforeach; endif; else: echo "" ;endif; ?>
@@ -231,54 +251,54 @@ var That=this;
 </div>
 
 <script>
-	$(function(){
-		 $(document).click(function (event){ 
-		 	var window_iframe=$(window.parent.document.body)
+  $(function(){
+     $(document).click(function (event){ 
+      var window_iframe=$(window.parent.document.body)
 
-						// 组卷左上角的下拉
-			window_iframe.find('#show1').hide(300);
-			window_iframe.find('#zhujiu_set').attr("SH_HUI",true)
-			window_iframe.find('#zhujiu_set').css({background : "url('/Public/images/index/z_dot1.png') no-repeat scroll right center,url('/Public/images/zhujiu_logo.png') no-repeat scroll left center"})
+            // 组卷左上角的下拉
+      window_iframe.find('#show1').hide(300);
+      window_iframe.find('#zhujiu_set').attr("SH_HUI",true)
+      window_iframe.find('#zhujiu_set').css({background : "url('/Public/images/index/z_dot1.png') no-repeat scroll right center,url('/Public/images/zhujiu_logo.png') no-repeat scroll left center"})
 
-			// 组卷模块
-			window_iframe.find("#zhujiun_xuti").attr("SH_XUANTI",true);
-			window_iframe.find(".chem_list").slideUp(300);
+      // 组卷模块
+      window_iframe.find("#zhujiun_xuti").attr("SH_XUANTI",true);
+      window_iframe.find(".chem_list").slideUp(300);
 
-			window_iframe.find('.nr_green span').attr("SH_NAME",true)
-			window_iframe.find('.set').slideUp(300);
-			window_iframe.find('.nr_green span').css({background : "url('/Public/images/index/name_up.png') no-repeat right center"})
-
-
-			// 题型 难度   出题人 收起
-			window_iframe.find("#subnav .mainlevel").each(function(){
-				$(this).attr("SH_XUANZHE", true)
-				$(this).find("ul").slideUp(300)
-			})
+      window_iframe.find('.nr_green span').attr("SH_NAME",true)
+      window_iframe.find('.set').slideUp(300);
+      window_iframe.find('.nr_green span').css({background : "url('/Public/images/index/name_up.png') no-repeat right center"})
 
 
-
-				if (window_iframe.find("#zhuju_lian_input").val() != "") {
-					window_iframe.find(".zhuju_header").html(window_iframe.find("#zhuju_lian_input").val())
-						
-				} else {
-					window_iframe.find(".zhuju_header").html("来源")
-				}
-
-				if (window_iframe.find(".zhuju_header").html() !== "来源") {
-					window_iframe.find(".zhuju_header").addClass("active")
-				} else {
-					window_iframe.find(".zhuju_header").removeClass("active")
-				}
-				window_iframe.find(".zhuju_header").show()
-				window_iframe.find("#zhuju_lian_input").hide()
-			
+      // 题型 难度   出题人 收起
+      window_iframe.find("#subnav .mainlevel").each(function(){
+        $(this).attr("SH_XUANZHE", true)
+        $(this).find("ul").slideUp(300)
+      })
 
 
 
+        if (window_iframe.find("#zhuju_lian_input").val() != "") {
+          window_iframe.find(".zhuju_header").html(window_iframe.find("#zhuju_lian_input").val())
+            
+        } else {
+          window_iframe.find(".zhuju_header").html("来源")
+        }
+
+        if (window_iframe.find(".zhuju_header").html() !== "来源") {
+          window_iframe.find(".zhuju_header").addClass("active")
+        } else {
+          window_iframe.find(".zhuju_header").removeClass("active")
+        }
+        window_iframe.find(".zhuju_header").show()
+        window_iframe.find("#zhuju_lian_input").hide()
+      
 
 
-		});
-	})
+
+
+
+    });
+  })
 </script>
 </body>
 </html>

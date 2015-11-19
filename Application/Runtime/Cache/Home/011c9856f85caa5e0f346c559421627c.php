@@ -159,8 +159,25 @@ $(function(){
 				<p style="padding-top: 10px;">
 					<span>选择题：</span><em class="subnavg" id="total_xz"><?php if($Xcount == '' ): ?>0<?php else: echo ($Xcount); endif; ?> </em>/25
 				</p>
+<!-- 				<p tyle="display:block">
+					<span>非选择题</span><em class="subnavg" id="total_fxz"><?php echo ($count - $Xcount); ?></em>/25
+				</p> -->
 				<p>
-					<span>非选择题：</span><em class="subnavg" id="total_fxz"><?php echo ($count - $Xcount); ?></em>/25
+					<span>必答题：</span><em class="subnavg" id="">0</em>/25
+				</p>
+
+	<!-- 			<p>
+					<span>(2)选答题</span><em class="subnavg" id="">0</em>/25
+				</p> -->
+				<p>
+					<span>《化学与生活》：</span><em class="subnavg" id="">0</em>/25
+				</p>
+				<p>
+					<span>《有机化学基础》：</span><em class="subnavg" id="">0</em>/25
+				</p>
+
+				<p>
+					<span>《化学反应原理》：</span><em class="subnavg" id="">0</em>/25
 				</p>
 <!-- 				<p>
 					简答题：<em class="subnavg"><?php if($Jcount == '' ): ?>0<?php else: echo ($Jcount); endif; ?></em>/25
