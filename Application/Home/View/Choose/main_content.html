@@ -175,7 +175,62 @@ var That=this;
 </head>
 <body style="background:rgba(236, 231, 231, 0.17) none repeat scroll 0% 0%;margin:3px;">
 <div class="mainbody">
+<volist name="list" id="vo">
+<in name="vo.id" value="$Think.session.testid">
+<div class="mainlistg">
+     <div class="zj_btn">
+       <input type="button" class="subtract"  value="移除">
+       <input type="button" class="yuliansubtract" value="预览" onclick="parent.open('__CONTROLLER__/alert_edit/id/{$vo.id}','移除预览',900,600);">
+       <input style="display:none" type="button" class="yulianadd" value="预览" onclick="parent.open('__CONTROLLER__/alert_preview/id/{$vo.id}','添加预览',900,600);">
+     </div>
+     <if condition="$vo.questions eq 填空题">
+        <img class="show biao" src="__PUBLIC__/images/tianb.png"/>
+        <img style="dispaly:none"class="checked biao" src="__PUBLIC__/images/tiangray.png"/>
+      <elseif condition="$vo.questions eq 选择题"/> 
+        <img class="show biao" src="__PUBLIC__/images/xuan.png"/>
+        <img style="dispaly:none"class="checked biao" src="__PUBLIC__/images/xuangray.png"/>
+      <else/>
+        <img class="show biao" src="__PUBLIC__/images/jian.png"/>
+        <img style="dispaly:none" class="checked biao" src="__PUBLIC__/images/jiangray.png"/>
+    </if>
+     
+     <input type="hidden" name="id" class="id" value="{$vo.id}"/>
+     <div style="background:red">
+        <iframe  src="/Word/doc/{$_SESSION['uid']}/{$vo.wtime|date='Ymd',###}/{$vo.test}.htm" frameborder="0" height="90" width="100%" scrolling="no"></iframe>
 
+     </div>
+ </div>
+    
+<else/>
+  <div class="mainlist">
+    
+      <div class="zj_btn" >
+        <input type="button" class="add" value="添加">
+        <input type="button" class="yuliansubtract" value="预览" onclick="parent.open('__CONTROLLER__/alert_edit/id/{$vo.id}','移除预览',900,600);" style="display:none">
+        <input type="button" class="yulianadd" value="预览" onclick="parent.open('__CONTROLLER__/alert_preview/id/{$vo.id}','添加预览',900,600);">
+      </div>
+
+
+      <if condition="$vo.questions eq 填空题">
+        <img class="show_left biao" src="__PUBLIC__/images/tianb.png"/>
+        <img style="dispaly:none"class="checked_left biao" src="__PUBLIC__/images/tiangray.png"/>
+      <elseif condition="$vo.questions eq 选择题"/> 
+        <img class="show_left biao" src="__PUBLIC__/images/xuan.png"/>
+        <img style="dispaly:none"class="checked_left biao" src="__PUBLIC__/images/xuangray.png"/>
+      <else/>
+        <img class="show_left biao" src="__PUBLIC__/images/jian.png"/>
+        <img style="dispaly:none" class="checked_left biao" src="__PUBLIC__/images/jiangray.png"/>
+      </if>
+      <input type="hidden" name="id" class="id" value="{$vo.id}"/>
+      
+       <div>
+           <iframe  src="/Word/doc/{$_SESSION['uid']}/{$vo.wtime|date='Ymd',###}/{$vo.test}.htm" frameborder="0" height="90" width="100%" scrolling="no"></iframe>
+
+       </div>
+     </div>   
+ 
+</in>
+</volist>
 <!-- <div class="pagnation" id="pagnation" style="border:none;">{$page}</div>
 
 </div> -->
