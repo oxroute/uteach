@@ -35,27 +35,10 @@ $(function(){
 			<dl class="li_3_content">
 				<img src="__PUBLIC__/images/index/dot1.png" width="23"height="12"class="Triangle_con"/>
 				<p style="padding-top: 10px;">
-					<span>选择题：</span><em class="subnavg" id="total_xz"><if condition="$Xcount eq '' ">0<else/>{$Xcount}</if> </em>/25
-				</p>
-	<!-- 			<p>
-					<span>非选择题</span><em class="subnavg" id="total_fxz">{$count - $Xcount}</em>/25
-				</p> -->
-				<p>
-					<span>必答题：</span><em class="subnavg" id="">0</em>/25
-				</p>
-
-	<!-- 			<p>
-					<span>(2)选答题</span><em class="subnavg" id="">0</em>/25
-				</p> -->
-				<p>
-					<span>《化学与生活》：</span><em class="subnavg" id="">0</em>/25
+					<span>选择题：</span><em class="subnavg">{$Xcount} </em>/25<!-- <span id="feng_one" class="fengsu">30分<span> -->
 				</p>
 				<p>
-					<span>《有机化学基础》：</span><em class="subnavg" id="">0</em>/25
-				</p>
-
-				<p>
-					<span>《化学反应原理》：</span><em class="subnavg" id="">0</em>/25
+					<span>非选择题：</span><em class="subnavg">{$count - $Xcount} </em>/25<!-- <span id="feng_one" class="fengsu">30分<span> -->
 				</p>
 	<!-- 			<p>
 					简答题：<em class="subnavg"><if condition="$Jcount eq '' ">0<else/>{$Jcount}</if></em>/25<span id="feng_one" class="fengsu">30分<span>
