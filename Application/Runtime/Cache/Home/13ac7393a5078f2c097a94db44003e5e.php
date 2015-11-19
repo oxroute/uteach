@@ -175,25 +175,8 @@ var That=this;
 </head>
 <body style="background:rgba(236, 231, 231, 0.17) none repeat scroll 0% 0%;margin:3px;">
 <div class="mainbody">
-<?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; if(in_array(($vo["id"]), is_array($_SESSION['testid'])?$_SESSION['testid']:explode(',',$_SESSION['testid']))): ?><div class="mainlistg">
-     <div class="zj_btn">
-       <input type="button" class="subtract"  value="移除">
-       <input type="button" class="yuliansubtract" value="预览" onclick="parent.open('/index.php/Home/Choose/alert_edit/id/<?php echo ($vo["id"]); ?>','移除预览',900,600);">
-       <input style="display:none" type="button" class="yulianadd" value="预览" onclick="parent.open('/index.php/Home/Choose/alert_preview/id/<?php echo ($vo["id"]); ?>','添加预览',900,600);">
-     </div>
-     <?php if($vo["questions"] == 填空题): ?><img class="show biao" src="/Public/images/tianb.png"/>
-        <img style="dispaly:none"class="checked biao" src="/Public/images/tiangray.png"/>
-      <?php elseif($vo["questions"] == 选择题): ?> 
-        <img class="show biao" src="/Public/images/xuan.png"/>
-        <img style="dispaly:none"class="checked biao" src="/Public/images/xuangray.png"/>
-      <?php else: ?>
-        <img class="show biao" src="/Public/images/jian.png"/>
-        <img style="dispaly:none" class="checked biao" src="/Public/images/jiangray.png"/><?php endif; ?>
-     
-     <input type="hidden" name="id" class="id" value="<?php echo ($vo["id"]); ?>"/>
-     <div >
-         <iframe  src="http://www.baidu.com" frameborder="0" height="75px" style="width: calc(100% - 80px);" scrolling="no"></iframe>
 
+<<<<<<< HEAD
      </div>
  </div>
     
@@ -241,7 +224,12 @@ var That=this;
 >>>>>>> 1ef2ff48f9ade52f9bd3281639cabcdd987b4e59
 
        </div>
-     </div><?php endif; endforeach; endif; else: echo "" ;endif; ?>
+     </div>   
+ 
+</in>
+</volist>
+=======
+>>>>>>> b0e7b8ba1d85aacf4c92126be5db82a98fd954e4
 <!-- <div class="pagnation" id="pagnation" style="border:none;"><?php echo ($page); ?></div>
 
 </div> -->
