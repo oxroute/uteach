@@ -161,8 +161,8 @@ webkit-box-shadow:1px 1px 6px #606060;
 
         <div class='conti XH'>
             <div class='type classif'>
-                <h5 class="title_one"><span>{$epaper.one_type|explodeStr0=###}</span><span>{$epaper.one_type|explodeStr2=###}</span></h5>
-                <h5 class="title_two">{$epaper.one_type|explodeStr1=###}（{$epaper.one_type|explodeStr3=###}）</h5>
+                <h5 class="title_one"><span>{$epaper.one_type|explodeStr0=###}</span><span>({$epaper.one_type|explodeStr2=###})</span></h5>
+                <h5 class="title_two">{$epaper.one_type|explodeStr1=###}<span>（{$epaper.one_type|explodeStr3=###}）</span></h5>
             </div>
         </div>
 
@@ -187,7 +187,7 @@ webkit-box-shadow:1px 1px 6px #606060;
         <div class='conti XH no_choose_question'>
             <div class='type2 classif '>
                 <h5 class="title_one"><span>{$epaper.two_type|explodeStr0=###}</span><span>{$epaper.two_type|explodeStr2=###}</span></h5>
-                <h5 class="title_two">一、必答题（共30分）</h5>
+                <h5 class="title_two">一、必答题<span>（共30分）</span></h5>
             </div>
         </div>
 
@@ -211,7 +211,7 @@ webkit-box-shadow:1px 1px 6px #606060;
 
         <div class='conti XH'>
             <div class='type2'>
-                <h5 class="title_two">二、选答题（共20分。请在以下三个模块试题中任选一个模块试题作答，若选答了多个模块的试题，以所答第一模块的试题评分）</h5>
+                <h5 class="title_two">二、选答题<span>（共20分。请在以下三个模块试题中任选一个模块试题作答，若选答了多个模块的试题，以所答第一模块的试题评分）</span></h5>
             </div>
         </div>
         <volist name="list.xuanxiu" id="volist">
@@ -392,7 +392,7 @@ function add_Page(){
 	$("#box .conti").each(function(){
 
 		height+=$(this).outerHeight(true)
-		if(height>600)
+		if(height>900)
 		{	
 			height=$(this).outerHeight(true)
 			$(this).before("<div class='XH page clear'><div class='list'>sadfasdfasdfasdfasdfsdf</div></div>")

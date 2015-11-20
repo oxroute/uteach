@@ -156,10 +156,24 @@ $(function(){
 			<dl class="li_3_content">
 				<img src="/Public/images/index/dot1.png" width="23"height="12"class="Triangle_con"/>
 				<p style="padding-top: 10px;">
-					<span>选择题：</span><em class="subnavg"><?php echo ($Xcount); ?> </em>/25<!-- <span id="feng_one" class="fengsu">30分<span> -->
+					<span class='text'>选择题：</span><span class="number"><em class="subnavg" id="total_xz"><?php if($Xcount == '' ): ?>0<?php else: echo ($Xcount); endif; ?></em>/25</span>
+				</p>
+<!-- 				<p>
+					<span>非选择题：</span><em class="subnavg" id="total_fxz"><?php echo ($count - $Xcount); ?></em>/25
+				</p> -->
+				<p>
+					<span class='text'>必答题：</span><span class="number"><em class="subnavg" id="">0</em>/25</span>
 				</p>
 				<p>
-					<span>非选择题：</span><em class="subnavg"><?php echo ($count - $Xcount); ?> </em>/25<!-- <span id="feng_one" class="fengsu">30分<span> -->
+					<span class='text'>《化学与生活》：</span><span class="number"><em class="subnavg" id="">0</em>/25</span>
+				</p>
+
+				<p>
+					<span class='text'>《有机化学基础》：</span><span class="number"><em class="subnavg" id="">0</em>/25</span>
+				</p>
+
+				<p>
+					<span class='text'>《化学反应原理》：</span><span class="number"><em class="subnavg" id="">0</em>/25</span>
 				</p>
 	<!-- 			<p>
 					简答题：<em class="subnavg"><?php if($Jcount == '' ): ?>0<?php else: echo ($Jcount); endif; ?></em>/25<span id="feng_one" class="fengsu">30分<span>
@@ -221,8 +235,8 @@ $(function(){
 
         <div class='conti XH'>
             <div class='type classif'>
-                <h5 class="title_one"><span><?php echo (explodestr0($epaper["one_type"])); ?></span><span><?php echo (explodestr2($epaper["one_type"])); ?></span></h5>
-                <h5 class="title_two"><?php echo (explodestr1($epaper["one_type"])); ?>（<?php echo (explodestr3($epaper["one_type"])); ?>）</h5>
+                <h5 class="title_one"><span><?php echo (explodestr0($epaper["one_type"])); ?></span><span>(<?php echo (explodestr2($epaper["one_type"])); ?>)</span></h5>
+                <h5 class="title_two"><?php echo (explodestr1($epaper["one_type"])); ?><span>（<?php echo (explodestr3($epaper["one_type"])); ?>）</span></h5>
             </div>
         </div>
 
@@ -243,7 +257,7 @@ $(function(){
         <div class='conti XH no_choose_question'>
             <div class='type2 classif '>
                 <h5 class="title_one"><span><?php echo (explodestr0($epaper["two_type"])); ?></span><span><?php echo (explodestr2($epaper["two_type"])); ?></span></h5>
-                <h5 class="title_two">一、必答题（共30分）</h5>
+                <h5 class="title_two">一、必答题<span>（共30分）</span></h5>
             </div>
         </div>
 
@@ -261,7 +275,7 @@ $(function(){
 
         <div class='conti XH'>
             <div class='type2'>
-                <h5 class="title_two">二、选答题（共20分。请在以下三个模块试题中任选一个模块试题作答，若选答了多个模块的试题，以所答第一模块的试题评分）</h5>
+                <h5 class="title_two">二、选答题<span>（共20分。请在以下三个模块试题中任选一个模块试题作答，若选答了多个模块的试题，以所答第一模块的试题评分）</span></h5>
             </div>
         </div>
         <?php if(is_array($list["xuanxiu"])): $i = 0; $__LIST__ = $list["xuanxiu"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$volist): $mod = ($i % 2 );++$i; if(is_array($volist)): $k = 0; $__LIST__ = $volist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($k % 2 );++$k; if($k == 1): ?><div class='conti XH'>
@@ -435,7 +449,7 @@ function add_Page(){
 	$("#box .conti").each(function(){
 
 		height+=$(this).outerHeight(true)
-		if(height>600)
+		if(height>900)
 		{	
 			height=$(this).outerHeight(true)
 			$(this).before("<div class='XH page clear'><div class='list'>sadfasdfasdfasdfasdfsdf</div></div>")

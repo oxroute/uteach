@@ -89,7 +89,7 @@ $(function(){
 </script>
 <div class="header">
 	<div class="head_l">
-		<span id="zhujiu_set" SH_HUI="true">会考11111</span>
+		<span id="zhujiu_set" SH_HUI="true">会考</span>
 	</div>
 	<div id="show1" >
 	  <div class="show2">
@@ -157,10 +157,24 @@ $(function(){
 				<!-- <span class="Triangle_con"></span> -->
 				<img src="/Public/images/index/dot1.png" width="23"height="12"class="Triangle_con"/>
 				<p style="padding-top: 10px;">
-					<span>选择题：</span><em class="subnavg" id="total_xz"><?php if($Xcount == '' ): ?>0<?php else: echo ($Xcount); endif; ?> </em>/25
+					<span class='text'>选择题：</span><span class="number"><em class="subnavg" id="total_xz"><?php if($Xcount == '' ): ?>0<?php else: echo ($Xcount); endif; ?> </em>/25</span>
+				</p>
+<!-- 				<p>
+					<span>非选择题：</span><em class="subnavg" id="total_fxz"><?php echo ($count - $Xcount); ?></em>/25
+				</p> -->
+				<p>
+					<span class='text'>必答题：</span><span class="number"><em class="subnavg" id="">0</em>/25</span>
 				</p>
 				<p>
-					<span>非选择题：</span><em class="subnavg" id="total_fxz"><?php echo ($count - $Xcount); ?></em>/25
+					<span class='text'>《化学与生活》：</span><span class="number"><em class="subnavg" id="">0</em>/25</span>
+				</p>
+
+				<p>
+					<span class='text'>《有机化学基础》：</span><span class="number"><em class="subnavg" id="">0</em>/25</span>
+				</p>
+
+				<p>
+					<span class='text'>《化学反应原理》：</span><span class="number"><em class="subnavg" id="">0</em>/25</span>
 				</p>
 <!-- 				<p>
 					简答题：<em class="subnavg"><?php if($Jcount == '' ): ?>0<?php else: echo ($Jcount); endif; ?></em>/25

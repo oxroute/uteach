@@ -13,7 +13,7 @@
  }
 #box .conti{position: relative;cursor: pointer;width: 558px;margin: 0 auto}
 #box .greendi{ background:#DCFDE0; border:1px solid #67CE72;  display:block;}
-#box .list{display: inline-block;width: 100%} 
+#box .list{display: inline-block;width: 100%;margin: 5px 0} 
 /*#arrow{width:100%;position: absolute;top:0;left:0;}
 #arrow .right_arrow,#arrow .left_arrow{display: block;width:34px;height:123px;position: absolute;top:0;cursor: pointer;}
 #arrow .right_arrow{right:-0;background: url(http://www.uteach.top/Public/images/right.png) no-repeat;}
@@ -24,13 +24,15 @@
 .page a.active{background: #00A510}
 
 .type{position: relative;}
-.type .title_one{font-size: 22px;text-align: center;font-weight: normal;}
+.type .title_one{font-size: 16px;text-align: center;font-weight: bolder;padding: 12px 0}
 .type .title_one span{margin-right:20px;line-height:45px;}
-.type .title_two{font-weight: bold;line-height: 30px;}
+.type .title_two{font-weight: bold;line-height: 30px;font-size: 14px;}
+.type .title_two span{font-weight:normal;}
 .type2{position: relative;}
-.type2 .title_one{font-size: 22px;text-align: center;font-weight: normal;}
+.type2 .title_one{font-size: 16px;text-align: center;font-weight: bolder;padding: 12px 0}
 .type2 .title_one span{margin-right:20px;line-height:45px;}
-.type2 .title_two{font-weight: bold;line-height: 30px;}
+.type2 .title_two{font-weight: bold;line-height: 30px;font-size: 14px;}
+.type2 .title_two span{font-weight:normal;}
 #loginalert{ width:520px; background:#fff; position:fixed; height:210px; margin-top:-105px; top:50%;   left:50%; margin-left:-260px; z-index:99; display:none; font-family:"\5FAE\8F6F\96C5\9ED1"; font-size:14px; -moz-border-radius: 8px;       /* Gecko browsers */
     -webkit-border-radius:8px;   /* Webkit browsers */
     border-radius:8px;            /* W3C syntax */ }
@@ -152,7 +154,7 @@ a{text-decoration: none}
 .arrow{ background:url(../images/pub.png) no-repeat 0 -7px; width:15px; height:10px; cursor:pointer; float:right; margin-top:12px; display：block;margin-left:10px;  }
 .arrow:hover{background:url(../images/pub.png) no-repeat 0 0; width:11px; height:7px; display:block; color:#1BAE2A;  }
 .title{ border-bottom:2px solid #02A411; height:35px; line-height:30px; text-align:center; font-size:18px; color:#2E2E2E;}
-.title span.title_middle{text-indent: -70px}
+.title span.title_middle{margin-left: -80px}
 .title span.title_middle span{ margin-left:25px;}
 #col1{ float: left;  width: 100%; margin-right: 10px; word-wrap:break-word; font-size:15px;}
 #foot{width: 100%;/* z-index:1000;*/  /*position:absolute;*/ left:0;height:44px; position: fixed;  bottom:0; background:#ffffff; filter:alpha(opacity=90);   -moz-opacity:0.9;   -khtml-opacity:0.9;  opacity:0.9;   -moz-box-shadow: 5px -5px 5px #D2D2D2; /*firefox*/-webkit-box-shadow: 5px -5px 5px #D2D2D2;/*safari或chrome*/box-shadow:5px -5px 5px #D2D2D2;/*opera或ie9*/ }
@@ -172,7 +174,7 @@ a{text-decoration: none}
 .rightcon{ width:48%; padding-left:30px; float:right; margin-right:20px; }
 .contitle{ text-align:center; line-height:28px; width:92%;  }
 
-.revisebut{padding:5px 10px; background:#309EFD; cursor:pointer; float:right; color:#FFFFFF; font-size:16px; display:block; z-index:100;position: absolute;top:10px;right: 10px;
+.revisebut{padding:5px 10px; background:#309EFD; cursor:pointer; float:right; color:#FFFFFF; font-size:16px; display:block; z-index:100;position: absolute;top:2px;right: 10px;
     -webkit-border-radius:5px;   /* Webkit browsers */
     border-radius:5px;            /* W3C syntax */
 	 behavior: url(../js/ie-css3.htc);}
