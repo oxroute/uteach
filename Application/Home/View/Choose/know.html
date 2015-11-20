@@ -8,6 +8,14 @@
 <script>
 var getKonw="{:U('Choose/know','','')}";
 var getNote="{:U('Choose/noteUpdate','','')}";
+
+
+$(function(){
+	$(".popbut").on("click",function(){	
+		var all_li=$(".ul_list li").length
+		$("#add_li").append("<li><span>"+all_li+".</span><p><input name='' type='text' value='' /><i class='delete_input'></i></p></li>")
+	})
+})
 </script>
 <style>
 	ul{padding: 0;margin: 0}
@@ -19,11 +27,11 @@ var getNote="{:U('Choose/noteUpdate','','')}";
 <div id="loginalert1" >
 <div class="lolist lolist1" >
 <form action="know" method="post">
-<ul class="ul_list">
-		<li><span>1.</span><p><input name="know1" type="text" value="{$know|explodeStr0=###}" /></p></li>
-		<li><span>2.</span><input name="know2" type="text" value="{$know|explodeStr1=###}"/></li>
-		<li><span>3.</span><input name="know3" type="text" value="{$know|explodeStr2=###}"/></li>
-		<li><span>4.</span><input name="know4" type="text" value="{$know|explodeStr3=###}"/></li>
+<ul class="ul_list" id="add_li">
+		<li><span>1.</span><p><input name="know1" type="text" value="{$know|explodeStr0=###}" /><i class='delete_input'></i></p></li>
+		<li><span>2.</span><p><input name="know2" type="text" value="{$know|explodeStr1=###}"/><i class='delete_input'></i></p></li>
+		<li><span>3.</span><p><input name="know3" type="text" value="{$know|explodeStr2=###}"/><i class='delete_input'></i></p></li>
+		<li><span>4.</span><p><input name="know4" type="text" value="{$know|explodeStr3=###}"/><i class='delete_input'></i></p></li>
 		<input type="hidden" value="{$id}">
 </ul>
 <input type="button"  value="添加" style="margin:12px auto;" class="popbut" />
