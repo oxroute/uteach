@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
     <link rel="Stylesheet" type="text/css" href="__PUBLIC__/css/popstyle.css" />
     <script type="text/javascript" src="__PUBLIC__/js/jquery-1.8.3.min.js"></script>
+    <script src="__PUBLIC__/js/jquery.nicescroll.min.js" type="text/javascript"></script>
 	<script type="text/javascript" src="__PUBLIC__/js/choose.js"></script>
 <script>
 var getKonw="{:U('Choose/know','','')}";
@@ -11,10 +12,25 @@ var getNote="{:U('Choose/noteUpdate','','')}";
 
 
 $(function(){
+	$("html").niceScroll({cursorborder:"",cursorcolor:"#3a3a3a",boxzoom:false,railoffset:true}); 
+	//增加li
 	$(".popbut").on("click",function(){	
 		var all_li=$(".ul_list li").length
 		$("#add_li").append("<li><span>"+all_li+".</span><p><input name='' type='text' value='' /><i class='delete_input'></i></p></li>")
 	})
+
+	//删除li
+	$("#add_li").delegate(".delete_input","click",function(){
+		$(this).parents("li").remove()
+		 PX()
+	})
+
+	// 重新排序
+	function PX(){
+		$("#add_li li").each(function(i){
+			$(this).find("span").text((i+1)+".")
+		})
+	}
 })
 </script>
 <style>

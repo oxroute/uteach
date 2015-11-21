@@ -18,15 +18,10 @@
 <script type="text/javascript" src="/Public/js/lhgdialog/lhgdialog.min.js?self=true&skin=igreen"></script>
 <script>
 	$(function(){
-		//show页面  必要显示JS 文件
-
    	$(".warp").height($(window).height()-$("#XX").outerHeight(true)-$(".title").outerHeight(true)-$("#foot").outerHeight(true)-30)
    	$(".warp").niceScroll({cursorborder:"",cursorcolor:"#3a3a3a",boxzoom:false,railoffset:true}); 
-
-
-
- 		  	$(window).resize(function(){
-   	$(".warp").height($(window).height()-$("#XX").outerHeight(true)-$(".title").outerHeight(true)-$("#foot").outerHeight(true)-30)
+ 	$(window).resize(function(){
+   		$(".warp").height($(window).height()-$("#XX").outerHeight(true)-$(".title").outerHeight(true)-$("#foot").outerHeight(true)-30)
    			})
 	})
 </script>
@@ -234,7 +229,7 @@ $(function(){
         </div>
 
         <div class='conti XH'>
-            <div class='type classif'>
+            <div class='type classif one_chooose_title'>
                 <h5 class="title_one"><span><?php echo (explodestr0($epaper["one_type"])); ?></span><span>(<?php echo (explodestr2($epaper["one_type"])); ?>)</span></h5>
                 <h5 class="title_two"><?php echo (explodestr1($epaper["one_type"])); ?><span>（<?php echo (explodestr3($epaper["one_type"])); ?>）</span></h5>
             </div>
@@ -255,31 +250,34 @@ $(function(){
         <!-- 这个地方 有问题！！！！！！！！！！ -->
 
         <div class='conti XH no_choose_question'>
-            <div class='type2 classif '>
+            <div class='type2 classif two_choose_title'>
                 <h5 class="title_one"><span><?php echo (explodestr0($epaper["two_type"])); ?></span><span><?php echo (explodestr2($epaper["two_type"])); ?></span></h5>
+             <!--    <h5 class="title_two">一、必答题<span>（共30分）</span></h5> -->
+            </div>
+        </div>
+        <div class='conti XH'>
+            <div class='type2 classif bida_choose_title'>
                 <h5 class="title_two">一、必答题<span>（共30分）</span></h5>
             </div>
         </div>
-
         <?php if(is_array($list["notselect"])): $i = 0; $__LIST__ = $list["notselect"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; if($vo["questions"] == 填空题): ?><div class='conti XH'>
                     <div class="list">
                         <!-- <input  type='hidden'  class="weight" value="<?php echo ($vo["weight"]); ?>"> -->
                         <input  type='hidden'  class="testid" value="<?php echo ($vo["id"]); ?>">
                         <div>
                             <iframe  src="/Word/doc/<?php echo ($_SESSION['uid']); ?>/<?php echo (date('Ymd',$vo["wtime"])); ?>/<?php echo ($vo["test"]); ?>.htm" frameborder="0" width="100%" scrolling="no"></iframe>
-
                         </div>
                     </div>
                 </div><?php endif; endforeach; endif; else: echo "" ;endif; ?>
 
 
         <div class='conti XH'>
-            <div class='type2'>
+            <div class='type2 xudati_title'>
                 <h5 class="title_two">二、选答题<span>（共20分。请在以下三个模块试题中任选一个模块试题作答，若选答了多个模块的试题，以所答第一模块的试题评分）</span></h5>
             </div>
         </div>
         <?php if(is_array($list["xuanxiu"])): $i = 0; $__LIST__ = $list["xuanxiu"];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$volist): $mod = ($i % 2 );++$i; if(is_array($volist)): $k = 0; $__LIST__ = $volist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($k % 2 );++$k; if($k == 1): ?><div class='conti XH'>
-                        <div class='type2 classif'>
+                        <div class='type2 classif model_title'>
                             <h5 class="title_two"><?php echo ($vo["fname"]); ?></h5>
                         </div>
                     </div><?php endif; ?>
@@ -469,8 +467,8 @@ function add_Page(){
 // 加分数函数
 function add_fengshu(){
 	$("#box .no_choose_question").nextAll().each(function(){
-		console.log($(this).find("div:first").attr("class")=="list")
-		console.log($(this).attr("class").indexOf("conti")!=-1)
+		// console.log($(this).find("div:first").attr("class")=="list")
+		// console.log($(this).attr("class").indexOf("conti")!=-1)
 		if($(this).find("div:first").attr("class")=="list"&&$(this).attr("class").indexOf("conti")!=-1){
 			$(this).find("iframe").eq(0).contents().find(".number_xh").after("<a href='###' class='now_fengsu' contenteditable='true' style='display: inline-block;min-width: 20px;height: 16px;padding: 0 4px;text-align: center;text-decoration: none;color:#000000'>(3分)</a>")
 		}
@@ -501,7 +499,7 @@ function add_fengshu(){
 										$('.save_head .yes').on('click',function(){
 											 $.post('/index.php/Home/Choose/save_head',{head:$(".head").val(),subject:$('.subject').val()},function(data){
 												 if('data==1'){
-													 $('#mask').hide()
+													 $('#mask').hide() 
 													 $('.save_head').hide()
 													 location.reload() 
 												 }else{
@@ -512,12 +510,26 @@ function add_fengshu(){
 							}else if($(this).find("div:first").attr("class")=="know"){
 									$(this).addClass("greendi")
 									$(this).append(" <a class='revisebut' onclick='parent.open(\"/index.php/Home/Choose/know/id/<?php echo ($epaper["id"]); ?>\",\"考生须知\",600,400)'>修改</a>")
-							}else if($(this).find("div:first").attr("class").indexOf("type")!=-1){
+							}else if($(this).find("div:first").attr("class").indexOf("one_chooose_title")!=-1){
 								$(this).addClass("greendi")
+							
 								$(this).append(" <a class='revisebut' onclick='parent.open(\"/index.php/Home/Choose/alert_type/id/<?php echo ($epaper["id"]); ?>\",\"试题设置\",600,400)'>修改</a>")
-							}else if($(this).find("div:first").attr("class").indexOf("type2")!=-1){
+							}else if($(this).find("div:first").attr("class").indexOf("two_choose_title")!=-1){
 								$(this).addClass("greendi")
+							
 								$(this).append(" <a class='revisebut' onclick='parent.open(\"/index.php/Home/Choose/alert_type2/id/<?php echo ($epaper["id"]); ?>\",\"试题设置\",600,400)'>修改</a>")
+							}else if($(this).find("div:first").attr("class").indexOf("bida_choose_title")!=-1){
+								$(this).addClass("greendi")
+							
+								$(this).append(" <a class='revisebut' onclick='parent.open(\"/index.php/Home/Choose/bida_type.html\",\"试题设置\",600,400)'>修改</a>")
+							}else if($(this).find("div:first").attr("class").indexOf("xudati_title")!=-1){
+								$(this).addClass("greendi")
+							
+								$(this).append(" <a class='revisebut' onclick='parent.open(\"/index.php/Home/Choose/xudati_title.html\",\"试题设置\",600,400)'>修改</a>")
+							}else if($(this).find("div:first").attr("class").indexOf("model_title")!=-1){
+								$(this).addClass("greendi")
+							
+								$(this).append(" <a class='revisebut' onclick='parent.open(\"/index.php/Home/Choose/model_title.html\",\"试题设置\",600,400)'>修改</a>")
 							}else{
 
 								 	 			$(this).addClass("greendi")
@@ -570,49 +582,22 @@ function add_fengshu(){
 
 											That1.find("ul li").eq(3).on("click",function(event){
 											  event.stopPropagation();
-											  // var now_xh=That1.find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").text()
-											  
-											  // var next_xh=That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").text()
-									 			
+
 									 			var next_obj=That1.next("div.conti")
 											  if(next_obj.find("div:first").attr("class")=="list"){
-											// That1.find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").remove()
-											// That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).find(".number_xh").remove()
-
-
-											//  var now_html=That1.find("iframe").eq(0).contents().find("p").eq(0).html()
-											//  var next_html=That1.next("div.conti").find("iframe").eq(0).contents().find("p").eq(0).html()
-											
-											//  console.log(now_html)
-											//  console.log(next_html)
-											//  console.log(now_xh)
-											//  console.log(next_xh)
-
   												next_obj.after(That1)
-												// That1.prev("div.conti iframe").on("load",function(){
-												// 	That1.find("iframe").eq(0).contents().find("p").eq(0).html("<i class='number_xh'>"+next_xh+".</i>"+now_html)
-												// 	That1.prev("div.conti").find("iframe").eq(0).contents().find("p").eq(0).html("<i class='number_xh'>"+now_xh+".</i>"+next_html)
-												// })
 
-That1.find("iframe").on("load",function(){
-console.log(3333)
-location.reload() 
-})
-// next_obj.find("iframe").on("load",function(){
-// 
 
-// })
-  												
+												That1.find("iframe").on("load",function(){
+
+												location.reload() 
+												})
 
   												  get_all_id()
   												   $.post('/index.php/Home/Choose/get_all_id',{all_id:$("#all_id").val()})
 											  }
 											
-											
 										  })
-
-
-
 							}
 
 
