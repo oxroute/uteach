@@ -1,4 +1,5 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit(); $ip = $_SERVER['SERVER_NAME']; require_once("http://".$ip.":8080/JavaBridge/java/Java.inc"); $PageOfficeCtrl = new Java("com.zhuozhengsoft.pageoffice.PageOfficeCtrlPHP"); $PageOfficeCtrl->setServerPage("http://".$ip.":8080/JavaBridge/poserver.zz"); java_set_file_encoding("UTF-8");$doc = new Java("com.zhuozhengsoft.pageoffice.wordwriter.WordDocument");$dataRegionInsertType = new Java("com.zhuozhengsoft.pageoffice.wordwriter.DataRegionInsertType"); $header = $doc->openDataRegion("PO_header"); $header->setValue($epaper['header']); $subject = $doc->openDataRegion("PO_subject"); $subject->setValue($epaper['subject']); $know = $doc->openDataRegion("PO_know"); $knowStr = str_replace("|","\r\n",$epaper['know']); $know->setValue($knowStr); $note = $doc->openDataRegion("PO_note"); $note->setValue($epaper['note']); $onetype = $doc->openDataRegion("PO_onetype"); $onetypeStr = str_replace("|","\r\n",$epaper['one_type']); $onetype->setValue($onetypeStr); $oneContext = "PO_onetcontext"; $select = "PO_one"; foreach($list['select'] as $key => $se){ $selectvar = $select.$se['id']; $one2 = $doc->createDataRegion($selectvar,$dataRegionInsertType->After,$oneContext); $one2->setValue($key); $one1 = $doc->createDataRegion($selectvar."nihao",$dataRegionInsertType->After,$selectvar); $one1->setValue("[word]/Word/doc/".$_SESSION['uid']."/".date('Ymd',$se['wtime'])."/".$se['test'].".doc[/word]\r\n"); $oneContext = $selectvar."nihao"; } $twotype = $doc->openDataRegion("PO_twotype"); $twotypeStr = str_replace("|","\r\n",$epaper['two_type']); $twotype->setValue($twotypeStr); $twotContext = "PO_twotcontext"; $tiankong = "PO_two"; foreach($list['notselect'] as $vo){ $tiankongvar = $tiankong.$vo['id']; $two1 = $doc->createDataRegion($tiankongvar,$dataRegionInsertType->After,$twotContext); $two1->setValue("[word]/Word/doc/".$_SESSION['uid']."/".date('Ymd',$vo['wtime'])."/".$vo['test'].".doc[/word]\r\n"); $twotContext = $tiankongvar; } foreach($list['xuanxiu'] as $fkey => $volist){ $xuanxiupo = "PO_there".$fkey; $tiankongvar = $xuanxiupo.$volist['id']; $two1 = $doc->createDataRegion($tiankongvar,$dataRegionInsertType->After,$twotContext); $two1->setValue($list['xuanxiu'][$fkey][0]['fname']."\r\n"); $twotContext = $tiankongvar; foreach($volist as $xuan){ $tiankongvar = $xuanxiupo."xx".$xuan['id']; $two1 = $doc->createDataRegion($tiankongvar,$dataRegionInsertType->After,$twotContext); $two1->setValue("[word]/Word/doc/".$_SESSION['uid']."/".date('Ymd',$xuan['wtime'])."/".$xuan['test'].".doc[/word]\r\n"); $twotContext = $tiankongvar; } } $PageOfficeCtrl->setWriter($doc); $PageOfficeCtrl->setMenubar(false); $PageOfficeCtrl->setCustomToolbar(false); $PageOfficeCtrl->setSaveFilePage("/Word/SavePage.php?id=".$_SESSION['uid']); $PageOfficeCtrl->addCustomToolButton("保存","Save",1); $PageOfficeCtrl->UserAgent = $_SERVER['HTTP_USER_AGENT'];$OpenMode = new Java("com.zhuozhengsoft.pageoffice.OpenModeType"); $PageOfficeCtrl->webOpen($pagePath, $OpenMode->docNormalEdit, "张三");?>
+<!DOCTYPE html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=0.95, user-scalable=no" />
@@ -343,7 +344,13 @@ $(function(){
 	<li>生成试卷</li>
   </ul>
 </div>
-
+<form id="form1">
+	<div style="width: 0px; height: 0px;">
+		<!--**************   PageOffice 客户端代码开始    ************************-->
+		<?php echo $PageOfficeCtrl->getDocumentView("PageOfficeCtrl1") ?>
+		<!--**************   PageOffice 客户端代码结束    ************************-->
+	</div>
+</form>
 <script>
 	 $(document).ready(function() {
 	 	  $("iframe").each(function(){
@@ -363,6 +370,7 @@ $(function(){
 	 	})
 	//保存
 	$(".demobtn .yes").on('click',function(){
+		document.getElementById("PageOfficeCtrl1").WebSave();
 		$.post("<?php echo U('Choose/epaper','','');?>",function(data){
 			if(data.status = 1){
 				$("#mask").hide()

@@ -83,7 +83,9 @@ function change_delete_or_down(){
 			if(type){
 				location.href=downFold+'?id='+fileid;
 			}else{
-				location.href=downFile+'?id='+fileid;
+				//location.href=downFile+'?id='+fileid;
+				location.href = "/Word/page/"+idname+"/"+fileid+".doc";
+				//location.href=downFile+'?id='+fileid;
 			}
 			$(this).removeClass("down_enter1 down_enter").addClass("down_active")
 		})

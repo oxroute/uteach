@@ -324,15 +324,15 @@ class ChooseController extends CommonController {
                 $this->error("请修改Word目录权限！");
             }
         }
-        if(!is_file(WORD_PAGE.$_SESSION['uid']."/".I('epaperId').".doc")) {
-            $docPath = WORD_PAGE.$_SESSION['uid']."/".I('epaperId').".doc";
-            copy(WORD_PAGE."/expage.doc",$docPath);
-            chmod($docPath,0755);
+		$docPath = WORD_PAGE.$_SESSION['uid']."/".I('epaperId').".doc";
+        if(is_file(WORD_PAGE.$_SESSION['uid']."/".I('epaperId').".doc")) {
+			unlink($docPath);
         }
+		copy(WORD_PAGE."/expage.doc",$docPath);
+		chmod($docPath,0755);
+        $this->assign("pagePath",__ROOT__."/Word/page/".$_SESSION['uid']."/".I('epaperId').".doc");
 
-//        $this->assign("pagePath",__ROOT__."/Word/page/".$_SESSION['uid']."/".I('epaperId').".doc");
-
-    	// dump($_SESSION);
+    	//dump($_SESSION);
     	$array=$this->epaper=M('epaper')->where(array('id'=>I('epaperId')))->find();
     	session('testid',$array['testid']);
     	session('epaperId',I('epaperId'));
@@ -426,7 +426,18 @@ class ChooseController extends CommonController {
 		}
 		
 	}
-	
+	public function downpage() {
+		$array=M('Epaper')->where(array('id'=>I('id')))->find();
+
+		$docPath = WORD_PAGE.$_SESSION['uid']."/".I('id').".doc";
+		copy($docPath,WORD_PAGE.$_SESSION['uid']."/".$array['header'].".doc");
+		if(is_file(WORD_PAGE.$_SESSION['uid']."/".$array['header'].".doc")) {
+			echo "<script>location.href=$docPath</script>";
+		}else {
+			echo "<script>alert('失败'')</script>";
+		}
+
+	}
 	//下载
 public function down(){
 		$array=M('Epaper')->where(array('id'=>I('id')))->find();

@@ -1,5 +1,5 @@
 <?php
-   $ip = $_SERVER['SERVER_NAME'];//获取本机IP
+    $ip = $_SERVER['SERVER_NAME'];//获取本机IP
 	require_once("http://".$ip.":8080/JavaBridge/java/Java.inc");//此行必须
     $PageOfficeCtrl = new Java("com.zhuozhengsoft.pageoffice.PageOfficeCtrlPHP");//此行必须
     $PageOfficeCtrl->setServerPage("http://".$ip.":8080/JavaBridge/poserver.zz");//此行必须，设置服务器页面
@@ -31,13 +31,11 @@ $onetypeStr = str_replace("|","\r\n",$epaper['one_type']);
 $onetype->setValue($onetypeStr);
 $oneContext = "PO_onetcontext";
 $select = "PO_one";
-foreach($list['select'] as $key => $se){
-$selectvar = $select.$se['id'];
-$one2 =  $doc->createDataRegion($selectvar,$dataRegionInsertType->After,$oneContext);
-$one2->setValue($key+1);
-$one1 =  $doc->createDataRegion($selectvar."nihao",$dataRegionInsertType->After,$selectvar);
-$one1->setValue("[word]/Word/doc/".$_SESSION['uid']."/".date('Ymd',$se['wtime'])."/".$se['test'].".doc[/word]\r\n");
-$oneContext = $selectvar."nihao";
+foreach($list['select'] as $se){
+	$selectvar = $select.$se['id'];
+	$one1 =  $doc->createDataRegion($selectvar,$dataRegionInsertType->After,$oneContext);
+	$one1->setValue("[word]/Word/doc/".$_SESSION['uid']."/".date('Ymd',$se['wtime'])."/".$se['test'].".doc[/word]\r\n");
+	$oneContext = $selectvar;
 }
 //$twotype =  $doc->createDataRegion("PO_twotype1",$dataRegionInsertType->After,"PO_twotype");
 $twotype = $doc->openDataRegion("PO_twotype");
@@ -46,26 +44,36 @@ $twotype->setValue($twotypeStr);
 $twotContext = "PO_twotcontext";
 $tiankong = "PO_two";
 
-foreach($list['notselect'] as $vo){
+foreach($list['noselect'] as $vo){
 $tiankongvar = $tiankong.$vo['id'];
 $two1 =  $doc->createDataRegion($tiankongvar,$dataRegionInsertType->After,$twotContext);
 $two1->setValue("[word]/Word/doc/".$_SESSION['uid']."/".date('Ymd',$vo['wtime'])."/".$vo['test'].".doc[/word]\r\n");
 $twotContext = $tiankongvar;
 }
-
+$xuanxiupo = "PO_there";
 foreach($list['xuanxiu'] as $fkey => $volist){
-$xuanxiupo = "PO_there".$fkey;
-$tiankongvar = $xuanxiupo.$volist['id'];
-$two1 =  $doc->createDataRegion($tiankongvar,$dataRegionInsertType->After,$twotContext);
-$two1->setValue($list['xuanxiu'][$fkey][0]['fname']."\r\n");
-$twotContext = $tiankongvar;
-foreach($volist as $xuan){
-$tiankongvar = $xuanxiupo."xx".$xuan['id'];
-$two1 =  $doc->createDataRegion($tiankongvar,$dataRegionInsertType->After,$twotContext);
-$two1->setValue("[word]/Word/doc/".$_SESSION['uid']."/".date('Ymd',$xuan['wtime'])."/".$xuan['test'].".doc[/word]\r\n");
-$twotContext = $tiankongvar;
+	$tiankongvar = $xuanxiupo.$volist['id'];
+	$two1 =  $doc->createDataRegion($tiankongvar,$dataRegionInsertType->After,$twotContext);
+	$two1->setValue(WriteModel::getFname($fkey));
+	$twotContext = $tiankongvar;
+	foreach($volist as $xuan){
+		$tiankongvar = $xuanxiupo."xx".$xuan['id'];
+		$two1 =  $doc->createDataRegion($tiankongvar,$dataRegionInsertType->After,$twotContext);
+		$two1->setValue("[word]/Word/doc/".$_SESSION['uid']."/".date('Ymd',$xuan['wtime'])."/".$xuan['test'].".doc[/word]\r\n");
+		$twotContext = $tiankongvar;
+	}
 }
-}
+/*$one1 =  $doc->createDataRegion("PO_one1",$dataRegionInsertType->After,"PO_onetcontext");
+//设置创建的数据区域的可编辑性
+//$dataRegion1->setEditing(true);
+//给数据区域赋值
+$one1->setValue("[word]doc/1.doc[/word]\r\n");
+
+$two2 = $doc->createDataRegion("PO_two1",$dataRegionInsertType->After,"PO_twotcontext");
+//$dataRegion2->setEditing(true);
+$two2->setValue("[word]doc/2.doc[/word]\r\n");
+$two3 = $doc->createDataRegion("PO_two2",$dataRegionInsertType->After,"PO_two1");
+$two3->setValue("[word]doc/3.doc[/word]\r\n");*/
 
 $PageOfficeCtrl->setWriter($doc);
 
@@ -370,13 +378,7 @@ webkit-box-shadow:1px 1px 6px #606060;
 	<li>生成试卷</li>
   </ul>
 </div>
-<form id="form1">
-	<div style="width: 0px; height: 0px;">
-		<!--**************   PageOffice 客户端代码开始    ************************-->
-		<?php echo $PageOfficeCtrl->getDocumentView("PageOfficeCtrl1") ?>
-		<!--**************   PageOffice 客户端代码结束    ************************-->
-	</div>
-</form>
+
 <script>
 	 $(document).ready(function() {
 	 	  $("iframe").each(function(){
@@ -396,7 +398,6 @@ webkit-box-shadow:1px 1px 6px #606060;
 	 	})
 	//保存
 	$(".demobtn .yes").on('click',function(){
-		document.getElementById("PageOfficeCtrl1").WebSave();
 		$.post("{:U('Choose/epaper','','')}",function(data){
 			if(data.status = 1){
 				$("#mask").hide()
